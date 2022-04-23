@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="dsunQ0" name="manifold" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+  <MAINGROUP id="xOly6w" name="manifold">
+    <GROUP id="{47D65248-4DA2-18DA-4CE5-47411DD21DD3}" name="Resources">
+      <FILE id="ht2010" name="Play.svg" compile="0" resource="1" file="Resources/Play.svg"/>
+      <FILE id="BQK7jB" name="Stop.svg" compile="0" resource="1" file="Resources/Stop.svg"/>
+    </GROUP>
+    <GROUP id="{EC96042E-2244-695D-270B-BE9ABCE1BBFC}" name="Source">
+      <GROUP id="{5D1C9A09-2EBC-49BA-D3FB-6A38CE26A9DF}" name="Utils">
+        <FILE id="v5x1aE" name="UIListener.h" compile="0" resource="0" file="Source/Utils/UIListener.h"/>
+      </GROUP>
+      <GROUP id="{934BA6EB-E9D4-000D-8619-C49FE6B97D4E}" name="Audio">
+        <GROUP id="{1A9F701E-6DA6-FFA4-6D96-973B6F315F4A}" name="Core">
+          <FILE id="U7Nt8g" name="AudioDriver.cpp" compile="1" resource="0" file="Source/Audio/Core/AudioDriver.cpp"/>
+          <FILE id="hH3Kza" name="AudioDriver.h" compile="0" resource="0" file="Source/Audio/Core/AudioDriver.h"/>
+          <FILE id="xVMrWU" name="PositionTracker.cpp" compile="1" resource="0"
+                file="Source/Audio/Core/PositionTracker.cpp"/>
+          <FILE id="aTAolk" name="PositionTracker.h" compile="0" resource="0"
+                file="Source/Audio/Core/PositionTracker.h"/>
+          <FILE id="kgCEa1" name="ProcessorBase.h" compile="0" resource="0" file="Source/Audio/Core/ProcessorBase.h"/>
+        </GROUP>
+        <FILE id="hUFmL8" name="ManifoldEngine.cpp" compile="1" resource="0"
+              file="Source/Audio/ManifoldEngine.cpp"/>
+        <FILE id="XMjadH" name="ManifoldEngine.h" compile="0" resource="0"
+              file="Source/Audio/ManifoldEngine.h"/>
+      </GROUP>
+      <GROUP id="{E6A12DCF-1205-EE72-16F9-7BDFC83200BD}" name="UI">
+        <GROUP id="{E8BE1575-98D1-4948-785A-5B1BCB17F8CB}" name="Primitives">
+          <FILE id="sIXHhM" name="BaseButton.h" compile="0" resource="0" file="Source/UI/Primitives/BaseButton.h"/>
+          <FILE id="SsrM64" name="ButtonListener.cpp" compile="1" resource="0"
+                file="Source/UI/Primitives/ButtonListener.cpp"/>
+          <FILE id="W5zyvG" name="ButtonListener.h" compile="0" resource="0"
+                file="Source/UI/Primitives/ButtonListener.h"/>
+          <FILE id="lH1yHA" name="SVGButton.cpp" compile="1" resource="0" file="Source/UI/Primitives/SVGButton.cpp"/>
+          <FILE id="JXijWR" name="SVGButton.h" compile="0" resource="0" file="Source/UI/Primitives/SVGButton.h"/>
+        </GROUP>
+        <GROUP id="{9CB32F7C-4716-309C-7CA7-5B390BBBCAEE}" name="Components">
+          <FILE id="REy8oC" name="PlayheadPositioner.cpp" compile="1" resource="0"
+                file="Source/UI/Components/PlayheadPositioner.cpp"/>
+          <FILE id="jY0PEB" name="PlayheadPositioner.h" compile="0" resource="0"
+                file="Source/UI/Components/PlayheadPositioner.h"/>
+          <FILE id="i7Jsfx" name="TransportComponent.cpp" compile="1" resource="0"
+                file="Source/UI/Components/TransportComponent.cpp"/>
+          <FILE id="BjBCLW" name="TransportComponent.h" compile="0" resource="0"
+                file="Source/UI/Components/TransportComponent.h"/>
+        </GROUP>
+        <FILE id="YG2jNJ" name="MainWindowComponent.cpp" compile="1" resource="0"
+              file="Source/UI/MainWindowComponent.cpp"/>
+        <FILE id="vgdiMX" name="MainWindowComponent.h" compile="0" resource="0"
+              file="Source/UI/MainWindowComponent.h"/>
+      </GROUP>
+      <FILE id="TkTwLl" name="Macros.h" compile="0" resource="0" file="Source/Macros.h"/>
+      <FILE id="DwP8cs" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="manifold"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="manifold"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
