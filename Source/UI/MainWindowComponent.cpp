@@ -16,10 +16,12 @@ namespace Manifold
     {
         MainWindowComponent::MainWindowComponent(UIListener* uiListener, Manifold::Audio::ManifoldEngine& engine) :
             m_transportComponent(uiListener),
-            m_engine(engine)
+            m_engine(engine),
+            m_playheadPositioner(m_engine.getPositionTracker())
         {
             setSize(400, 400);
             addAndMakeVisible(&m_transportComponent);
+            addAndMakeVisible(&m_playheadPositioner);
         }
 
         MainWindowComponent::~MainWindowComponent()
@@ -34,6 +36,8 @@ namespace Manifold
 
         void MainWindowComponent::resized()
         {
+            // Need the concept of a timescale here 
+            m_playheadPositioner.setBounds(0, 0, getWidth(), getHeight());
             m_transportComponent.setBounds(0, getHeight() * 0.75, getWidth(), getHeight() * 0.25);
         }
     }

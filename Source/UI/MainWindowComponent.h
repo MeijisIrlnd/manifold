@@ -13,6 +13,7 @@
 #include "../Utils/UIListener.h"
 #include "Components/TransportComponent.h"
 #include "../Audio/ManifoldEngine.h"
+#include "Components/PlayheadPositioner.h"
 namespace Manifold
 {
     namespace UI
@@ -25,8 +26,9 @@ namespace Manifold
             void paint(juce::Graphics& g) override;
             void resized() override;
         private:
-            TransportComponent m_transportComponent;
             Manifold::Audio::ManifoldEngine& m_engine;
+            TransportComponent m_transportComponent;
+            PlayheadPositioner m_playheadPositioner;
         };
     }
 }

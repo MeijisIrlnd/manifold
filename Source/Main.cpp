@@ -30,7 +30,7 @@ public:
         // This method is where you should put your application's initialisation code..
 
         audioEngine.reset(new ManifoldEngine());
-        mainWindow.reset (new MainWindow (getApplicationName(), audioEngine->getUIListener()));
+        mainWindow.reset (new MainWindow (getApplicationName(), audioEngine->getUIListener(), *audioEngine.get()));
     }
 
     void shutdown() override
@@ -63,14 +63,14 @@ public:
     class MainWindow    : public juce::DocumentWindow
     {
     public:
-        MainWindow (juce::String name, UIListener* uiListener)
+        MainWindow (juce::String name, UIListener* uiListener, ManifoldEngine& engine)
             : DocumentWindow (name,
                               juce::Desktop::getInstance().getDefaultLookAndFeel()
                                                           .findColour (juce::ResizableWindow::backgroundColourId),
                               DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new MainWindowComponent(uiListener), true);
+            setContentOwned (new MainWindowComponent(uiListener, engine), true);
 
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);

@@ -31,6 +31,8 @@ namespace Manifold
 
         void PlayheadPositioner::paint(juce::Graphics& g)
         {
+            g.setColour(juce::Colours::red);
+            g.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), 0.5f);
         }
 
         void PlayheadPositioner::resized()
