@@ -44,6 +44,7 @@ namespace Manifold
 
                 MANIFOLD_INLINE PositionTracker& operator=(juce::uint64 x) {
                     m_sampleCounter = x;
+                    sendChangeMessage();
                     return *this;
                 }
 

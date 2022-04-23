@@ -14,8 +14,9 @@ namespace Manifold
 {
     namespace UI
     {
-        MainWindowComponent::MainWindowComponent(UIListener* uiListener) :
-            m_transportComponent(uiListener)
+        MainWindowComponent::MainWindowComponent(UIListener* uiListener, Manifold::Audio::ManifoldEngine& engine) :
+            m_transportComponent(uiListener),
+            m_engine(engine)
         {
             setSize(400, 400);
             addAndMakeVisible(&m_transportComponent);

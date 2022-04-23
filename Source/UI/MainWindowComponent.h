@@ -12,6 +12,7 @@
 #include <JuceHeader.h>
 #include "../Utils/UIListener.h"
 #include "Components/TransportComponent.h"
+#include "../Audio/ManifoldEngine.h"
 namespace Manifold
 {
     namespace UI
@@ -19,12 +20,13 @@ namespace Manifold
         class MainWindowComponent : public juce::Component
         {
         public: 
-            MainWindowComponent(UIListener* uiListener);
+            MainWindowComponent(UIListener* uiListener, Manifold::Audio::ManifoldEngine& engine);
             ~MainWindowComponent() override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private:
             TransportComponent m_transportComponent;
+            Manifold::Audio::ManifoldEngine& m_engine;
         };
     }
 }

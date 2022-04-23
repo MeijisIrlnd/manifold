@@ -40,7 +40,7 @@ namespace Manifold
             }
             
             MANIFOLD_INLINE UIListener* getUIListener() { return &m_uiListener; }
-
+            MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
         private: 
             juce::AudioDeviceManager m_deviceManager;
             juce::AudioProcessorPlayer m_player;
