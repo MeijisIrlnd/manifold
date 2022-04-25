@@ -21,6 +21,8 @@ namespace Manifold
         {
             addAndMakeVisible(&m_playPauseButton);
             addAndMakeVisible(&m_stopButton);
+            m_bpmInputField.setText("120", false);
+            addAndMakeVisible(&m_bpmInputField);
             m_playPauseButton.addListener(this);
             m_stopButton.addListener(this);
         }
@@ -47,7 +49,7 @@ namespace Manifold
 
         void TransportComponent::paint(juce::Graphics& g)
         {
-            g.setColour(juce::Colours::white);
+            g.setColour(juce::Colours::lightcoral);
             g.fillAll();
         }
 
@@ -55,6 +57,7 @@ namespace Manifold
         {
             m_playPauseButton.setBounds(0, 0, getWidth() / 4, getHeight());
             m_stopButton.setBounds(getWidth() / 4, 0, getWidth() / 4, getHeight());
+            m_bpmInputField.setBounds(getWidth() / 2, 0, getWidth() / 4, getHeight());
         }
     }
 }

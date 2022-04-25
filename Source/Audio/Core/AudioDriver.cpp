@@ -27,6 +27,7 @@ namespace Manifold
 
             void AudioDriver::prepareToPlay(double sampleRate, int samplesPerBlock)
             {
+                m_positionTracker.prepare(sampleRate);
             }
 
             void AudioDriver::processBlock(juce::AudioSampleBuffer& buffer, juce::MidiBuffer& messages)

@@ -65,6 +65,18 @@ namespace Manifold
                 }
             ));
         }
+
+        InternalChannel* ManifoldEngine::createChannel()
+        {
+            int currentId = m_nextAvailableId;
+            std::string currentChannelName = "Channel " + std::to_string(currentId);
+            ++m_nextAvailableId;
+            std::unique_ptr<InternalChannel> ch(new InternalChannel(currentId, currentChannelName));
+            m_channelList.emplace(
+                std::make_pair(currentId, std::move(ch))
+            );
+            return m_channelList[currentId].get();
+        }
     }
 }
 

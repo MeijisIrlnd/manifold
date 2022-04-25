@@ -29,6 +29,7 @@ namespace Manifold
         private: 
             UIListener* m_uiListener;
             SVGButton m_playPauseButton, m_stopButton;
+            juce::TextEditor m_bpmInputField;
         };
     }
 }

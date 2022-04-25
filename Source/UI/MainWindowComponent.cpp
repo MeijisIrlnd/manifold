@@ -17,11 +17,11 @@ namespace Manifold
         MainWindowComponent::MainWindowComponent(UIListener* uiListener, Manifold::Audio::ManifoldEngine& engine) :
             m_transportComponent(uiListener),
             m_engine(engine),
-            m_playheadPositioner(m_engine.getPositionTracker())
+            m_arrangementView(engine)
         {
-            setSize(400, 400);
+            setSize(1920, 1080);
             addAndMakeVisible(&m_transportComponent);
-            addAndMakeVisible(&m_playheadPositioner);
+            addAndMakeVisible(&m_arrangementView);
         }
 
         MainWindowComponent::~MainWindowComponent()
@@ -30,15 +30,14 @@ namespace Manifold
 
         void MainWindowComponent::paint(juce::Graphics& g)
         {
-            g.setColour(juce::Colours::black);
+            g.setColour(juce::Colours::white);
             g.fillAll();
         }
 
         void MainWindowComponent::resized()
         {
-            // Need the concept of a timescale here 
-            m_playheadPositioner.setBounds(0, 0, getWidth(), getHeight());
-            m_transportComponent.setBounds(0, getHeight() * 0.75, getWidth(), getHeight() * 0.25);
+            m_transportComponent.setBounds(getWidth() / 4, getHeight() * 0.95, getWidth() / 2, getHeight() * 0.05);
+            m_arrangementView.setBounds(0, 0, getWidth(), getHeight() * 0.75);
         }
     }
 

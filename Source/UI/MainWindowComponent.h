@@ -13,7 +13,8 @@
 #include "../Utils/UIListener.h"
 #include "Components/TransportComponent.h"
 #include "../Audio/ManifoldEngine.h"
-#include "Components/PlayheadPositioner.h"
+#include "Views/ArrangementView.h"
+
 namespace Manifold
 {
     namespace UI
@@ -23,12 +24,13 @@ namespace Manifold
         public: 
             MainWindowComponent(UIListener* uiListener, Manifold::Audio::ManifoldEngine& engine);
             ~MainWindowComponent() override;
+
             void paint(juce::Graphics& g) override;
             void resized() override;
-        private:
+        private: 
             Manifold::Audio::ManifoldEngine& m_engine;
             TransportComponent m_transportComponent;
-            PlayheadPositioner m_playheadPositioner;
+            ArrangementView m_arrangementView;
         };
     }
 }

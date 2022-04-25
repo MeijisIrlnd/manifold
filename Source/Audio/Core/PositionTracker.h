@@ -23,6 +23,8 @@ namespace Manifold
 
                 bool getIsRunning() const { return m_running; }
 
+                MANIFOLD_INLINE void prepare(double sampleRate) { m_sampleRate = sampleRate; }
+
                 MANIFOLD_INLINE void toggle(bool state) {
                     m_running = state;
                 }
@@ -48,8 +50,11 @@ namespace Manifold
                     return *this;
                 }
 
+                MANIFOLD_INLINE const double getSampleRate() const { return m_sampleRate; }
+
             private: 
                 bool m_running = false;
+                double m_sampleRate;
                 juce::uint64 m_sampleCounter = 0;
             };
         }

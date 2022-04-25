@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="dsunQ0" name="manifold" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              cppLanguageStandard="17">
   <MAINGROUP id="xOly6w" name="manifold">
     <GROUP id="{47D65248-4DA2-18DA-4CE5-47411DD21DD3}" name="Resources">
       <FILE id="ht2010" name="Play.svg" compile="0" resource="1" file="Resources/Play.svg"/>
       <FILE id="BQK7jB" name="Stop.svg" compile="0" resource="1" file="Resources/Stop.svg"/>
     </GROUP>
     <GROUP id="{EC96042E-2244-695D-270B-BE9ABCE1BBFC}" name="Source">
+      <GROUP id="{79BF53F5-9700-6A7B-D7A8-BC7B7D426F51}" name="Types">
+        <FILE id="SttyUr" name="InternalChannel.cpp" compile="1" resource="0"
+              file="Source/Types/InternalChannel.cpp"/>
+        <FILE id="npjfXF" name="InternalChannel.h" compile="0" resource="0"
+              file="Source/Types/InternalChannel.h"/>
+        <FILE id="nDjtXA" name="ManifoldScrollbar.h" compile="0" resource="0"
+              file="Source/Types/ManifoldScrollbar.h"/>
+      </GROUP>
       <GROUP id="{5D1C9A09-2EBC-49BA-D3FB-6A38CE26A9DF}" name="Utils">
         <FILE id="v5x1aE" name="UIListener.h" compile="0" resource="0" file="Source/Utils/UIListener.h"/>
       </GROUP>
@@ -27,6 +36,16 @@
               file="Source/Audio/ManifoldEngine.h"/>
       </GROUP>
       <GROUP id="{E6A12DCF-1205-EE72-16F9-7BDFC83200BD}" name="UI">
+        <FILE id="NUobgk" name="ViewListener.h" compile="0" resource="0" file="Source/UI/ViewListener.h"/>
+        <GROUP id="{79961554-AA8F-324E-E38F-6FB1F6AB714E}" name="Views">
+          <FILE id="ecyeq3" name="ArrangementView.cpp" compile="1" resource="0"
+                file="Source/UI/Views/ArrangementView.cpp"/>
+          <FILE id="k5KxYp" name="ArrangementView.h" compile="0" resource="0"
+                file="Source/UI/Views/ArrangementView.h"/>
+          <FILE id="Qs5v1W" name="PlaylistView.cpp" compile="1" resource="0"
+                file="Source/UI/Views/PlaylistView.cpp"/>
+          <FILE id="k2MhLe" name="PlaylistView.h" compile="0" resource="0" file="Source/UI/Views/PlaylistView.h"/>
+        </GROUP>
         <GROUP id="{E8BE1575-98D1-4948-785A-5B1BCB17F8CB}" name="Primitives">
           <FILE id="sIXHhM" name="BaseButton.h" compile="0" resource="0" file="Source/UI/Primitives/BaseButton.h"/>
           <FILE id="SsrM64" name="ButtonListener.cpp" compile="1" resource="0"
@@ -37,10 +56,24 @@
           <FILE id="JXijWR" name="SVGButton.h" compile="0" resource="0" file="Source/UI/Primitives/SVGButton.h"/>
         </GROUP>
         <GROUP id="{9CB32F7C-4716-309C-7CA7-5B390BBBCAEE}" name="Components">
+          <GROUP id="{1C677276-C059-B016-C127-A707FC01338E}" name="Subcomponents">
+            <FILE id="qYLt4y" name="ChannelListItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Subcomponents/ChannelListItem.cpp"/>
+            <FILE id="ssITVN" name="ChannelListItem.h" compile="0" resource="0"
+                  file="Source/UI/Components/Subcomponents/ChannelListItem.h"/>
+          </GROUP>
+          <FILE id="WhDcMu" name="ChannelListComponent.cpp" compile="1" resource="0"
+                file="Source/UI/Components/ChannelListComponent.cpp"/>
+          <FILE id="B21OGa" name="ChannelListComponent.h" compile="0" resource="0"
+                file="Source/UI/Components/ChannelListComponent.h"/>
           <FILE id="REy8oC" name="PlayheadPositioner.cpp" compile="1" resource="0"
                 file="Source/UI/Components/PlayheadPositioner.cpp"/>
           <FILE id="jY0PEB" name="PlayheadPositioner.h" compile="0" resource="0"
                 file="Source/UI/Components/PlayheadPositioner.h"/>
+          <FILE id="Bm2D6M" name="TimestripComponent.cpp" compile="1" resource="0"
+                file="Source/UI/Components/TimestripComponent.cpp"/>
+          <FILE id="QWAIvG" name="TimestripComponent.h" compile="0" resource="0"
+                file="Source/UI/Components/TimestripComponent.h"/>
           <FILE id="i7Jsfx" name="TransportComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/TransportComponent.cpp"/>
           <FILE id="BjBCLW" name="TransportComponent.h" compile="0" resource="0"

@@ -14,6 +14,7 @@
 #include "../Utils/UIListener.h"
 #include "Core/PositionTracker.h"
 #include "Core/AudioDriver.h"
+#include "../Types/InternalChannel.h"
 
 using Graph = juce::AudioProcessorGraph;
 using Node = Graph::Node;
@@ -41,6 +42,8 @@ namespace Manifold
             
             MANIFOLD_INLINE UIListener* getUIListener() { return &m_uiListener; }
             MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
+
+            InternalChannel* createChannel();
         private: 
             juce::AudioDeviceManager m_deviceManager;
             juce::AudioProcessorPlayer m_player;
@@ -52,6 +55,9 @@ namespace Manifold
             Node::Ptr m_audioDriver;
             Tree m_tree;
             UIListener m_uiListener;
+
+            std::unordered_map<int, std::unique_ptr<InternalChannel> > m_channelList;
+            unsigned int m_nextAvailableId = 0;
         };
     }
 }

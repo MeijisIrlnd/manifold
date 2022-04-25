@@ -74,7 +74,7 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -115,7 +115,7 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -139,12 +139,18 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Types\InternalChannel.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioDriver.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp"/>
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Views\ArrangementView.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Views\PlaylistView.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\ButtonListener.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\PlayheadPositioner.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\TimestripComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\TransportComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\MainWindowComponent.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
@@ -2208,15 +2214,23 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Types\InternalChannel.h"/>
+    <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h"/>
     <ClInclude Include="..\..\Source\Utils\UIListener.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\AudioDriver.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\PositionTracker.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\ProcessorBase.h"/>
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h"/>
+    <ClInclude Include="..\..\Source\UI\ViewListener.h"/>
+    <ClInclude Include="..\..\Source\UI\Views\ArrangementView.h"/>
+    <ClInclude Include="..\..\Source\UI\Views\PlaylistView.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\BaseButton.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\ButtonListener.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\PlayheadPositioner.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\TimestripComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\TransportComponent.h"/>
     <ClInclude Include="..\..\Source\UI\MainWindowComponent.h"/>
     <ClInclude Include="..\..\Source\Macros.h"/>

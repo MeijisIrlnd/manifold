@@ -5,6 +5,9 @@
     <Filter Include="manifold\Resources">
       <UniqueIdentifier>{1FD65820-EDAE-26FE-283B-ED79ADE059C5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="manifold\Source\Types">
+      <UniqueIdentifier>{F4E11329-07C5-5A17-EA28-5371B7C9CA94}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Source\Utils">
       <UniqueIdentifier>{115A9930-3184-3EFE-DDDE-B9C3A82DE454}</UniqueIdentifier>
     </Filter>
@@ -14,8 +17,14 @@
     <Filter Include="manifold\Source\Audio">
       <UniqueIdentifier>{AF8639B7-7200-6E23-7B40-38ABA3CD24D1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="manifold\Source\UI\Views">
+      <UniqueIdentifier>{A2656074-2EE8-FCCE-7EA1-E335DD71B399}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Source\UI\Primitives">
       <UniqueIdentifier>{E1F470AF-EB6B-3F61-CC06-BFABEC005BD7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\UI\Components\Subcomponents">
+      <UniqueIdentifier>{60B19D21-921A-C5AC-796D-0396887F5C9F}</UniqueIdentifier>
     </Filter>
     <Filter Include="manifold\Source\UI\Components">
       <UniqueIdentifier>{D19D1DEC-78AD-C3A7-3642-092507985A01}</UniqueIdentifier>
@@ -484,6 +493,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Types\InternalChannel.cpp">
+      <Filter>manifold\Source\Types</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Audio\Core\AudioDriver.cpp">
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClCompile>
@@ -493,13 +505,28 @@
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp">
       <Filter>manifold\Source\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Views\ArrangementView.cpp">
+      <Filter>manifold\Source\UI\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Views\PlaylistView.cpp">
+      <Filter>manifold\Source\UI\Views</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Primitives\ButtonListener.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.cpp">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\PlayheadPositioner.cpp">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\TimestripComponent.cpp">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\TransportComponent.cpp">
@@ -2721,6 +2748,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Types\InternalChannel.h">
+      <Filter>manifold\Source\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h">
+      <Filter>manifold\Source\Types</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Utils\UIListener.h">
       <Filter>manifold\Source\Utils</Filter>
     </ClInclude>
@@ -2736,6 +2769,15 @@
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h">
       <Filter>manifold\Source\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\ViewListener.h">
+      <Filter>manifold\Source\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Views\ArrangementView.h">
+      <Filter>manifold\Source\UI\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Views\PlaylistView.h">
+      <Filter>manifold\Source\UI\Views</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Primitives\BaseButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
@@ -2745,7 +2787,16 @@
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.h">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\PlayheadPositioner.h">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\TimestripComponent.h">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\TransportComponent.h">
