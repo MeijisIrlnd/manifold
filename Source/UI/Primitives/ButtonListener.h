@@ -10,7 +10,7 @@
 
 #pragma once
 #include "ButtonListener.h"
-
+#include "../../Macros.h"
 namespace Manifold
 {
     namespace UI
@@ -18,10 +18,13 @@ namespace Manifold
         namespace Primitives
         {
             class SVGButton;
+            class ImageToggleButton;
+
             struct ButtonListener
             {
                 virtual ~ButtonListener() { }
-                virtual void svgButtonClicked(SVGButton* b) = 0;
+                virtual void svgButtonClicked(MANIFOLD_UNUSED SVGButton* b) {};
+                virtual void imageToggleButtonClicked(MANIFOLD_UNUSED ImageToggleButton* b, MANIFOLD_UNUSED bool newState) {};
             };
         }
     }

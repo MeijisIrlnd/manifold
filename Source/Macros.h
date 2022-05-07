@@ -17,3 +17,11 @@
         #define MANIFOLD_INLINE __attribute__((alwaysinline))
     #endif
 #endif
+
+#ifndef MANIFOLD_UNUSED 
+#define MANIFOLD_UNUSED [[maybe_unused]]
+#endif
+
+#ifndef GET_ENGINE
+#define GET_ENGINE Manifold::Audio::ManifoldEngine::getInstance()
+#endif

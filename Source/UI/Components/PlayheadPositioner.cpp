@@ -25,14 +25,14 @@ namespace Manifold
         {
         }
 
-        void PlayheadPositioner::changeListenerCallback(juce::ChangeBroadcaster* source)
+        void PlayheadPositioner::changeListenerCallback(MANIFOLD_UNUSED juce::ChangeBroadcaster* source)
         {
         }
 
         void PlayheadPositioner::paint(juce::Graphics& g)
         {
             g.setColour(juce::Colours::red);
-            g.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), 0.5f);
+            g.drawLine(getWidth() / 2.0f, 0.0f, getWidth() / 2.0f, static_cast<float>(getHeight()), 0.5f);
         }
 
         void PlayheadPositioner::resized()

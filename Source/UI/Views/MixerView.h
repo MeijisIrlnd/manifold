@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    ChannelListComponent.h
-    Created: 24 Apr 2022 9:00:33pm
+    MixerView.h
+    Created: 26 Apr 2022 2:12:32am
     Author:  Syl
 
   ==============================================================================
@@ -11,25 +11,25 @@
 #pragma once
 #include <JuceHeader.h>
 #include "../../Audio/ManifoldEngine.h"
-#include "Subcomponents/ChannelListItem.h"
-using namespace Manifold::UI::Components;
+#include "../Components/Subcomponents/MixerChannel.h"
+#include "../LookAndFeel/MixerLF.h"
 namespace Manifold
 {
     namespace UI
     {
-        class ChannelListComponent : public juce::Component, 
+        class MixerView : public juce::Component,
             public Manifold::Audio::EngineListener
         {
         public: 
-            ChannelListComponent();
-            ~ChannelListComponent() override;
+            MixerView();
+            ~MixerView() override;
             void onChannelCreated(Manifold::Audio::InternalChannel* newChannel) override;
             void onChannelDeleted(Manifold::Audio::InternalChannel* toDelete) override;
-            void mouseUp(const juce::MouseEvent& ev) override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private: 
-            std::vector<std::unique_ptr<ChannelListItem> > m_channelListItems;
+            MixerLF m_lf;
+            std::vector<std::unique_ptr<MixerChannel> > m_mixerChannels;
         };
     }
 }

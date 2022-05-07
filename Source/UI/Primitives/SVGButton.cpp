@@ -31,7 +31,7 @@ namespace Manifold
                 return m_clickCount;
             }
 
-            void SVGButton::mouseUp(const juce::MouseEvent& ev)
+            void SVGButton::mouseUp(const juce::MouseEvent&)
             {
                 ++m_clickCount;
                 if (m_listener != nullptr) {
@@ -41,7 +41,12 @@ namespace Manifold
 
             void SVGButton::paint(juce::Graphics& g)
             {
-                juce::Rectangle<float> local(getX(), getY(), getWidth(), getHeight());
+                juce::Rectangle<float> local(
+                    static_cast<float>(getX()),
+                    static_cast<float>(getY()),
+                    static_cast<float>(getWidth()),
+                    static_cast<float>(getHeight())
+                );
                 m_icon->setTransformToFit(local, juce::RectanglePlacement::centred);
                 m_icon->draw(g, 1);
             }

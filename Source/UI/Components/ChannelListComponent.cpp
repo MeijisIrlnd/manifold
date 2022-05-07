@@ -14,13 +14,27 @@ namespace Manifold
 {
     namespace UI
     {
-        ChannelListComponent::ChannelListComponent(Manifold::Audio::ManifoldEngine& engine) : 
-            m_engine(engine)
+        ChannelListComponent::ChannelListComponent()
         {
+            GET_ENGINE->addListener(this);
         }
         ChannelListComponent::~ChannelListComponent()
         {
+            GET_ENGINE->removeListener(this);
         }
+
+        void ChannelListComponent::onChannelCreated(Manifold::Audio::InternalChannel* newChannel)
+        {
+            std::unique_ptr<ChannelListItem> uiItem(new ChannelListItem(newChannel));
+            m_channelListItems.push_back(std::move(uiItem));
+            addAndMakeVisible(m_channelListItems.back().get());
+            resized();
+        }
+
+        void ChannelListComponent::onChannelDeleted(MANIFOLD_UNUSED Manifold::Audio::InternalChannel* toDelete)
+        {
+        }
+
 
         void ChannelListComponent::mouseUp(const juce::MouseEvent& ev)
         {
@@ -34,12 +48,7 @@ namespace Manifold
                         case 1: 
                         {
                             DBG("Creating new audio channel");
-                            Manifold::Audio::InternalChannel* newChannel = m_engine.createChannel();
-                            std::unique_ptr<ChannelListItem> uiItem(new ChannelListItem(newChannel));
-                            m_channelListItems.push_back(std::move(uiItem));
-                            addAndMakeVisible(m_channelListItems.back().get());
-                            resized();
-                            // Also add it and make it visible, and draw it 
+                            GET_ENGINE->createChannel();
                             break;
                         }
                         case 2: 
@@ -60,7 +69,7 @@ namespace Manifold
             g.fillAll();
             g.setColour(juce::Colours::black);
             for (auto i = 1; i < 12; i++) {
-                g.drawLine(0, (getHeight() / 12) * i, getWidth(), (getHeight() / 12) * i);
+                g.drawLine(0, (getHeight() / 12.0f) * i, static_cast<float>(getWidth()), (getHeight() / 12.0f) * i);
             }
         }
         void ChannelListComponent::resized()

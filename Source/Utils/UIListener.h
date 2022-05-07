@@ -11,6 +11,7 @@
 #pragma once
 #include <unordered_map>
 #include <functional>
+#include "../Macros.h"
 namespace Manifold
 {
     enum class FUNCTION
@@ -20,20 +21,22 @@ namespace Manifold
         TRANSPORT_STOP
     };
 
+    enum class CHANGE_TYPE
+    {
+        CHANGE_POSITION,
+        CHANGE_BPM,
+        CHANGE_TIMESIG
+    };
 
     struct UIListener
     {
         std::unordered_map<FUNCTION, std::function<void(void)> > m_mappings;
-        std::function<void(void)>& operator[](FUNCTION f) {
-            if (m_mappings.find(f) != m_mappings.end()) {
-                return m_mappings[f];
-            }
+        MANIFOLD_INLINE std::function<void(void)>& operator[](FUNCTION f) {
+            return at(f);
         }
 
         std::function<void(void)>& at(FUNCTION f) {
-            if (m_mappings.find(f) != m_mappings.end()) {
-                return m_mappings[f];
-            }
+            return m_mappings[f];
         }
     };
 }

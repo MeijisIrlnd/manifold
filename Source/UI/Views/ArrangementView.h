@@ -24,7 +24,7 @@ namespace Manifold
             public juce::ScrollBar::Listener
         {
         public: 
-            ArrangementView(Manifold::Audio::ManifoldEngine& engine);
+            ArrangementView();
             ~ArrangementView() override;
             void playlistViewScroll(double newValue) override;
             void scrollBarMoved(juce::ScrollBar* scrollBarThatHasMoved, double newRangeStart) override;
@@ -32,7 +32,6 @@ namespace Manifold
             void resized() override;
 
         private: 
-            Manifold::Audio::ManifoldEngine& m_engine;
             juce::Viewport m_channelListViewport;
             ChannelListComponent m_channelListComponent;
             juce::Viewport m_playlistViewport;

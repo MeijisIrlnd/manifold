@@ -7,7 +7,7 @@
 
   ==============================================================================
 */
-
+#include "../../Macros.h"
 #include "TimestripComponent.h"
 
 namespace Manifold
@@ -22,7 +22,7 @@ namespace Manifold
         {
         }
 
-        void TimestripComponent::paint(juce::Graphics& g)
+        void TimestripComponent::paint(MANIFOLD_UNUSED juce::Graphics& g)
         {
         }
 

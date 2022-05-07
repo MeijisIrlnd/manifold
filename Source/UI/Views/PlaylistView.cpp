@@ -24,7 +24,7 @@ namespace Manifold
         {
         }
 
-        void PlaylistView::mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel)
+        void PlaylistView::mouseWheelMove(const juce::MouseEvent&, const juce::MouseWheelDetails& wheel)
         {
             currentMouseWheel += wheel.deltaY;
             currentMouseWheel = std::clamp(currentMouseWheel, -10.0, 10.0);
@@ -41,7 +41,7 @@ namespace Manifold
             g.fillAll();
             g.setColour(juce::Colours::black);
             for (auto i = 1; i < 12; i++) {
-                g.drawLine(0, (getHeight() / 12) * i, getWidth(), (getHeight() / 12) * i);
+                g.drawLine(0, (getHeight() / 12.0f) * static_cast<float>(i), static_cast<float>(getWidth()), (getHeight() / 12.0f) * static_cast<float>(i));
             }
         }
 

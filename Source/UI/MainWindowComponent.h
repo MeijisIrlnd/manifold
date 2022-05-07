@@ -14,23 +14,24 @@
 #include "Components/TransportComponent.h"
 #include "../Audio/ManifoldEngine.h"
 #include "Views/ArrangementView.h"
+#include "Views/MixerView.h"
 
 namespace Manifold
 {
     namespace UI
     {
-        class MainWindowComponent : public juce::Component
+        class MainWindowComponent : public juce::Component, public juce::KeyListener
         {
         public: 
-            MainWindowComponent(UIListener* uiListener, Manifold::Audio::ManifoldEngine& engine);
+            MainWindowComponent(UIListener* uiListener);
             ~MainWindowComponent() override;
-
+            bool keyPressed(const juce::KeyPress& key, juce::Component* fromComponent) override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private: 
-            Manifold::Audio::ManifoldEngine& m_engine;
             TransportComponent m_transportComponent;
             ArrangementView m_arrangementView;
+            MixerView m_mixerView;
         };
     }
 }

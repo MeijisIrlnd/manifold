@@ -10,6 +10,7 @@
 #include "UI/MainWindowComponent.h"
 #include "Macros.h"
 #include "Audio/ManifoldEngine.h"
+#include "Testing/ChannelTester.h"
 using namespace Manifold;
 using namespace Manifold::UI;
 using namespace Manifold::Audio;
@@ -25,18 +26,19 @@ public:
     bool moreThanOneInstanceAllowed() override             { return true; }
 
     //==============================================================================
-    void initialise (const juce::String& commandLine) override
+    void initialise (MANIFOLD_UNUSED const juce::String& commandLine) override
     {
         // This method is where you should put your application's initialisation code..
 
-        audioEngine.reset(new ManifoldEngine());
-        mainWindow.reset (new MainWindow (getApplicationName(), audioEngine->getUIListener(), *audioEngine.get()));
+        auto instance = ManifoldEngine::getInstance();
+        mainWindow.reset (new MainWindow (getApplicationName(), instance->getUIListener()));
+        Manifold::Testing::ChannelTester tester;
     }
 
     void shutdown() override
     {
         // Add your application's shutdown code here..
-
+        ManifoldEngine::shutdown();
         mainWindow = nullptr; // (deletes our window)
     }
 
@@ -48,7 +50,7 @@ public:
         quit();
     }
 
-    void anotherInstanceStarted (const juce::String& commandLine) override
+    void anotherInstanceStarted (MANIFOLD_UNUSED const juce::String& commandLine) override
     {
         // When another instance of the app is launched while this one is running,
         // this method is invoked, and the commandLine parameter tells you what
@@ -63,14 +65,14 @@ public:
     class MainWindow    : public juce::DocumentWindow
     {
     public:
-        MainWindow (juce::String name, UIListener* uiListener, ManifoldEngine& engine)
+        MainWindow (juce::String name, UIListener* uiListener)
             : DocumentWindow (name,
                               juce::Desktop::getInstance().getDefaultLookAndFeel()
                                                           .findColour (juce::ResizableWindow::backgroundColourId),
                               DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new MainWindowComponent(uiListener, engine), true);
+            setContentOwned (new MainWindowComponent(uiListener), true);
 
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);
@@ -104,7 +106,6 @@ public:
 
 private:
     std::unique_ptr<MainWindow> mainWindow;
-    std::unique_ptr<ManifoldEngine> audioEngine;
     // Need an instance of the audio engine as well...
 
 };

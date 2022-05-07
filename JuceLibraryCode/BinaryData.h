@@ -8,6 +8,30 @@
 
 namespace BinaryData
 {
+    extern const char*   MixerHandle_png;
+    const int            MixerHandle_pngSize = 2512;
+
+    extern const char*   MuteOff_png;
+    const int            MuteOff_pngSize = 1443;
+
+    extern const char*   MuteOn_png;
+    const int            MuteOn_pngSize = 1442;
+
+    extern const char*   PanText_png;
+    const int            PanText_pngSize = 292;
+
+    extern const char*   RotaryHandle_png;
+    const int            RotaryHandle_pngSize = 1147;
+
+    extern const char*   SoloOff_png;
+    const int            SoloOff_pngSize = 1458;
+
+    extern const char*   SoloOn_png;
+    const int            SoloOn_pngSize = 1456;
+
+    extern const char*   artyslider_jpg;
+    const int            artyslider_jpgSize = 167927;
+
     extern const char*   Play_svg;
     const int            Play_svgSize = 191;
 
@@ -15,7 +39,7 @@ namespace BinaryData
     const int            Stop_svgSize = 1219;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 2;
+    const int namedResourceListSize = 10;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

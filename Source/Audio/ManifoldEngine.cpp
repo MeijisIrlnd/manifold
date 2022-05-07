@@ -14,6 +14,9 @@ namespace Manifold
 {
     namespace Audio
     {
+        std::unique_ptr<ManifoldEngine> ManifoldEngine::m_instance{ nullptr };
+        std::mutex ManifoldEngine::m_mutex;
+
         ManifoldEngine::ManifoldEngine() : 
             m_tree(m_graph, nullptr, {"Params"}, { })
         {
@@ -27,6 +30,21 @@ namespace Manifold
 
         ManifoldEngine::~ManifoldEngine() {
             m_deviceManager.removeAudioCallback(&m_player);
+        }
+
+        ManifoldEngine* ManifoldEngine::getInstance()
+        {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            if (m_instance == nullptr) {
+                m_instance.reset(new ManifoldEngine);
+            }
+            return m_instance.get();
+        }
+
+        void ManifoldEngine::shutdown()
+        {
+            m_instance->m_deviceManager.removeAudioCallback(&m_instance->m_player);
+            m_instance.reset(nullptr);
         }
 
         void ManifoldEngine::initialiseGraph()
@@ -66,7 +84,7 @@ namespace Manifold
             ));
         }
 
-        InternalChannel* ManifoldEngine::createChannel()
+        void ManifoldEngine::createChannel()
         {
             int currentId = m_nextAvailableId;
             std::string currentChannelName = "Channel " + std::to_string(currentId);
@@ -75,7 +93,19 @@ namespace Manifold
             m_channelList.emplace(
                 std::make_pair(currentId, std::move(ch))
             );
-            return m_channelList[currentId].get();
+            InternalChannel* current = m_channelList[currentId].get();
+            for (auto& l : m_listeners) {
+                if (l != nullptr) {
+                    l->onChannelCreated(current);
+                }
+            }   
+        }
+        void ManifoldEngine::deleteChannel(InternalChannel* toDelete)
+        {
+            for (auto& l : m_listeners) {
+                if (l != nullptr) { l->onChannelDeleted(toDelete); }
+            }
+
         }
     }
 }

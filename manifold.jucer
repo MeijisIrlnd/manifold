@@ -5,11 +5,29 @@
               cppLanguageStandard="17">
   <MAINGROUP id="xOly6w" name="manifold">
     <GROUP id="{47D65248-4DA2-18DA-4CE5-47411DD21DD3}" name="Resources">
+      <GROUP id="{37E9A2FE-398E-8416-54AB-40DDF1DF61C7}" name="Assets">
+        <FILE id="Qpqwse" name="MixerHandle.png" compile="0" resource="1" file="Resources/Assets/MixerHandle.png"/>
+        <FILE id="AEegdT" name="MuteOff.png" compile="0" resource="1" file="Resources/Assets/MuteOff.png"/>
+        <FILE id="uuYNUD" name="MuteOn.png" compile="0" resource="1" file="Resources/Assets/MuteOn.png"/>
+        <FILE id="TWcKZO" name="PanText.png" compile="0" resource="1" file="Resources/Assets/PanText.png"/>
+        <FILE id="NXxAE1" name="RotaryHandle.png" compile="0" resource="1"
+              file="Resources/Assets/RotaryHandle.png"/>
+        <FILE id="r2zv2p" name="SoloOff.png" compile="0" resource="1" file="Resources/Assets/SoloOff.png"/>
+        <FILE id="J0EYn1" name="SoloOn.png" compile="0" resource="1" file="Resources/Assets/SoloOn.png"/>
+      </GROUP>
+      <FILE id="lQKRjO" name="artyslider.jpg" compile="0" resource="1" file="Resources/artyslider.jpg"/>
       <FILE id="ht2010" name="Play.svg" compile="0" resource="1" file="Resources/Play.svg"/>
       <FILE id="BQK7jB" name="Stop.svg" compile="0" resource="1" file="Resources/Stop.svg"/>
     </GROUP>
     <GROUP id="{EC96042E-2244-695D-270B-BE9ABCE1BBFC}" name="Source">
+      <GROUP id="{A8DBA475-35D6-8DD7-09D6-ADC2ADE994CE}" name="Testing">
+        <FILE id="yQ6gHK" name="ChannelTester.cpp" compile="1" resource="0"
+              file="Source/Testing/ChannelTester.cpp"/>
+        <FILE id="c4Ahax" name="ChannelTester.h" compile="0" resource="0" file="Source/Testing/ChannelTester.h"/>
+      </GROUP>
       <GROUP id="{79BF53F5-9700-6A7B-D7A8-BC7B7D426F51}" name="Types">
+        <FILE id="yi7iI1" name="BroadcastVariable.h" compile="0" resource="0"
+              file="Source/Types/BroadcastVariable.h"/>
         <FILE id="SttyUr" name="InternalChannel.cpp" compile="1" resource="0"
               file="Source/Types/InternalChannel.cpp"/>
         <FILE id="npjfXF" name="InternalChannel.h" compile="0" resource="0"
@@ -36,12 +54,19 @@
               file="Source/Audio/ManifoldEngine.h"/>
       </GROUP>
       <GROUP id="{E6A12DCF-1205-EE72-16F9-7BDFC83200BD}" name="UI">
+        <GROUP id="{87E51708-A8FC-7FA7-7C8D-6128A1BDA57E}" name="LookAndFeel">
+          <FILE id="TThajx" name="MixerLF.cpp" compile="1" resource="0" file="Source/UI/LookAndFeel/MixerLF.cpp"/>
+          <FILE id="jNWD7O" name="MixerLF.h" compile="0" resource="0" file="Source/UI/LookAndFeel/MixerLF.h"/>
+        </GROUP>
+        <FILE id="tfI523" name="OverallLF.h" compile="0" resource="0" file="Source/UI/OverallLF.h"/>
         <FILE id="NUobgk" name="ViewListener.h" compile="0" resource="0" file="Source/UI/ViewListener.h"/>
         <GROUP id="{79961554-AA8F-324E-E38F-6FB1F6AB714E}" name="Views">
           <FILE id="ecyeq3" name="ArrangementView.cpp" compile="1" resource="0"
                 file="Source/UI/Views/ArrangementView.cpp"/>
           <FILE id="k5KxYp" name="ArrangementView.h" compile="0" resource="0"
                 file="Source/UI/Views/ArrangementView.h"/>
+          <FILE id="dv6WfB" name="MixerView.cpp" compile="1" resource="0" file="Source/UI/Views/MixerView.cpp"/>
+          <FILE id="MEbjKS" name="MixerView.h" compile="0" resource="0" file="Source/UI/Views/MixerView.h"/>
           <FILE id="Qs5v1W" name="PlaylistView.cpp" compile="1" resource="0"
                 file="Source/UI/Views/PlaylistView.cpp"/>
           <FILE id="k2MhLe" name="PlaylistView.h" compile="0" resource="0" file="Source/UI/Views/PlaylistView.h"/>
@@ -52,6 +77,8 @@
                 file="Source/UI/Primitives/ButtonListener.cpp"/>
           <FILE id="W5zyvG" name="ButtonListener.h" compile="0" resource="0"
                 file="Source/UI/Primitives/ButtonListener.h"/>
+          <FILE id="Mn18Im" name="ImageButton.cpp" compile="1" resource="0" file="Source/UI/Primitives/ImageButton.cpp"/>
+          <FILE id="bQDkrH" name="ImageButton.h" compile="0" resource="0" file="Source/UI/Primitives/ImageButton.h"/>
           <FILE id="lH1yHA" name="SVGButton.cpp" compile="1" resource="0" file="Source/UI/Primitives/SVGButton.cpp"/>
           <FILE id="JXijWR" name="SVGButton.h" compile="0" resource="0" file="Source/UI/Primitives/SVGButton.h"/>
         </GROUP>
@@ -61,6 +88,16 @@
                   file="Source/UI/Components/Subcomponents/ChannelListItem.cpp"/>
             <FILE id="ssITVN" name="ChannelListItem.h" compile="0" resource="0"
                   file="Source/UI/Components/Subcomponents/ChannelListItem.h"/>
+            <FILE id="ffNgTk" name="ColourPicker.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Subcomponents/ColourPicker.cpp"/>
+            <FILE id="fMLUuF" name="ColourPicker.h" compile="0" resource="0" file="Source/UI/Components/Subcomponents/ColourPicker.h"/>
+            <FILE id="gf5PYa" name="ColourPickerMenuItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Subcomponents/ColourPickerMenuItem.cpp"/>
+            <FILE id="Nz50jU" name="ColourPickerMenuItem.h" compile="0" resource="0"
+                  file="Source/UI/Components/Subcomponents/ColourPickerMenuItem.h"/>
+            <FILE id="fGzOww" name="MixerChannel.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Subcomponents/MixerChannel.cpp"/>
+            <FILE id="UjiSLD" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/Subcomponents/MixerChannel.h"/>
           </GROUP>
           <FILE id="WhDcMu" name="ChannelListComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/ChannelListComponent.cpp"/>
@@ -92,8 +129,10 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="manifold"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="manifold"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="manifold" warningsAreErrors="1"
+                       headerPath="${PROJECT_DIR}../../../../include"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="manifold" warningsAreErrors="1"
+                       headerPath="${PROJECT_DIR}../../../../include"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../../JUCE/modules"/>

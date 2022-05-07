@@ -2,8 +2,14 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="manifold\Resources\Assets">
+      <UniqueIdentifier>{0302794B-2348-76BB-A48F-6FF81DAE5124}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Resources">
       <UniqueIdentifier>{1FD65820-EDAE-26FE-283B-ED79ADE059C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\Testing">
+      <UniqueIdentifier>{206D4E5C-BD16-98F3-90DE-F0C86B151AAC}</UniqueIdentifier>
     </Filter>
     <Filter Include="manifold\Source\Types">
       <UniqueIdentifier>{F4E11329-07C5-5A17-EA28-5371B7C9CA94}</UniqueIdentifier>
@@ -16,6 +22,9 @@
     </Filter>
     <Filter Include="manifold\Source\Audio">
       <UniqueIdentifier>{AF8639B7-7200-6E23-7B40-38ABA3CD24D1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\UI\LookAndFeel">
+      <UniqueIdentifier>{4BAC38F5-6A77-6173-5221-06EB6C405632}</UniqueIdentifier>
     </Filter>
     <Filter Include="manifold\Source\UI\Views">
       <UniqueIdentifier>{A2656074-2EE8-FCCE-7EA1-E335DD71B399}</UniqueIdentifier>
@@ -493,6 +502,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Testing\ChannelTester.cpp">
+      <Filter>manifold\Source\Testing</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Types\InternalChannel.cpp">
       <Filter>manifold\Source\Types</Filter>
     </ClCompile>
@@ -505,7 +517,13 @@
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp">
       <Filter>manifold\Source\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\LookAndFeel\MixerLF.cpp">
+      <Filter>manifold\Source\UI\LookAndFeel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Views\ArrangementView.cpp">
+      <Filter>manifold\Source\UI\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Views\MixerView.cpp">
       <Filter>manifold\Source\UI\Views</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Views\PlaylistView.cpp">
@@ -514,10 +532,22 @@
     <ClCompile Include="..\..\Source\UI\Primitives\ButtonListener.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Primitives\ImageButton.cpp">
+      <Filter>manifold\Source\UI\Primitives</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.cpp">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.cpp">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.cpp">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.cpp">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp">
@@ -2748,6 +2778,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Testing\ChannelTester.h">
+      <Filter>manifold\Source\Testing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Types\BroadcastVariable.h">
+      <Filter>manifold\Source\Types</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Types\InternalChannel.h">
       <Filter>manifold\Source\Types</Filter>
     </ClInclude>
@@ -2769,10 +2805,19 @@
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h">
       <Filter>manifold\Source\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\LookAndFeel\MixerLF.h">
+      <Filter>manifold\Source\UI\LookAndFeel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\OverallLF.h">
+      <Filter>manifold\Source\UI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\ViewListener.h">
       <Filter>manifold\Source\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Views\ArrangementView.h">
+      <Filter>manifold\Source\UI\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Views\MixerView.h">
       <Filter>manifold\Source\UI\Views</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Views\PlaylistView.h">
@@ -2784,10 +2829,22 @@
     <ClInclude Include="..\..\Source\UI\Primitives\ButtonListener.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Primitives\ImageButton.h">
+      <Filter>manifold\Source\UI\Primitives</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.h">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.h">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.h">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.h">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h">
@@ -5336,6 +5393,30 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\Assets\MixerHandle.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\MuteOff.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\MuteOn.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\PanText.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\RotaryHandle.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\SoloOff.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\SoloOn.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\artyslider.jpg">
+      <Filter>manifold\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Play.svg">
       <Filter>manifold\Resources</Filter>
     </None>

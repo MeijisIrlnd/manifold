@@ -24,6 +24,7 @@ namespace Manifold
             TransportComponent(UIListener* uiListener);
             ~TransportComponent() override;
             void svgButtonClicked(SVGButton* b) override;
+            void imageToggleButtonClicked(MANIFOLD_UNUSED ImageToggleButton* b, MANIFOLD_UNUSED bool state) override {}
             void paint(juce::Graphics& g) override; 
             void resized() override;
         private: 

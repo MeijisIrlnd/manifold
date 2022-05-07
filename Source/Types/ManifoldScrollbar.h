@@ -10,6 +10,7 @@
 
 #pragma once
 #include <JuceHeader.h>
+#include "../Macros.h"
 namespace Manifold
 {
     namespace UI
@@ -18,7 +19,7 @@ namespace Manifold
         {
         public: 
             ManifoldScrollbar(bool vertical) : juce::ScrollBar(vertical) { }
-            void mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& d) override { DBG("CALL"); }
+            void mouseWheelMove(MANIFOLD_UNUSED const juce::MouseEvent& ev, MANIFOLD_UNUSED const juce::MouseWheelDetails& d) override { DBG("CALL"); }
         };
     }
 }
