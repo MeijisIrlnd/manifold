@@ -21,6 +21,7 @@ namespace Manifold
             setWantsKeyboardFocus(true);
             addAndMakeVisible(&m_transportComponent);
             addAndMakeVisible(&m_arrangementView);
+            m_arrangementView.setVisible(false);
             addAndMakeVisible(&m_mixerView);
             addKeyListener(this);
         }
@@ -32,7 +33,8 @@ namespace Manifold
         bool MainWindowComponent::keyPressed(const juce::KeyPress& key, MANIFOLD_UNUSED juce::Component* fromComponent)
         {
             if (key.isKeyCode(juce::KeyPress::tabKey)) {
-                DBG("Tab Pressed");
+                m_mixerView.setVisible(!m_mixerView.isVisible());
+                m_arrangementView.setVisible(!m_arrangementView.isVisible());
             }
             return true;
         }
@@ -46,7 +48,7 @@ namespace Manifold
         void MainWindowComponent::resized()
         {
             m_transportComponent.setBounds(getWidth() / 4, static_cast<int>(getHeight() * 0.95), getWidth() / 2, static_cast<int>(getHeight() * 0.05));
-            //m_arrangementView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.75));
+            m_arrangementView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.75));
             m_mixerView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.75));
         }
     }

@@ -14,6 +14,7 @@
 #include "../../Primitives/ImageButton.h"
 #include "ColourPicker.h"
 #include "../../Primitives/ButtonListener.h"
+#include "InsertPluginList.h"
 namespace Manifold
 {
     namespace UI
@@ -40,6 +41,7 @@ namespace Manifold
             Manifold::UI::Primitives::ImageToggleButton m_muteButton;
             Manifold::UI::Primitives::ImageToggleButton m_soloButton;
             ColourPicker m_colourPicker;
+            InsertPluginList m_insertPluginList;
             //0xFFF5F5DC -> Beige 
             //0xFF1C2541 ->Midnight Blurp
             //0XFFEF626C ->Salmon of knowledge

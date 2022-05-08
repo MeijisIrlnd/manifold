@@ -538,6 +538,9 @@
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.cpp">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.cpp">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClCompile>
@@ -547,7 +550,13 @@
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.cpp">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.cpp">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.cpp">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.cpp">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp">
@@ -2835,6 +2844,9 @@
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.h">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.h">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClInclude>
@@ -2844,7 +2856,13 @@
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.h">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.h">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.h">
+      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.h">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h">
@@ -5412,6 +5430,9 @@
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\Assets\SoloOn.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\VSTSlotBackground.png">
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\artyslider.jpg">

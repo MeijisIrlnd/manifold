@@ -14,6 +14,8 @@
               file="Resources/Assets/RotaryHandle.png"/>
         <FILE id="r2zv2p" name="SoloOff.png" compile="0" resource="1" file="Resources/Assets/SoloOff.png"/>
         <FILE id="J0EYn1" name="SoloOn.png" compile="0" resource="1" file="Resources/Assets/SoloOn.png"/>
+        <FILE id="JTItsU" name="VSTSlotBackground.png" compile="0" resource="1"
+              file="Resources/Assets/VSTSlotBackground.png"/>
       </GROUP>
       <FILE id="lQKRjO" name="artyslider.jpg" compile="0" resource="1" file="Resources/artyslider.jpg"/>
       <FILE id="ht2010" name="Play.svg" compile="0" resource="1" file="Resources/Play.svg"/>
@@ -84,6 +86,10 @@
         </GROUP>
         <GROUP id="{9CB32F7C-4716-309C-7CA7-5B390BBBCAEE}" name="Components">
           <GROUP id="{1C677276-C059-B016-C127-A707FC01338E}" name="Subcomponents">
+            <FILE id="OrQZ0z" name="BasePluginListComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Subcomponents/BasePluginListComponent.cpp"/>
+            <FILE id="y4bhrZ" name="BasePluginListComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Subcomponents/BasePluginListComponent.h"/>
             <FILE id="qYLt4y" name="ChannelListItem.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Subcomponents/ChannelListItem.cpp"/>
             <FILE id="ssITVN" name="ChannelListItem.h" compile="0" resource="0"
@@ -95,9 +101,17 @@
                   file="Source/UI/Components/Subcomponents/ColourPickerMenuItem.cpp"/>
             <FILE id="Nz50jU" name="ColourPickerMenuItem.h" compile="0" resource="0"
                   file="Source/UI/Components/Subcomponents/ColourPickerMenuItem.h"/>
+            <FILE id="Q5vKs0" name="InsertPluginList.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Subcomponents/InsertPluginList.cpp"/>
+            <FILE id="C4zegC" name="InsertPluginList.h" compile="0" resource="0"
+                  file="Source/UI/Components/Subcomponents/InsertPluginList.h"/>
             <FILE id="fGzOww" name="MixerChannel.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Subcomponents/MixerChannel.cpp"/>
             <FILE id="UjiSLD" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/Subcomponents/MixerChannel.h"/>
+            <FILE id="hqkRjj" name="PluginListComponentItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Subcomponents/PluginListComponentItem.cpp"/>
+            <FILE id="VVKSh0" name="PluginListComponentItem.h" compile="0" resource="0"
+                  file="Source/UI/Components/Subcomponents/PluginListComponentItem.h"/>
           </GROUP>
           <FILE id="WhDcMu" name="ChannelListComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/ChannelListComponent.cpp"/>

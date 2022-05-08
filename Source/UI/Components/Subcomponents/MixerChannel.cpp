@@ -20,7 +20,8 @@ namespace Manifold
                 BinaryData::MuteOn_png, BinaryData::MuteOn_pngSize), 
             m_soloButton(BinaryData::SoloOff_png, BinaryData::SoloOff_pngSize,
                 BinaryData::SoloOn_png, BinaryData::SoloOn_pngSize), 
-            m_colourPicker(associatedChannel)
+            m_colourPicker(associatedChannel),
+            m_insertPluginList()
         {
             m_volumeSlider.setSliderStyle(juce::Slider::LinearVertical);
             m_volumeSlider.setRange(0, 1, 0.01);
@@ -45,6 +46,8 @@ namespace Manifold
 
             addAndMakeVisible(&m_colourPicker);
             m_colourPicker.addListener(this);
+
+            addAndMakeVisible(&m_insertPluginList);
         }
 
         MixerChannel::~MixerChannel()
@@ -88,6 +91,7 @@ namespace Manifold
 
         void MixerChannel::resized()
         {
+            m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 4);
             m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, getHeight() / 2 - getWidth() / 6 - getHeight() / 32, getWidth() / 4, getWidth() / 4);
             m_soloButton.setBounds(getWidth() / 2, m_muteButton.getY(), getWidth() / 4, getWidth() / 4);
             m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_soloButton.getY() - getHeight() / 32 - getWidth() / 3, getWidth() / 3, getWidth() / 3);

@@ -153,10 +153,13 @@
     <ClCompile Include="..\..\Source\UI\Primitives\ButtonListener.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\ImageButton.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\PlayheadPositioner.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\TimestripComponent.cpp"/>
@@ -2242,10 +2245,13 @@
     <ClInclude Include="..\..\Source\UI\Primitives\ButtonListener.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\ImageButton.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.h"/>
     <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\PlayheadPositioner.h"/>
     <ClInclude Include="..\..\Source\UI\Components\TimestripComponent.h"/>
@@ -3103,6 +3109,7 @@
     <None Include="..\..\Resources\Assets\RotaryHandle.png"/>
     <None Include="..\..\Resources\Assets\SoloOff.png"/>
     <None Include="..\..\Resources\Assets\SoloOn.png"/>
+    <None Include="..\..\Resources\Assets\VSTSlotBackground.png"/>
     <None Include="..\..\Resources\artyslider.jpg"/>
     <None Include="..\..\Resources\Play.svg"/>
     <None Include="..\..\Resources\Stop.svg"/>

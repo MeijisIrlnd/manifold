@@ -29,6 +29,9 @@ namespace BinaryData
     extern const char*   SoloOn_png;
     const int            SoloOn_pngSize = 1456;
 
+    extern const char*   VSTSlotBackground_png;
+    const int            VSTSlotBackground_pngSize = 435;
+
     extern const char*   artyslider_jpg;
     const int            artyslider_jpgSize = 167927;
 
@@ -39,7 +42,7 @@ namespace BinaryData
     const int            Stop_svgSize = 1219;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 10;
+    const int namedResourceListSize = 11;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
