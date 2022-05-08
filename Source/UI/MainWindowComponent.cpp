@@ -24,10 +24,24 @@ namespace Manifold
             m_arrangementView.setVisible(false);
             addAndMakeVisible(&m_mixerView);
             addKeyListener(this);
+            GET_ENGINE->addListener(this);
         }
 
         MainWindowComponent::~MainWindowComponent()
         {
+        }
+
+        void MainWindowComponent::onPluginUIOpened(juce::AudioProcessor* processor)
+        {
+            m_pluginWindowManager.addWindow(processor);
+            //auto bc = createdEditor->getConstrainer();
+            //createdEditor->setBounds(0, 0, bc->getMinimumWidth(), bc->getMinimumHeight());
+            //createdEditor->setSize(200, 200);
+            //addAndMakeVisible(createdEditor.get());
+            //juce::DialogWindow::LaunchOptions opts;
+            //opts.content = juce::OptionalScopedPointer<juce::Component>(dynamic_cast<juce::Component*>(createdEditor.get()), false);
+            //opts.dialogTitle = "Test";
+            //MANIFOLD_UNUSED juce::DialogWindow* res = opts.launchAsync();
         }
 
         bool MainWindowComponent::keyPressed(const juce::KeyPress& key, MANIFOLD_UNUSED juce::Component* fromComponent)
@@ -50,6 +64,7 @@ namespace Manifold
             m_transportComponent.setBounds(getWidth() / 4, static_cast<int>(getHeight() * 0.95), getWidth() / 2, static_cast<int>(getHeight() * 0.05));
             m_arrangementView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.75));
             m_mixerView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.9));
+
         }
     }
 

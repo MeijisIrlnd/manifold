@@ -17,14 +17,11 @@ namespace Manifold
         namespace Core
         {
             AudioChannelProcessor::AudioChannelProcessor(AudioChannel* associatedChannel) : 
-                m_associatedChannel(associatedChannel)
+                BaseChannelProcessor(AUDIO_CHANNEL, dynamic_cast<InternalChannel*>(associatedChannel))
             {
-                m_inserts.resize(8);
+                
             }
 
-            void AudioChannelProcessor::loadPlugin(int slotIndex, std::unique_ptr<juce::AudioPluginInstance>&& plugin) {
-                m_inserts[slotIndex].reset(plugin.release());
-            }
 
             void AudioChannelProcessor::prepareToPlay(double sampleRate, MANIFOLD_UNUSED int samplesPerBlockExpected)
             {

@@ -29,20 +29,27 @@ namespace Manifold
         {
         }
 
-        void PluginListComponentItem::mouseUp(MANIFOLD_UNUSED const juce::MouseEvent& ev)
+        void PluginListComponentItem::mouseUp(const juce::MouseEvent& ev)
         {
-            m_vstContextMenu.clear();
-            juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
-            std::function<void(int)> userCallback = [this](int result) {
+            if (ev.mods.isRightButtonDown()) {
+                m_vstContextMenu.clear();
                 juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
-                juce::Array<juce::PluginDescription> descriptions =  vstList.getTypes();
-                MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(descriptions, result);
-                if (chosenIndex == -1) { return; }
-                m_readout.setText(descriptions[chosenIndex].name, juce::dontSendNotification);
-            };
-            
-            vstList.addToMenu(m_vstContextMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);
-            m_vstContextMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
+                std::function<void(int)> userCallback = [this](int result) {
+                    juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
+                    juce::Array<juce::PluginDescription> descriptions = vstList.getTypes();
+                    MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(descriptions, result);
+                    if (chosenIndex == -1) { return; }
+                    m_readout.setText(descriptions[chosenIndex].name, juce::dontSendNotification);
+                    GET_ENGINE->loadVst(m_channelId, m_slotIndex, chosenIndex);
+                };
+
+                vstList.addToMenu(m_vstContextMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);
+                m_vstContextMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
+            }
+            else if (ev.mods.isLeftButtonDown()) {
+                // Open the plugin's editor...
+                GET_ENGINE->createEditorForPlugin(m_channelId, m_slotIndex);
+            }
         }
 
         void PluginListComponentItem::paint(juce::Graphics& g)

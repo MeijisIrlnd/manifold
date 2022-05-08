@@ -14,6 +14,7 @@
 #include "../Utils/UIListener.h"
 #include "Core/PositionTracker.h"
 #include "Core/AudioDriver.h"
+#include "Core/AudioChannelProcessor.h"
 #include "../Types/Channel/Channel.h"
 #include "../Settings/Pathing.h"
 using Graph = juce::AudioProcessorGraph;
@@ -27,8 +28,9 @@ namespace Manifold
         struct EngineListener
         {
             virtual ~EngineListener() {}
-            virtual void onChannelCreated(InternalChannel* newChannel) = 0;
-            virtual void onChannelDeleted(InternalChannel* toDelete) = 0;
+            virtual void onChannelCreated(MANIFOLD_UNUSED InternalChannel* newChannel) {};
+            virtual void onChannelDeleted(MANIFOLD_UNUSED InternalChannel* toDelete) {};
+            virtual void onPluginUIOpened(MANIFOLD_UNUSED juce::AudioProcessor* processor) {}
         };
 
         class ManifoldEngine
@@ -69,6 +71,7 @@ namespace Manifold
             void deleteChannel(InternalChannel* toDelete);
 
             void loadVst(const int channelId, const int slot, int selectedIndex);
+            void createEditorForPlugin(const int channelId, const int slot);
         private: 
             static std::unique_ptr<ManifoldEngine> m_instance;
             static std::mutex m_mutex;
@@ -83,6 +86,8 @@ namespace Manifold
             Node::Ptr m_audioInputNode;
             Node::Ptr m_audioOutputNode;
             Node::Ptr m_audioDriver;
+            std::unordered_map<int, Node::Ptr> m_channelNodes;
+            std::unordered_map<int, std::vector<juce::AudioPluginInstance*> > m_channelInserts;
             Tree m_tree;
             UIListener m_uiListener;
             std::unordered_map<int, std::unique_ptr<InternalChannel> > m_channelList;

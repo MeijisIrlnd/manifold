@@ -74,6 +74,10 @@
                 file="Source/Audio/Core/AudioChannelProcessor.h"/>
           <FILE id="U7Nt8g" name="AudioDriver.cpp" compile="1" resource="0" file="Source/Audio/Core/AudioDriver.cpp"/>
           <FILE id="hH3Kza" name="AudioDriver.h" compile="0" resource="0" file="Source/Audio/Core/AudioDriver.h"/>
+          <FILE id="oRmNhl" name="BaseChannelProcessor.cpp" compile="1" resource="0"
+                file="Source/Audio/Core/BaseChannelProcessor.cpp"/>
+          <FILE id="XPIR1H" name="BaseChannelProcessor.h" compile="0" resource="0"
+                file="Source/Audio/Core/BaseChannelProcessor.h"/>
           <FILE id="xVMrWU" name="PositionTracker.cpp" compile="1" resource="0"
                 file="Source/Audio/Core/PositionTracker.cpp"/>
           <FILE id="aTAolk" name="PositionTracker.h" compile="0" resource="0"
@@ -159,6 +163,14 @@
                 file="Source/UI/Components/PlayheadPositioner.cpp"/>
           <FILE id="jY0PEB" name="PlayheadPositioner.h" compile="0" resource="0"
                 file="Source/UI/Components/PlayheadPositioner.h"/>
+          <FILE id="myJ7fa" name="PluginContainerWindow.cpp" compile="1" resource="0"
+                file="Source/UI/Components/PluginContainerWindow.cpp"/>
+          <FILE id="sIf6Nu" name="PluginContainerWindow.h" compile="0" resource="0"
+                file="Source/UI/Components/PluginContainerWindow.h"/>
+          <FILE id="uFd00B" name="PluginWindowManager.cpp" compile="1" resource="0"
+                file="Source/UI/Components/PluginWindowManager.cpp"/>
+          <FILE id="qLfaA4" name="PluginWindowManager.h" compile="0" resource="0"
+                file="Source/UI/Components/PluginWindowManager.h"/>
           <FILE id="Bm2D6M" name="TimestripComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/TimestripComponent.cpp"/>
           <FILE id="QWAIvG" name="TimestripComponent.h" compile="0" resource="0"

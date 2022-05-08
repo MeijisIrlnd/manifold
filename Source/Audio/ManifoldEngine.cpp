@@ -109,11 +109,22 @@ namespace Manifold
             else {
                 ch.reset(dynamic_cast<InternalChannel*>(new MidiChannel(currentId, currentChannelName)));
             }
-
+            
             m_channelList.emplace(
                 std::make_pair(currentId, std::move(ch))
             );
             InternalChannel* current = m_channelList[currentId].get();
+            if (t == CHANNEL_TYPE::AUDIO) {
+                std::unique_ptr<AudioChannelProcessor> currentProcessor(new AudioChannelProcessor(dynamic_cast<AudioChannel*>(current)));
+                Node::Ptr handle = m_graph.addNode(std::move(currentProcessor));
+                m_channelNodes.emplace(std::make_pair(current->getId(), handle));
+                std::vector<juce::AudioPluginInstance*> temp{8};
+                m_channelInserts.emplace(current->getId(), std::move(temp));
+            }
+            else {
+
+            }
+
             for (auto& l : m_listeners) {
                 if (l != nullptr) {
                     l->onChannelCreated(current);
@@ -127,17 +138,33 @@ namespace Manifold
             }
 
         }
+
         void ManifoldEngine::loadVst(MANIFOLD_UNUSED const int channelId, MANIFOLD_UNUSED const int slot, int selectedIndex)
         {
             auto desc = m_vsts.getTypes()[selectedIndex];
             auto sr = m_deviceManager.getAudioDeviceSetup().sampleRate;
             auto bufferSize = m_deviceManager.getAudioDeviceSetup().bufferSize;
             std::function<void(std::unique_ptr<juce::AudioPluginInstance>, const juce::String&)> loadedCallback = 
-            [this, channelId, slot] (std::unique_ptr<juce::AudioPluginInstance> instance, MANIFOLD_UNUSED const juce::String&) {
-
+            [this, channelId, slot] (std::unique_ptr<juce::AudioPluginInstance> instance, MANIFOLD_UNUSED const juce::String& errorMessage) {
+                m_channelInserts[channelId][slot] = instance.get();
+                BaseChannelProcessor* current = dynamic_cast<BaseChannelProcessor*>(m_channelNodes[channelId]->getProcessor());
+                current->loadPlugin(slot, std::move(instance));
             };
 
             m_pluginFormatManager.createPluginInstanceAsync(desc, sr, bufferSize, loadedCallback);
+        }
+
+        void ManifoldEngine::createEditorForPlugin(const int channelId, const int slot)
+        {
+            if (m_channelInserts.find(channelId) != m_channelInserts.end()) {
+                if (m_channelInserts[channelId][slot] != nullptr) {
+                    for (auto& l : m_listeners) {
+                        if (l != nullptr) {
+                            l->onPluginUIOpened(m_channelInserts[channelId][slot]);
+                        }
+                    }
+                }
+            }
         }
     }
 }
