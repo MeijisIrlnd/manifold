@@ -21,7 +21,7 @@ namespace Manifold
             m_soloButton(BinaryData::SoloOff_png, BinaryData::SoloOff_pngSize,
                 BinaryData::SoloOn_png, BinaryData::SoloOn_pngSize), 
             m_colourPicker(associatedChannel),
-            m_insertPluginList()
+            m_insertPluginList(associatedChannel->getId())
         {
             m_volumeSlider.setSliderStyle(juce::Slider::LinearVertical);
             m_volumeSlider.setRange(0, 1, 0.01);

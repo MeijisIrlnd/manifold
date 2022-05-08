@@ -32,6 +32,9 @@ namespace BinaryData
     extern const char*   VSTSlotBackground_png;
     const int            VSTSlotBackground_pngSize = 435;
 
+    extern const char*   PixelTandysoft0rJG_ttf;
+    const int            PixelTandysoft0rJG_ttfSize = 23996;
+
     extern const char*   artyslider_jpg;
     const int            artyslider_jpgSize = 167927;
 
@@ -42,7 +45,7 @@ namespace BinaryData
     const int            Stop_svgSize = 1219;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 11;
+    const int namedResourceListSize = 12;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

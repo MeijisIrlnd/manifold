@@ -1,26 +1,23 @@
 /*
   ==============================================================================
 
-    InsertPluginList.h
-    Created: 8 May 2022 1:26:16am
+    Pathing.h
+    Created: 8 May 2022 4:34:32am
     Author:  Syl
 
   ==============================================================================
 */
 
 #pragma once
-#include "BasePluginListComponent.h"
+#include <string>
 namespace Manifold
 {
-    namespace UI
+    namespace Settings
     {
-        class InsertPluginList : public BasePluginListComponent
+        class Pathing
         {
         public: 
-            InsertPluginList(const int channelId);
-        private: 
-
+            static std::string s_vstFolderPath;
         };
     }
-
 }

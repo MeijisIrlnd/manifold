@@ -12,7 +12,7 @@
 #include <JuceHeader.h>
 #include <inttypes.h>
 #include "../../../Macros.h"
-#include "../../../Types/InternalChannel.h"
+#include "../../../Types/Channel/InternalChannel.h"
 #include "ColourPickerMenuItem.h"
 namespace Manifold
 {

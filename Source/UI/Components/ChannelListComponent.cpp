@@ -42,17 +42,18 @@ namespace Manifold
                 DBG("Right click");
                 juce::PopupMenu popup;
                 popup.addItem(1, "Create audio channel");
-                popup.addItem(2, "Something else");
+                popup.addItem(2, "Create midi channel");
                 popup.showMenuAsync(juce::PopupMenu::Options(), [this](int res) {
                     switch (res) {
                         case 1: 
                         {
                             DBG("Creating new audio channel");
-                            GET_ENGINE->createChannel();
+                            GET_ENGINE->createChannel(AUDIO_CHANNEL);
                             break;
                         }
                         case 2: 
                         {
+                            GET_ENGINE->createChannel(MIDI_CHANNEL);
                             break;
                         }
                         default: 

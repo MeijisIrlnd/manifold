@@ -14,9 +14,10 @@ namespace Manifold
 {
     namespace UI
     {
-        InsertPluginList::InsertPluginList() : BasePluginListComponent(8)
+        InsertPluginList::InsertPluginList(const int channelId) : BasePluginListComponent(channelId, 8)
         {
         }
+
     }
 }
 

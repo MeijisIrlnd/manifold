@@ -141,8 +141,11 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Settings\Pathing.cpp"/>
     <ClCompile Include="..\..\Source\Testing\ChannelTester.cpp"/>
-    <ClCompile Include="..\..\Source\Types\InternalChannel.cpp"/>
+    <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp"/>
+    <ClCompile Include="..\..\Source\Types\Channel\InternalChannel.cpp"/>
+    <ClCompile Include="..\..\Source\Types\Channel\MidiChannel.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioDriver.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp"/>
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp"/>
@@ -158,9 +161,9 @@
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.cpp"/>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\MixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\PlayheadPositioner.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\TimestripComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\TransportComponent.cpp"/>
@@ -2226,9 +2229,13 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Settings\Pathing.h"/>
     <ClInclude Include="..\..\Source\Testing\ChannelTester.h"/>
+    <ClInclude Include="..\..\Source\Types\Channel\AudioChannel.h"/>
+    <ClInclude Include="..\..\Source\Types\Channel\Channel.h"/>
+    <ClInclude Include="..\..\Source\Types\Channel\InternalChannel.h"/>
+    <ClInclude Include="..\..\Source\Types\Channel\MidiChannel.h"/>
     <ClInclude Include="..\..\Source\Types\BroadcastVariable.h"/>
-    <ClInclude Include="..\..\Source\Types\InternalChannel.h"/>
     <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h"/>
     <ClInclude Include="..\..\Source\Utils\UIListener.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\AudioDriver.h"/>
@@ -2250,9 +2257,9 @@
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.h"/>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.h"/>
     <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\MixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\PlayheadPositioner.h"/>
     <ClInclude Include="..\..\Source\UI\Components\TimestripComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\TransportComponent.h"/>
@@ -3110,6 +3117,7 @@
     <None Include="..\..\Resources\Assets\SoloOff.png"/>
     <None Include="..\..\Resources\Assets\SoloOn.png"/>
     <None Include="..\..\Resources\Assets\VSTSlotBackground.png"/>
+    <None Include="..\..\Resources\Fonts\PixelTandysoft-0rJG.ttf"/>
     <None Include="..\..\Resources\artyslider.jpg"/>
     <None Include="..\..\Resources\Play.svg"/>
     <None Include="..\..\Resources\Stop.svg"/>

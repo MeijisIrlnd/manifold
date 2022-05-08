@@ -10,7 +10,7 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "../../../Types/InternalChannel.h"
+#include "../../../Types/Channel/InternalChannel.h"
 
 namespace Manifold
 {

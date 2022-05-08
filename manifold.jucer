@@ -17,23 +17,39 @@
         <FILE id="JTItsU" name="VSTSlotBackground.png" compile="0" resource="1"
               file="Resources/Assets/VSTSlotBackground.png"/>
       </GROUP>
+      <GROUP id="{684E4302-6E64-0F08-63E1-021469497481}" name="Fonts">
+        <FILE id="QyWxNk" name="PixelTandysoft-0rJG.ttf" compile="0" resource="1"
+              file="Resources/Fonts/PixelTandysoft-0rJG.ttf"/>
+      </GROUP>
       <FILE id="lQKRjO" name="artyslider.jpg" compile="0" resource="1" file="Resources/artyslider.jpg"/>
       <FILE id="ht2010" name="Play.svg" compile="0" resource="1" file="Resources/Play.svg"/>
       <FILE id="BQK7jB" name="Stop.svg" compile="0" resource="1" file="Resources/Stop.svg"/>
     </GROUP>
     <GROUP id="{EC96042E-2244-695D-270B-BE9ABCE1BBFC}" name="Source">
+      <GROUP id="{A507C6F9-FA07-FA73-D177-0A02DD9C22C2}" name="Settings">
+        <FILE id="KwWDps" name="Pathing.cpp" compile="1" resource="0" file="Source/Settings/Pathing.cpp"/>
+        <FILE id="j4fgFG" name="Pathing.h" compile="0" resource="0" file="Source/Settings/Pathing.h"/>
+      </GROUP>
       <GROUP id="{A8DBA475-35D6-8DD7-09D6-ADC2ADE994CE}" name="Testing">
         <FILE id="yQ6gHK" name="ChannelTester.cpp" compile="1" resource="0"
               file="Source/Testing/ChannelTester.cpp"/>
         <FILE id="c4Ahax" name="ChannelTester.h" compile="0" resource="0" file="Source/Testing/ChannelTester.h"/>
       </GROUP>
       <GROUP id="{79BF53F5-9700-6A7B-D7A8-BC7B7D426F51}" name="Types">
+        <GROUP id="{0A9BD0C9-218E-B40C-72D1-E1E8B4D5FCAB}" name="Channel">
+          <FILE id="Pq3eJg" name="AudioChannel.cpp" compile="1" resource="0"
+                file="Source/Types/Channel/AudioChannel.cpp"/>
+          <FILE id="LnR9wS" name="AudioChannel.h" compile="0" resource="0" file="Source/Types/Channel/AudioChannel.h"/>
+          <FILE id="S09ZK5" name="Channel.h" compile="0" resource="0" file="Source/Types/Channel/Channel.h"/>
+          <FILE id="OTyuV5" name="InternalChannel.cpp" compile="1" resource="0"
+                file="Source/Types/Channel/InternalChannel.cpp"/>
+          <FILE id="F9S5D2" name="InternalChannel.h" compile="0" resource="0"
+                file="Source/Types/Channel/InternalChannel.h"/>
+          <FILE id="nPo5rV" name="MidiChannel.cpp" compile="1" resource="0" file="Source/Types/Channel/MidiChannel.cpp"/>
+          <FILE id="w3SPXf" name="MidiChannel.h" compile="0" resource="0" file="Source/Types/Channel/MidiChannel.h"/>
+        </GROUP>
         <FILE id="yi7iI1" name="BroadcastVariable.h" compile="0" resource="0"
               file="Source/Types/BroadcastVariable.h"/>
-        <FILE id="SttyUr" name="InternalChannel.cpp" compile="1" resource="0"
-              file="Source/Types/InternalChannel.cpp"/>
-        <FILE id="npjfXF" name="InternalChannel.h" compile="0" resource="0"
-              file="Source/Types/InternalChannel.h"/>
         <FILE id="nDjtXA" name="ManifoldScrollbar.h" compile="0" resource="0"
               file="Source/Types/ManifoldScrollbar.h"/>
       </GROUP>
@@ -105,9 +121,6 @@
                   file="Source/UI/Components/Subcomponents/InsertPluginList.cpp"/>
             <FILE id="C4zegC" name="InsertPluginList.h" compile="0" resource="0"
                   file="Source/UI/Components/Subcomponents/InsertPluginList.h"/>
-            <FILE id="fGzOww" name="MixerChannel.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Subcomponents/MixerChannel.cpp"/>
-            <FILE id="UjiSLD" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/Subcomponents/MixerChannel.h"/>
             <FILE id="hqkRjj" name="PluginListComponentItem.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Subcomponents/PluginListComponentItem.cpp"/>
             <FILE id="VVKSh0" name="PluginListComponentItem.h" compile="0" resource="0"
@@ -117,6 +130,9 @@
                 file="Source/UI/Components/ChannelListComponent.cpp"/>
           <FILE id="B21OGa" name="ChannelListComponent.h" compile="0" resource="0"
                 file="Source/UI/Components/ChannelListComponent.h"/>
+          <FILE id="sYZgQ6" name="MixerChannel.cpp" compile="1" resource="0"
+                file="Source/UI/Components/MixerChannel.cpp"/>
+          <FILE id="ncw2N2" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/MixerChannel.h"/>
           <FILE id="REy8oC" name="PlayheadPositioner.cpp" compile="1" resource="0"
                 file="Source/UI/Components/PlayheadPositioner.cpp"/>
           <FILE id="jY0PEB" name="PlayheadPositioner.h" compile="0" resource="0"

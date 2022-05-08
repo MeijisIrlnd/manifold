@@ -1,26 +1,27 @@
 /*
   ==============================================================================
 
-    InsertPluginList.h
-    Created: 8 May 2022 1:26:16am
+    MidiChannel.h
+    Created: 8 May 2022 4:10:47am
     Author:  Syl
 
   ==============================================================================
 */
 
 #pragma once
-#include "BasePluginListComponent.h"
+#include "InternalChannel.h"
+
 namespace Manifold
 {
-    namespace UI
+    namespace Audio
     {
-        class InsertPluginList : public BasePluginListComponent
+        class MidiChannel : public InternalChannel
         {
         public: 
-            InsertPluginList(const int channelId);
+            MidiChannel(int internalId, std::string name);
+            MidiChannel(const MidiChannel& other);
         private: 
 
         };
     }
-
 }

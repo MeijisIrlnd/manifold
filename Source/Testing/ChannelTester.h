@@ -20,8 +20,8 @@ namespace Manifold
         public: 
             ChannelTester()
             {
-                for (auto i = 0; i < 16; i++) {
-                    GET_ENGINE->createChannel();
+                for (auto i = 0; i < 4; i++) {
+                    GET_ENGINE->createChannel(AUDIO_CHANNEL);
                 }
             }
         private: 

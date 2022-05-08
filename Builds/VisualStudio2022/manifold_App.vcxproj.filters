@@ -5,11 +5,20 @@
     <Filter Include="manifold\Resources\Assets">
       <UniqueIdentifier>{0302794B-2348-76BB-A48F-6FF81DAE5124}</UniqueIdentifier>
     </Filter>
+    <Filter Include="manifold\Resources\Fonts">
+      <UniqueIdentifier>{94814309-D511-6672-778B-4F6DFCE00B74}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Resources">
       <UniqueIdentifier>{1FD65820-EDAE-26FE-283B-ED79ADE059C5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="manifold\Source\Settings">
+      <UniqueIdentifier>{D62EC831-BB5F-0DB9-D9FB-F0EF52F2D564}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Source\Testing">
       <UniqueIdentifier>{206D4E5C-BD16-98F3-90DE-F0C86B151AAC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\Types\Channel">
+      <UniqueIdentifier>{3E728C34-D533-867B-F153-CD6658D5E609}</UniqueIdentifier>
     </Filter>
     <Filter Include="manifold\Source\Types">
       <UniqueIdentifier>{F4E11329-07C5-5A17-EA28-5371B7C9CA94}</UniqueIdentifier>
@@ -502,11 +511,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Settings\Pathing.cpp">
+      <Filter>manifold\Source\Settings</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Testing\ChannelTester.cpp">
       <Filter>manifold\Source\Testing</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Types\InternalChannel.cpp">
-      <Filter>manifold\Source\Types</Filter>
+    <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Types\Channel\InternalChannel.cpp">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Types\Channel\MidiChannel.cpp">
+      <Filter>manifold\Source\Types\Channel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Audio\Core\AudioDriver.cpp">
       <Filter>manifold\Source\Audio\Core</Filter>
@@ -553,13 +571,13 @@
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.cpp">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.cpp">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.cpp">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\MixerChannel.cpp">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\PlayheadPositioner.cpp">
@@ -2787,13 +2805,25 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Settings\Pathing.h">
+      <Filter>manifold\Source\Settings</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Testing\ChannelTester.h">
       <Filter>manifold\Source\Testing</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Types\BroadcastVariable.h">
-      <Filter>manifold\Source\Types</Filter>
+    <ClInclude Include="..\..\Source\Types\Channel\AudioChannel.h">
+      <Filter>manifold\Source\Types\Channel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Types\InternalChannel.h">
+    <ClInclude Include="..\..\Source\Types\Channel\Channel.h">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Types\Channel\InternalChannel.h">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Types\Channel\MidiChannel.h">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Types\BroadcastVariable.h">
       <Filter>manifold\Source\Types</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h">
@@ -2859,13 +2889,13 @@
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.h">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\MixerChannel.h">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.h">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\MixerChannel.h">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\PlayheadPositioner.h">
@@ -5434,6 +5464,9 @@
     </None>
     <None Include="..\..\Resources\Assets\VSTSlotBackground.png">
       <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Fonts\PixelTandysoft-0rJG.ttf">
+      <Filter>manifold\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\Resources\artyslider.jpg">
       <Filter>manifold\Resources</Filter>

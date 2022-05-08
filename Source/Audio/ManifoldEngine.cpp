@@ -26,6 +26,7 @@ namespace Manifold
             initialiseGraph();
             bindUICallbacks();
             m_player.setProcessor(&m_graph);
+            scanForVsts();
         }
 
         ManifoldEngine::~ManifoldEngine() {
@@ -84,12 +85,29 @@ namespace Manifold
             ));
         }
 
-        void ManifoldEngine::createChannel()
+        void ManifoldEngine::scanForVsts()
+        {
+            m_vsts.clear();
+            for (auto& dir : juce::RangedDirectoryIterator(juce::File(VST_PATH), true, "*.vst3,*.dll", juce::File::findFiles))
+            {
+                m_vsts.emplace(std::make_pair(dir.getFile().getFileNameWithoutExtension().toStdString(),
+                    dir.getFile().getFullPathName().toStdString()));
+            }
+        }
+
+        void ManifoldEngine::createChannel(CHANNEL_TYPE t)
         {
             int currentId = m_nextAvailableId;
             std::string currentChannelName = "Channel " + std::to_string(currentId);
             ++m_nextAvailableId;
-            std::unique_ptr<InternalChannel> ch(new InternalChannel(currentId, currentChannelName));
+            std::unique_ptr<InternalChannel> ch;
+            if (t == CHANNEL_TYPE::AUDIO) {
+                ch.reset(dynamic_cast<InternalChannel*>(new AudioChannel(currentId, currentChannelName)));
+            }
+            else {
+                ch.reset(dynamic_cast<InternalChannel*>(new MidiChannel(currentId, currentChannelName)));
+            }
+
             m_channelList.emplace(
                 std::make_pair(currentId, std::move(ch))
             );
@@ -106,6 +124,14 @@ namespace Manifold
                 if (l != nullptr) { l->onChannelDeleted(toDelete); }
             }
 
+        }
+        void ManifoldEngine::loadVst(MANIFOLD_UNUSED const int channelId, MANIFOLD_UNUSED const int slot, const std::string& key)
+        {
+            std::string vstPath = m_vsts[key];
+            std::stringstream stream;
+            stream << "ID: " << channelId << " Slot: " << slot << " Path: " << vstPath;
+            DBG(stream.str());
+            // some other stuf..
         }
     }
 }

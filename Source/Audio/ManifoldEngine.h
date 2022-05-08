@@ -14,8 +14,8 @@
 #include "../Utils/UIListener.h"
 #include "Core/PositionTracker.h"
 #include "Core/AudioDriver.h"
-#include "../Types/InternalChannel.h"
-
+#include "../Types/Channel/Channel.h"
+#include "../Settings/Pathing.h"
 using Graph = juce::AudioProcessorGraph;
 using Node = Graph::Node;
 using Tree = juce::AudioProcessorValueTreeState;
@@ -43,6 +43,7 @@ namespace Manifold
             static void shutdown();
             void initialiseGraph();
             void bindUICallbacks();
+            void scanForVsts();
             MANIFOLD_INLINE void addListener(EngineListener* newListener) { m_listeners.push_back(newListener); }
             MANIFOLD_INLINE void removeListener(EngineListener* toRemove) {
                 auto it = std::find(m_listeners.begin(), m_listeners.end(), toRemove);
@@ -62,19 +63,22 @@ namespace Manifold
             MANIFOLD_INLINE UIListener* getUIListener() { return &m_uiListener; }
             MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
+            std::unordered_map<std::string, std::string>& getVstList() { return m_vsts; }
 
-            void createChannel();
+            void createChannel(CHANNEL_TYPE t);
             void deleteChannel(InternalChannel* toDelete);
+
+            void loadVst(const int channelId, const int slot, const std::string& key);
         private: 
             static std::unique_ptr<ManifoldEngine> m_instance;
             static std::mutex m_mutex;
+            std::unordered_map<std::string, std::string> m_vsts;
             juce::AudioDeviceManager m_deviceManager;
             juce::AudioProcessorPlayer m_player;
             PositionTracker m_positionTracker;
             Graph m_graph;
             Node::Ptr m_audioInputNode;
             Node::Ptr m_audioOutputNode;
-
             Node::Ptr m_audioDriver;
             Tree m_tree;
             UIListener m_uiListener;

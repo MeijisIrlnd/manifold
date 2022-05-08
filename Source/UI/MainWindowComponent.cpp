@@ -49,7 +49,7 @@ namespace Manifold
         {
             m_transportComponent.setBounds(getWidth() / 4, static_cast<int>(getHeight() * 0.95), getWidth() / 2, static_cast<int>(getHeight() * 0.05));
             m_arrangementView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.75));
-            m_mixerView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.75));
+            m_mixerView.setBounds(0, 0, getWidth(), static_cast<int>(getHeight() * 0.9));
         }
     }
 

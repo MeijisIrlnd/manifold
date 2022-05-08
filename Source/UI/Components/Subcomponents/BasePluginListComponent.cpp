@@ -14,11 +14,12 @@ namespace Manifold
 {
     namespace UI
     {
-        BasePluginListComponent::BasePluginListComponent(const int maxSlots) : 
+        BasePluginListComponent::BasePluginListComponent(const int channelId, const int maxSlots) : 
+            m_channelId(channelId),
             m_maxSlots(maxSlots)
         {
             for (auto i = 0; i < maxSlots; i++) {
-                std::unique_ptr<PluginListComponentItem> current(new PluginListComponentItem());
+                std::unique_ptr<PluginListComponentItem> current(new PluginListComponentItem(m_channelId, i));
                 m_items.push_back(std::move(current));
                 addAndMakeVisible(m_items.back().get());
             }

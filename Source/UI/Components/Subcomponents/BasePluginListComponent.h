@@ -18,12 +18,13 @@ namespace Manifold
         class BasePluginListComponent : public juce::Component
         {
         public: 
-            BasePluginListComponent(const int maxSlots);
+            BasePluginListComponent(const int channelId, const int maxSlots);
             virtual ~BasePluginListComponent() override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         protected: 
             std::vector<std::unique_ptr<PluginListComponentItem> > m_items;
+            const int m_channelId;
             const int m_maxSlots;
         };
     }
