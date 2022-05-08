@@ -11,7 +11,8 @@
 #pragma once
 #include <JuceHeader.h>
 #include "../../Audio/ManifoldEngine.h"
-#include "../Components/MixerChannel.h"
+#include "../Components/AudioMixerChannel.h"
+#include "../Components/MidiMixerChannel.h"
 #include "../LookAndFeel/MixerLF.h"
 namespace Manifold
 {

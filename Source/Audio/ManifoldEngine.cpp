@@ -20,6 +20,7 @@ namespace Manifold
         ManifoldEngine::ManifoldEngine() : 
             m_tree(m_graph, nullptr, {"Params"}, { })
         {
+            m_pluginFormatManager.addDefaultFormats();
             m_graph.enableAllBuses();
             m_deviceManager.initialiseWithDefaultDevices(2, 2);
             m_deviceManager.addAudioCallback(&m_player);
@@ -90,8 +91,9 @@ namespace Manifold
             m_vsts.clear();
             for (auto& dir : juce::RangedDirectoryIterator(juce::File(VST_PATH), true, "*.vst3,*.dll", juce::File::findFiles))
             {
-                m_vsts.emplace(std::make_pair(dir.getFile().getFileNameWithoutExtension().toStdString(),
-                    dir.getFile().getFullPathName().toStdString()));
+                for (auto i = 0; i < m_pluginFormatManager.getNumFormats(); i++) {
+                    m_vsts.scanAndAddFile(dir.getFile().getFullPathName(), true, m_vstDescriptions, *m_pluginFormatManager.getFormat(i));
+                }
             }
         }
 
@@ -125,13 +127,17 @@ namespace Manifold
             }
 
         }
-        void ManifoldEngine::loadVst(MANIFOLD_UNUSED const int channelId, MANIFOLD_UNUSED const int slot, const std::string& key)
+        void ManifoldEngine::loadVst(MANIFOLD_UNUSED const int channelId, MANIFOLD_UNUSED const int slot, int selectedIndex)
         {
-            std::string vstPath = m_vsts[key];
-            std::stringstream stream;
-            stream << "ID: " << channelId << " Slot: " << slot << " Path: " << vstPath;
-            DBG(stream.str());
-            // some other stuf..
+            auto desc = m_vsts.getTypes()[selectedIndex];
+            auto sr = m_deviceManager.getAudioDeviceSetup().sampleRate;
+            auto bufferSize = m_deviceManager.getAudioDeviceSetup().bufferSize;
+            std::function<void(std::unique_ptr<juce::AudioPluginInstance>, const juce::String&)> loadedCallback = 
+            [this, channelId, slot] (std::unique_ptr<juce::AudioPluginInstance> instance, MANIFOLD_UNUSED const juce::String&) {
+
+            };
+
+            m_pluginFormatManager.createPluginInstanceAsync(desc, sr, bufferSize, loadedCallback);
         }
     }
 }

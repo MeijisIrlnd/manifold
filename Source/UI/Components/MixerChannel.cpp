@@ -89,12 +89,15 @@ namespace Manifold
             g.drawRect(bounds, 0.25f);
         }
 
-        void MixerChannel::resized()
+        void MixerChannel::drawCommonElements()
         {
             m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 4);
             m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, getHeight() / 2 - getWidth() / 6 - getHeight() / 32, getWidth() / 4, getWidth() / 4);
             m_soloButton.setBounds(getWidth() / 2, m_muteButton.getY(), getWidth() / 4, getWidth() / 4);
-            m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_soloButton.getY() - getHeight() / 32 - getWidth() / 3, getWidth() / 3, getWidth() / 3);
+            // Some spacing for Input mon and record enable / vst select 
+            // Assume same height, and spacing.. 
+            int spacing = m_soloButton.getHeight() + getHeight() / 32;
+            m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_soloButton.getY() - getHeight() / 32 - getWidth() / 3 - spacing, getWidth() / 3, getWidth() / 3);
             m_panText.setBounds(getWidth() / 2 - getWidth() / 6, m_panSlider.getY() - m_panSlider.getHeight(), getWidth() / 3, getHeight() / 24);
             m_volumeSlider.setBounds(0, static_cast<int>(getHeight() * 0.5f), getWidth(), getHeight() / 2 - getHeight() / 32);
             m_colourPicker.setBounds(0, m_volumeSlider.getY() + m_volumeSlider.getHeight(), getWidth(), getHeight() / 32);

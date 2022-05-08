@@ -26,13 +26,16 @@ namespace Manifold
         {
         public: 
             MixerChannel(Manifold::Audio::InternalChannel* associatedChannel);
-            ~MixerChannel() override;
+            virtual ~MixerChannel() override;
+            MANIFOLD_INLINE Manifold::Audio::CHANNEL_TYPE getChannelType() { return m_channel->getChannelType(); }
             void imageToggleButtonClicked(Primitives::ImageToggleButton* b, bool newState) override;
             void sliderValueChanged(juce::Slider* slider) override;
             void onColourPicked(juce::Colour& newColour) override;
             void paint(juce::Graphics& g) override;
-            void resized() override;
-        private: 
+            virtual void resized() override = 0;
+
+        protected:
+            void drawCommonElements();
             Manifold::Audio::InternalChannel* m_channel{ nullptr };
             juce::TextEditor m_nameDisplay;
             juce::ImageComponent m_panText;

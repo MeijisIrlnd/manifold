@@ -25,9 +25,9 @@ namespace Manifold
                 {}
 
                 //==============================================================================
-                void prepareToPlay(double, int) override {}
-                void releaseResources() override {}
-                void processBlock(juce::AudioSampleBuffer&, juce::MidiBuffer&) override {}
+                virtual void prepareToPlay(double, int) override {}
+                virtual void releaseResources() override {}
+                virtual void processBlock(juce::AudioSampleBuffer&, juce::MidiBuffer&) override {}
 
                 //==============================================================================
                 juce::AudioProcessorEditor* createEditor() override { return nullptr; }
@@ -49,7 +49,8 @@ namespace Manifold
                 //==============================================================================
                 void getStateInformation(juce::MemoryBlock&) override {}
                 void setStateInformation(const void*, int) override {}
-
+            protected: 
+                double m_sampleRate{ 0 };
             private:
                 //==============================================================================
                 JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProcessorBase) 

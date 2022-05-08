@@ -28,6 +28,7 @@ namespace Manifold
             InternalChannel(const InternalChannel& other);
             virtual ~InternalChannel();
             void rename(const std::string& newName);
+            MANIFOLD_INLINE CHANNEL_TYPE getChannelType() const { return m_channelType; }
             MANIFOLD_INLINE const int getId() const { return m_internalId; }
             MANIFOLD_INLINE const std::string& getName() const { return m_name; }
             MANIFOLD_INLINE void setVolume(double newVolume) { m_channelVolume = newVolume; }

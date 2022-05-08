@@ -19,11 +19,12 @@ namespace Manifold
             class ImageButton : public BaseButton
             {
             public: 
+                ImageButton(const char* image, const int imageSize);
                 void paint(juce::Graphics& g) override;
                 void resized() override;
 
             private: 
-
+                juce::Image m_image;
             };
 
             class ImageToggleButton : public BaseToggleButton

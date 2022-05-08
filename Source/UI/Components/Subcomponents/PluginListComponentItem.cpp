@@ -32,17 +32,17 @@ namespace Manifold
         void PluginListComponentItem::mouseUp(MANIFOLD_UNUSED const juce::MouseEvent& ev)
         {
             m_vstContextMenu.clear();
-            std::unordered_map<std::string, std::string>& vsts = GET_ENGINE->getVstList();
-            for (auto it = vsts.begin(); it != vsts.end(); it++) {
-                std::string currentKey = it->first;
-                std::function<void()> callback = [currentKey, this] {
-                    GET_ENGINE->loadVst(m_channelId, m_slotIndex, currentKey);
-                    m_readout.setText(currentKey, juce::dontSendNotification);
-                };
-                m_vstContextMenu.addItem(it->first, callback);
-                
-            }
-            m_vstContextMenu.showMenuAsync(juce::PopupMenu::Options());
+            juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
+            std::function<void(int)> userCallback = [this](int result) {
+                juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
+                juce::Array<juce::PluginDescription> descriptions =  vstList.getTypes();
+                MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(descriptions, result);
+                if (chosenIndex == -1) { return; }
+                m_readout.setText(descriptions[chosenIndex].name, juce::dontSendNotification);
+            };
+            
+            vstList.addToMenu(m_vstContextMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);
+            m_vstContextMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
         }
 
         void PluginListComponentItem::paint(juce::Graphics& g)

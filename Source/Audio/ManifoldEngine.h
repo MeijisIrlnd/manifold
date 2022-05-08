@@ -63,16 +63,19 @@ namespace Manifold
             MANIFOLD_INLINE UIListener* getUIListener() { return &m_uiListener; }
             MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
-            std::unordered_map<std::string, std::string>& getVstList() { return m_vsts; }
-
+            MANIFOLD_INLINE juce::KnownPluginList& getVstList() { return m_vsts; }
+            MANIFOLD_INLINE const juce::OwnedArray<juce::PluginDescription>& getVstDescriptions() { return m_vstDescriptions; }
             void createChannel(CHANNEL_TYPE t);
             void deleteChannel(InternalChannel* toDelete);
 
-            void loadVst(const int channelId, const int slot, const std::string& key);
+            void loadVst(const int channelId, const int slot, int selectedIndex);
         private: 
             static std::unique_ptr<ManifoldEngine> m_instance;
             static std::mutex m_mutex;
-            std::unordered_map<std::string, std::string> m_vsts;
+            //std::unordered_map<std::string, std::string> m_vsts;
+            juce::AudioPluginFormatManager m_pluginFormatManager;
+            juce::OwnedArray<juce::PluginDescription> m_vstDescriptions;
+            juce::KnownPluginList m_vsts;
             juce::AudioDeviceManager m_deviceManager;
             juce::AudioProcessorPlayer m_player;
             PositionTracker m_positionTracker;
@@ -85,6 +88,7 @@ namespace Manifold
             std::unordered_map<int, std::unique_ptr<InternalChannel> > m_channelList;
             unsigned int m_nextAvailableId = 0;
             std::vector<EngineListener*> m_listeners;
+            
         };
     }
 }

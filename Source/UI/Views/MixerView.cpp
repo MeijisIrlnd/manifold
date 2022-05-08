@@ -27,7 +27,14 @@ namespace Manifold
 
         void MixerView::onChannelCreated(Manifold::Audio::InternalChannel* newChannel)
         {
-            std::unique_ptr<MixerChannel> current(new MixerChannel(newChannel));
+            std::unique_ptr<MixerChannel> current;
+            if (newChannel->getChannelType() == AUDIO_CHANNEL) {
+                current.reset(dynamic_cast<MixerChannel*>(new AudioMixerChannel(newChannel)));
+            }
+            else {
+                current.reset(dynamic_cast<MixerChannel*>(new MidiMixerChannel(newChannel)));
+            }
+
             m_mixerChannels.push_back(std::move(current));
             addAndMakeVisible(m_mixerChannels.back().get());
             resized();

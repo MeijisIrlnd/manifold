@@ -16,8 +16,15 @@ namespace Manifold
     {
         namespace Primitives
         {
+            ImageButton::ImageButton(const char* image, const int imageSize)
+            {
+                m_image = juce::ImageCache::getFromMemory(image, imageSize);
+            }
+
             void ImageButton::paint(MANIFOLD_UNUSED juce::Graphics& g)
             {
+                juce::Rectangle<float> bounds(0, 0, static_cast<float>(getWidth()), static_cast<float>(getHeight()));
+                g.drawImage(m_image, bounds);
             }
 
             void ImageButton::resized()

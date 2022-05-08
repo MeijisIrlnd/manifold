@@ -6,10 +6,20 @@
   <MAINGROUP id="xOly6w" name="manifold">
     <GROUP id="{47D65248-4DA2-18DA-4CE5-47411DD21DD3}" name="Resources">
       <GROUP id="{37E9A2FE-398E-8416-54AB-40DDF1DF61C7}" name="Assets">
+        <FILE id="AorWwc" name="InputMonitorOff.png" compile="0" resource="1"
+              file="Resources/Assets/InputMonitorOff.png"/>
+        <FILE id="GY14gd" name="InputMonitorOn.png" compile="0" resource="1"
+              file="Resources/Assets/InputMonitorOn.png"/>
+        <FILE id="A35Rit" name="InstrumentSelect.png" compile="0" resource="1"
+              file="Resources/Assets/InstrumentSelect.png"/>
         <FILE id="Qpqwse" name="MixerHandle.png" compile="0" resource="1" file="Resources/Assets/MixerHandle.png"/>
         <FILE id="AEegdT" name="MuteOff.png" compile="0" resource="1" file="Resources/Assets/MuteOff.png"/>
         <FILE id="uuYNUD" name="MuteOn.png" compile="0" resource="1" file="Resources/Assets/MuteOn.png"/>
         <FILE id="TWcKZO" name="PanText.png" compile="0" resource="1" file="Resources/Assets/PanText.png"/>
+        <FILE id="lRZd9P" name="RecordEnableOff.png" compile="0" resource="1"
+              file="Resources/Assets/RecordEnableOff.png"/>
+        <FILE id="nJxb4t" name="RecordEnableOn.png" compile="0" resource="1"
+              file="Resources/Assets/RecordEnableOn.png"/>
         <FILE id="NXxAE1" name="RotaryHandle.png" compile="0" resource="1"
               file="Resources/Assets/RotaryHandle.png"/>
         <FILE id="r2zv2p" name="SoloOff.png" compile="0" resource="1" file="Resources/Assets/SoloOff.png"/>
@@ -58,6 +68,10 @@
       </GROUP>
       <GROUP id="{934BA6EB-E9D4-000D-8619-C49FE6B97D4E}" name="Audio">
         <GROUP id="{1A9F701E-6DA6-FFA4-6D96-973B6F315F4A}" name="Core">
+          <FILE id="Kay0i8" name="AudioChannelProcessor.cpp" compile="1" resource="0"
+                file="Source/Audio/Core/AudioChannelProcessor.cpp"/>
+          <FILE id="bjXH96" name="AudioChannelProcessor.h" compile="0" resource="0"
+                file="Source/Audio/Core/AudioChannelProcessor.h"/>
           <FILE id="U7Nt8g" name="AudioDriver.cpp" compile="1" resource="0" file="Source/Audio/Core/AudioDriver.cpp"/>
           <FILE id="hH3Kza" name="AudioDriver.h" compile="0" resource="0" file="Source/Audio/Core/AudioDriver.h"/>
           <FILE id="xVMrWU" name="PositionTracker.cpp" compile="1" resource="0"
@@ -126,10 +140,18 @@
             <FILE id="VVKSh0" name="PluginListComponentItem.h" compile="0" resource="0"
                   file="Source/UI/Components/Subcomponents/PluginListComponentItem.h"/>
           </GROUP>
+          <FILE id="A9FDOZ" name="AudioMixerChannel.cpp" compile="1" resource="0"
+                file="Source/UI/Components/AudioMixerChannel.cpp"/>
+          <FILE id="nhduIG" name="AudioMixerChannel.h" compile="0" resource="0"
+                file="Source/UI/Components/AudioMixerChannel.h"/>
           <FILE id="WhDcMu" name="ChannelListComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/ChannelListComponent.cpp"/>
           <FILE id="B21OGa" name="ChannelListComponent.h" compile="0" resource="0"
                 file="Source/UI/Components/ChannelListComponent.h"/>
+          <FILE id="KlRMUW" name="MidiMixerChannel.cpp" compile="1" resource="0"
+                file="Source/UI/Components/MidiMixerChannel.cpp"/>
+          <FILE id="KDNnDh" name="MidiMixerChannel.h" compile="0" resource="0"
+                file="Source/UI/Components/MidiMixerChannel.h"/>
           <FILE id="sYZgQ6" name="MixerChannel.cpp" compile="1" resource="0"
                 file="Source/UI/Components/MixerChannel.cpp"/>
           <FILE id="ncw2N2" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/MixerChannel.h"/>
@@ -155,7 +177,7 @@
       <FILE id="DwP8cs" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
-  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_PLUGINHOST_VST="1" JUCE_PLUGINHOST_VST3="1"/>
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
