@@ -28,7 +28,7 @@ namespace Manifold
             m_volumeSlider.setValue(associatedChannel->getVolume(), juce::dontSendNotification);
             m_volumeSlider.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
             addAndMakeVisible(&m_volumeSlider);
-            m_volumeSlider.onValueChange = [this] { DBG(m_volumeSlider.getValue()); };
+            m_volumeSlider.onValueChange = [this] {m_channel->setVolume(m_volumeSlider.getValue()); };
 
             m_panSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
             m_panSlider.setRange(0, 1, 0.01);

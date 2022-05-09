@@ -40,7 +40,7 @@ namespace Manifold
                     MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(descriptions, result);
                     if (chosenIndex == -1) { return; }
                     m_readout.setText(descriptions[chosenIndex].name, juce::dontSendNotification);
-                    GET_ENGINE->loadVst(m_channelId, m_slotIndex, chosenIndex);
+                    GET_ENGINE->loadPlugin(m_channelId, m_slotIndex, chosenIndex);
                 };
 
                 vstList.addToMenu(m_vstContextMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);

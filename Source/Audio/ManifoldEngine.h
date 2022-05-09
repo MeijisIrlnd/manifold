@@ -72,7 +72,7 @@ namespace Manifold
             void createChannel(CHANNEL_TYPE t);
             void deleteChannel(InternalChannel* toDelete);
 
-            void loadVst(const int channelId, const int slot, int selectedIndex);
+            void loadPlugin(const int channelId, const int slot, int selectedIndex);
             void createEditorForPlugin(const int channelId, const int slot);
         private: 
             static std::unique_ptr<ManifoldEngine> m_instance;

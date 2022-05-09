@@ -140,7 +140,7 @@ namespace Manifold
 
         }
 
-        void ManifoldEngine::loadVst(MANIFOLD_UNUSED const int channelId, MANIFOLD_UNUSED const int slot, int selectedIndex)
+        void ManifoldEngine::loadPlugin(MANIFOLD_UNUSED const int channelId, MANIFOLD_UNUSED const int slot, int selectedIndex)
         {
             auto desc = m_vsts.getTypes()[selectedIndex];
             auto sr = m_deviceManager.getAudioDeviceSetup().sampleRate;
