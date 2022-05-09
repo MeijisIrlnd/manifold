@@ -97,8 +97,9 @@ namespace Manifold
             }
         }
 
-        void ManifoldEngine::createChannel(CHANNEL_TYPE t)
+        void ManifoldEngine::createChannel(CHANNEL_TYPE t, int sourcePluginIndex)
         {
+            bool channelCreated = false;
             int currentId = m_nextAvailableId;
             std::string currentChannelName = "Channel " + std::to_string(currentId);
             ++m_nextAvailableId;
@@ -121,16 +122,37 @@ namespace Manifold
                 std::vector<juce::AudioPluginInstance*> temp{8};
                 m_channelInserts.emplace(current->getId(), std::move(temp));
                 connectAudioNodes(2);
+                channelCreated = true;
             }
             else {
+                if (sourcePluginIndex != -1) {
+                    std::unique_ptr<MidiChannelProcessor> currentProcessor(new MidiChannelProcessor(current));
+                    Node::Ptr handle = m_graph.addNode(std::move(currentProcessor));
 
+                    m_channelNodes.emplace(std::make_pair(current->getId(), handle));
+                    auto desc = m_vsts.getTypes()[sourcePluginIndex];
+                    auto sr = m_deviceManager.getAudioDeviceSetup().sampleRate;
+                    auto bufferSize = m_deviceManager.getAudioDeviceSetup().bufferSize;
+                    std::function<void(std::unique_ptr<juce::AudioPluginInstance>, const juce::String&)> loadedCallback =
+                        [this, handle](std::unique_ptr<juce::AudioPluginInstance> instance, MANIFOLD_UNUSED const juce::String& errorMessage)
+                    {
+                        MidiChannelProcessor* proc = dynamic_cast<MidiChannelProcessor*>(handle->getProcessor());
+
+                        proc->loadSourcePlugin(std::move(instance));
+
+                    };
+                    m_pluginFormatManager.createPluginInstanceAsync(desc, sr, bufferSize, loadedCallback);
+                    channelCreated = true;
+                }
             }
 
-            for (auto& l : m_listeners) {
-                if (l != nullptr) {
-                    l->onChannelCreated(current);
+            if (channelCreated) {
+                for (auto& l : m_listeners) {
+                    if (l != nullptr) {
+                        l->onChannelCreated(current);
+                    }
                 }
-            }   
+            }
         }
         void ManifoldEngine::deleteChannel(InternalChannel* toDelete)
         {

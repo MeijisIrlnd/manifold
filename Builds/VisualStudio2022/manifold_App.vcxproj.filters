@@ -535,6 +535,9 @@
     <ClCompile Include="..\..\Source\Audio\Core\BaseChannelProcessor.cpp">
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Audio\Core\MidiChannelProcessor.cpp">
+      <Filter>manifold\Source\Audio\Core</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp">
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClCompile>
@@ -2857,6 +2860,9 @@
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Audio\Core\BaseChannelProcessor.h">
+      <Filter>manifold\Source\Audio\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Audio\Core\MidiChannelProcessor.h">
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Audio\Core\PositionTracker.h">

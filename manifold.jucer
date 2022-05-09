@@ -78,6 +78,10 @@
                 file="Source/Audio/Core/BaseChannelProcessor.cpp"/>
           <FILE id="XPIR1H" name="BaseChannelProcessor.h" compile="0" resource="0"
                 file="Source/Audio/Core/BaseChannelProcessor.h"/>
+          <FILE id="vj2LMg" name="MidiChannelProcessor.cpp" compile="1" resource="0"
+                file="Source/Audio/Core/MidiChannelProcessor.cpp"/>
+          <FILE id="fzYD5b" name="MidiChannelProcessor.h" compile="0" resource="0"
+                file="Source/Audio/Core/MidiChannelProcessor.h"/>
           <FILE id="xVMrWU" name="PositionTracker.cpp" compile="1" resource="0"
                 file="Source/Audio/Core/PositionTracker.cpp"/>
           <FILE id="aTAolk" name="PositionTracker.h" compile="0" resource="0"

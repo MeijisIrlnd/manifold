@@ -15,6 +15,7 @@
 #include "Core/PositionTracker.h"
 #include "Core/AudioDriver.h"
 #include "Core/AudioChannelProcessor.h"
+#include "Core/MidiChannelProcessor.h"
 #include "../Types/Channel/Channel.h"
 #include "../Settings/Pathing.h"
 using Graph = juce::AudioProcessorGraph;
@@ -69,7 +70,7 @@ namespace Manifold
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
             MANIFOLD_INLINE juce::KnownPluginList& getVstList() { return m_vsts; }
             MANIFOLD_INLINE const juce::OwnedArray<juce::PluginDescription>& getVstDescriptions() { return m_vstDescriptions; }
-            void createChannel(CHANNEL_TYPE t);
+            void createChannel(CHANNEL_TYPE t, int sourcePluginInstrument = -1);
             void deleteChannel(InternalChannel* toDelete);
 
             void loadPlugin(const int channelId, const int slot, int selectedIndex);
