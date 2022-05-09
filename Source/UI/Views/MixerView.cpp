@@ -14,7 +14,8 @@ namespace Manifold
 {
     namespace UI
     {
-        MixerView::MixerView()
+        MixerView::MixerView(int& mixerChannelWidth) : 
+            m_mixerChannelWidth(mixerChannelWidth)
         {
             setLookAndFeel(&m_lf);
             GET_ENGINE->addListener(this);
@@ -51,7 +52,7 @@ namespace Manifold
         void MixerView::resized()
         {
             for (auto i = 0; i < m_mixerChannels.size(); i++) {
-                m_mixerChannels[i]->setBounds((getWidth() / 16) * i, 0, getWidth() / 16, getHeight());
+                m_mixerChannels[i]->setBounds((m_mixerChannelWidth) * i, 0, m_mixerChannelWidth, getHeight());
             }
         }
     }

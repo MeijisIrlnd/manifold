@@ -22,6 +22,8 @@
               file="Resources/Assets/RecordEnableOn.png"/>
         <FILE id="NXxAE1" name="RotaryHandle.png" compile="0" resource="1"
               file="Resources/Assets/RotaryHandle.png"/>
+        <FILE id="CNKeES" name="ScrollbarThumb.png" compile="0" resource="1"
+              file="Resources/Assets/ScrollbarThumb.png"/>
         <FILE id="r2zv2p" name="SoloOff.png" compile="0" resource="1" file="Resources/Assets/SoloOff.png"/>
         <FILE id="J0EYn1" name="SoloOn.png" compile="0" resource="1" file="Resources/Assets/SoloOn.png"/>
         <FILE id="JTItsU" name="VSTSlotBackground.png" compile="0" resource="1"
@@ -97,8 +99,9 @@
         <GROUP id="{87E51708-A8FC-7FA7-7C8D-6128A1BDA57E}" name="LookAndFeel">
           <FILE id="TThajx" name="MixerLF.cpp" compile="1" resource="0" file="Source/UI/LookAndFeel/MixerLF.cpp"/>
           <FILE id="jNWD7O" name="MixerLF.h" compile="0" resource="0" file="Source/UI/LookAndFeel/MixerLF.h"/>
+          <FILE id="uHB43V" name="OverallLF.cpp" compile="1" resource="0" file="Source/UI/LookAndFeel/OverallLF.cpp"/>
+          <FILE id="Xhs31c" name="OverallLF.h" compile="0" resource="0" file="Source/UI/LookAndFeel/OverallLF.h"/>
         </GROUP>
-        <FILE id="tfI523" name="OverallLF.h" compile="0" resource="0" file="Source/UI/OverallLF.h"/>
         <FILE id="NUobgk" name="ViewListener.h" compile="0" resource="0" file="Source/UI/ViewListener.h"/>
         <GROUP id="{79961554-AA8F-324E-E38F-6FB1F6AB714E}" name="Views">
           <FILE id="ecyeq3" name="ArrangementView.cpp" compile="1" resource="0"

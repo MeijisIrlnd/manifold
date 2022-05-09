@@ -38,6 +38,9 @@ namespace BinaryData
     extern const char*   RotaryHandle_png;
     const int            RotaryHandle_pngSize = 1147;
 
+    extern const char*   ScrollbarThumb_png;
+    const int            ScrollbarThumb_pngSize = 7170;
+
     extern const char*   SoloOff_png;
     const int            SoloOff_pngSize = 1458;
 
@@ -60,7 +63,7 @@ namespace BinaryData
     const int            Stop_svgSize = 1219;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 17;
+    const int namedResourceListSize = 18;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

@@ -14,6 +14,7 @@
 #include "../Components/AudioMixerChannel.h"
 #include "../Components/MidiMixerChannel.h"
 #include "../LookAndFeel/MixerLF.h"
+#include "../../Macros.h"
 namespace Manifold
 {
     namespace UI
@@ -22,13 +23,15 @@ namespace Manifold
             public Manifold::Audio::EngineListener
         {
         public: 
-            MixerView();
+            MixerView(int& mixerChannelWidth);
             ~MixerView() override;
+            MANIFOLD_INLINE const int getNumChannels() { return static_cast<int>(m_mixerChannels.size()); }
             void onChannelCreated(Manifold::Audio::InternalChannel* newChannel) override;
             void onChannelDeleted(Manifold::Audio::InternalChannel* toDelete) override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private: 
+            int& m_mixerChannelWidth;
             MixerLF m_lf;
             std::vector<std::unique_ptr<MixerChannel> > m_mixerChannels;
         };

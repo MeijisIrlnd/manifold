@@ -547,6 +547,9 @@
     <ClCompile Include="..\..\Source\UI\LookAndFeel\MixerLF.cpp">
       <Filter>manifold\Source\UI\LookAndFeel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\LookAndFeel\OverallLF.cpp">
+      <Filter>manifold\Source\UI\LookAndFeel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Views\ArrangementView.cpp">
       <Filter>manifold\Source\UI\Views</Filter>
     </ClCompile>
@@ -2877,8 +2880,8 @@
     <ClInclude Include="..\..\Source\UI\LookAndFeel\MixerLF.h">
       <Filter>manifold\Source\UI\LookAndFeel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\OverallLF.h">
-      <Filter>manifold\Source\UI</Filter>
+    <ClInclude Include="..\..\Source\UI\LookAndFeel\OverallLF.h">
+      <Filter>manifold\Source\UI\LookAndFeel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\ViewListener.h">
       <Filter>manifold\Source\UI</Filter>
@@ -5511,6 +5514,9 @@
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\Assets\RotaryHandle.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\ScrollbarThumb.png">
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\Assets\SoloOff.png">

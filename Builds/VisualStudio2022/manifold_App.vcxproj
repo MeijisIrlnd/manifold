@@ -153,6 +153,7 @@
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp"/>
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp"/>
     <ClCompile Include="..\..\Source\UI\LookAndFeel\MixerLF.cpp"/>
+    <ClCompile Include="..\..\Source\UI\LookAndFeel\OverallLF.cpp"/>
     <ClCompile Include="..\..\Source\UI\Views\ArrangementView.cpp"/>
     <ClCompile Include="..\..\Source\UI\Views\MixerView.cpp"/>
     <ClCompile Include="..\..\Source\UI\Views\PlaylistView.cpp"/>
@@ -2253,7 +2254,7 @@
     <ClInclude Include="..\..\Source\Audio\Core\ProcessorBase.h"/>
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h"/>
     <ClInclude Include="..\..\Source\UI\LookAndFeel\MixerLF.h"/>
-    <ClInclude Include="..\..\Source\UI\OverallLF.h"/>
+    <ClInclude Include="..\..\Source\UI\LookAndFeel\OverallLF.h"/>
     <ClInclude Include="..\..\Source\UI\ViewListener.h"/>
     <ClInclude Include="..\..\Source\UI\Views\ArrangementView.h"/>
     <ClInclude Include="..\..\Source\UI\Views\MixerView.h"/>
@@ -3133,6 +3134,7 @@
     <None Include="..\..\Resources\Assets\RecordEnableOff.png"/>
     <None Include="..\..\Resources\Assets\RecordEnableOn.png"/>
     <None Include="..\..\Resources\Assets\RotaryHandle.png"/>
+    <None Include="..\..\Resources\Assets\ScrollbarThumb.png"/>
     <None Include="..\..\Resources\Assets\SoloOff.png"/>
     <None Include="..\..\Resources\Assets\SoloOn.png"/>
     <None Include="..\..\Resources\Assets\VSTSlotBackground.png"/>

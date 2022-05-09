@@ -16,6 +16,7 @@
 #include "Views/ArrangementView.h"
 #include "Views/MixerView.h"
 #include "Components/PluginWindowManager.h"
+#include "LookAndFeel/OverallLF.h"
 
 namespace Manifold
 {
@@ -34,9 +35,12 @@ namespace Manifold
         private: 
             TransportComponent m_transportComponent;
             ArrangementView m_arrangementView;
+            juce::Viewport m_mixerScrollbar;
+            int m_mixerChannelWidth{ 0 };
             MixerView m_mixerView;
             std::vector<std::shared_ptr<juce::AudioProcessorEditor> > pluginUIs;
             PluginWindowManager m_pluginWindowManager;
+            OverallLF m_overallLF;
         };
     }
 }
