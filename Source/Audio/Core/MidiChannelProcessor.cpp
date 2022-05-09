@@ -32,9 +32,9 @@ namespace Manifold
             {
                 if (m_pluginInstrument.get() != nullptr) {
                     m_pluginInstrument->processBlock(buffer, messages);
-                    for (auto& i : m_inserts) {
-                        if (i != nullptr) {
-                            i->processBlock(buffer, messages);
+                    for (auto i = 0; i < m_inserts.size(); i++) {
+                        if (m_inserts[i] != nullptr) {
+                            m_inserts[i]->processBlock(buffer, messages);
                         }
                     }
                     buffer.applyGain(static_cast<float>(m_associatedChannel->getVolume()));

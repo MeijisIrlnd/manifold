@@ -20,10 +20,15 @@ namespace Manifold
         ManifoldEngine::ManifoldEngine() : 
             m_tree(m_graph, nullptr, {"Params"}, { })
         {
+            auto inputDevice = juce::MidiInput::getDefaultDevice();
+            auto outputDevice = juce::MidiOutput::getDefaultDevice();
             m_pluginFormatManager.addDefaultFormats();
             m_graph.enableAllBuses();
             m_deviceManager.initialiseWithDefaultDevices(2, 2);
             m_deviceManager.addAudioCallback(&m_player);
+            m_deviceManager.setMidiInputDeviceEnabled(inputDevice.identifier, true);
+            m_deviceManager.addMidiInputDeviceCallback(inputDevice.identifier, &m_player);
+            m_deviceManager.setDefaultMidiOutputDevice(outputDevice.identifier);
             initialiseGraph();
             bindUICallbacks();
             m_player.setProcessor(&m_graph);
@@ -52,10 +57,13 @@ namespace Manifold
         void ManifoldEngine::initialiseGraph()
         {
             m_graph.clear();
+            m_midiInputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::midiInputNode));
+            m_midiOutputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::midiOutputNode));
             m_audioInputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::audioInputNode));
             m_audioDriver = m_graph.addNode(std::make_unique<AudioDriver>(m_positionTracker));
             m_audioOutputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::audioOutputNode));
             connectAudioNodes(2);
+            
         }
 
         void ManifoldEngine::bindUICallbacks()
@@ -128,7 +136,6 @@ namespace Manifold
                 if (sourcePluginIndex != -1) {
                     std::unique_ptr<MidiChannelProcessor> currentProcessor(new MidiChannelProcessor(current));
                     Node::Ptr handle = m_graph.addNode(std::move(currentProcessor));
-
                     m_channelNodes.emplace(std::make_pair(current->getId(), handle));
                     auto desc = m_vsts.getTypes()[sourcePluginIndex];
                     auto sr = m_deviceManager.getAudioDeviceSetup().sampleRate;
@@ -137,11 +144,12 @@ namespace Manifold
                         [this, handle](std::unique_ptr<juce::AudioPluginInstance> instance, MANIFOLD_UNUSED const juce::String& errorMessage)
                     {
                         MidiChannelProcessor* proc = dynamic_cast<MidiChannelProcessor*>(handle->getProcessor());
-
                         proc->loadSourcePlugin(std::move(instance));
 
                     };
                     m_pluginFormatManager.createPluginInstanceAsync(desc, sr, bufferSize, loadedCallback);
+                    connectAudioNodes(2);
+                    connectMidiNodes(2);
                     channelCreated = true;
                 }
             }

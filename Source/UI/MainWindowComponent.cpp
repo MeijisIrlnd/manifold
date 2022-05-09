@@ -47,7 +47,43 @@ namespace Manifold
         {
             if (key.isKeyCode(juce::KeyPress::tabKey)) {
                 m_mixerView.setVisible(!m_mixerView.isVisible());
+                m_mixerScrollbar.setVisible(!m_mixerScrollbar.isVisible());
                 m_arrangementView.setVisible(!m_arrangementView.isVisible());
+            }
+            else if (key.isKeyCode(78) && (key.getModifiers().isShiftDown() && key.getModifiers().isCtrlDown())) {
+                DBG("CTRL + SHIFT + N");
+                // Show context menu
+                juce::PopupMenu popup;
+                popup.addItem(1, "Create audio channel");
+                popup.addItem(2, "Create midi channel");
+                popup.showMenuAsync(juce::PopupMenu::Options(), [this](int res) {
+                    switch (res) {
+                    case 1:
+                    {
+                        GET_ENGINE->createChannel(AUDIO_CHANNEL);
+                        break;
+                    }
+                    case 2:
+                    {
+                        juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
+                        std::function<void(int)> userCallback = [this](int result) {
+                            juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
+                            juce::Array<juce::PluginDescription> descriptions = vstList.getTypes();
+                            MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(descriptions, result);
+                            if (chosenIndex == -1) { return; }
+                            GET_ENGINE->createChannel(MIDI_CHANNEL, chosenIndex);
+                        };
+                        juce::PopupMenu vstMenu;
+                        vstList.addToMenu(vstMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);
+                        vstMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+                    }
+                    });
             }
             return true;
         }

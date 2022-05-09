@@ -64,6 +64,18 @@ namespace Manifold
                     }
                 }
             }
+
+            MANIFOLD_INLINE void connectMidiNodes(int numChannels) {
+                for (auto channel = 0; channel < numChannels; channel++) {
+                    for (auto& c : m_channelNodes) {
+                        BaseChannelProcessor* current = dynamic_cast<BaseChannelProcessor*>(c.second->getProcessor());
+                        if (current->getType() == CHANNEL_TYPE::MIDI) {
+                            m_graph.addConnection({{ m_midiInputNode->nodeID, channel}, {c.second->nodeID, channel}});
+                            m_graph.addConnection({ {c.second->nodeID, channel}, {m_midiOutputNode->nodeID, channel} });
+                        }
+                    }
+                }
+            }
             
             MANIFOLD_INLINE UIListener* getUIListener() { return &m_uiListener; }
             MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
@@ -86,6 +98,8 @@ namespace Manifold
             juce::AudioProcessorPlayer m_player;
             PositionTracker m_positionTracker;
             Graph m_graph;
+            Node::Ptr m_midiInputNode;
+            Node::Ptr m_midiOutputNode;
             Node::Ptr m_audioInputNode;
             Node::Ptr m_audioOutputNode;
             Node::Ptr m_audioDriver;
