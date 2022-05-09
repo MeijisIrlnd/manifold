@@ -57,8 +57,10 @@ namespace Manifold
             MANIFOLD_INLINE void connectAudioNodes(int numChannels) {
                 
                 for (auto channel = 0; channel < numChannels; channel++) {
-                    m_graph.addConnection({ {m_audioInputNode->nodeID, channel}, {m_audioDriver->nodeID, channel}  });
-                    m_graph.addConnection({ { m_audioDriver->nodeID, channel}, {m_audioOutputNode->nodeID, channel} });
+                    for (auto& c : m_channelNodes) {
+                        m_graph.addConnection({ {m_audioInputNode->nodeID, channel}, {c.second->nodeID, channel} });
+                        m_graph.addConnection({ { c.second->nodeID, channel}, { m_audioOutputNode->nodeID, channel} });
+                    }
                 }
             }
             

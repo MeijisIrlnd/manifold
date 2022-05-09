@@ -120,6 +120,7 @@ namespace Manifold
                 m_channelNodes.emplace(std::make_pair(current->getId(), handle));
                 std::vector<juce::AudioPluginInstance*> temp{8};
                 m_channelInserts.emplace(current->getId(), std::move(temp));
+                connectAudioNodes(2);
             }
             else {
 

@@ -34,14 +34,6 @@ namespace Manifold
         void MainWindowComponent::onPluginUIOpened(juce::AudioProcessor* processor)
         {
             m_pluginWindowManager.addWindow(processor);
-            //auto bc = createdEditor->getConstrainer();
-            //createdEditor->setBounds(0, 0, bc->getMinimumWidth(), bc->getMinimumHeight());
-            //createdEditor->setSize(200, 200);
-            //addAndMakeVisible(createdEditor.get());
-            //juce::DialogWindow::LaunchOptions opts;
-            //opts.content = juce::OptionalScopedPointer<juce::Component>(dynamic_cast<juce::Component*>(createdEditor.get()), false);
-            //opts.dialogTitle = "Test";
-            //MANIFOLD_UNUSED juce::DialogWindow* res = opts.launchAsync();
         }
 
         bool MainWindowComponent::keyPressed(const juce::KeyPress& key, MANIFOLD_UNUSED juce::Component* fromComponent)

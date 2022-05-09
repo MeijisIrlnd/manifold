@@ -26,9 +26,15 @@ namespace Manifold
             void AudioChannelProcessor::prepareToPlay(double sampleRate, MANIFOLD_UNUSED int samplesPerBlockExpected)
             {
                 m_sampleRate = sampleRate;
+                m_samplesPerBlock = samplesPerBlockExpected;
             }
             void AudioChannelProcessor::processBlock(MANIFOLD_UNUSED juce::AudioSampleBuffer& buffer, MANIFOLD_UNUSED juce::MidiBuffer& messages)
             {
+                for (auto& i : m_inserts) {
+                    if (i != nullptr) {
+                        i->processBlock(buffer, messages);
+                    }
+                }
             }
             void AudioChannelProcessor::releaseResources()
             {
