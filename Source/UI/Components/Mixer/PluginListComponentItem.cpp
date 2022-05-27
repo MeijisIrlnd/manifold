@@ -34,6 +34,7 @@ namespace Manifold
             if (ev.mods.isRightButtonDown()) {
                 m_vstContextMenu.clear();
                 juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
+                
                 std::function<void(int)> userCallback = [this](int result) {
                     juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
                     juce::Array<juce::PluginDescription> descriptions = vstList.getTypes();
@@ -42,7 +43,7 @@ namespace Manifold
                     m_readout.setText(descriptions[chosenIndex].name, juce::dontSendNotification);
                     GET_ENGINE->loadPlugin(m_channelId, m_slotIndex, chosenIndex);
                 };
-
+                
                 vstList.addToMenu(m_vstContextMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);
                 m_vstContextMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
             }

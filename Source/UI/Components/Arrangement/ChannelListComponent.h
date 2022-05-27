@@ -10,8 +10,8 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "../../Audio/ManifoldEngine.h"
-#include "Subcomponents/ChannelListItem.h"
+#include "../../../Audio/ManifoldEngine.h"
+#include "ChannelListItem.h"
 using namespace Manifold::UI::Components;
 namespace Manifold
 {

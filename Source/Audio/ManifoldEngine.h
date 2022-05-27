@@ -16,7 +16,7 @@
 #include "Core/AudioDriver.h"
 #include "Core/AudioChannelProcessor.h"
 #include "Core/MidiChannelProcessor.h"
-#include "../UI/Components/WindowManager.h"
+#include "../UI/Components/Windows/WindowManager.h"
 #include "../Types/Channel/Channel.h"
 #include "../Settings/Pathing.h"
 #include <LeakBacktracer.h>

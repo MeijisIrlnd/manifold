@@ -10,7 +10,7 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "../Components/PlayheadPositioner.h"
+#include "../Components/Arrangement/PlayheadPositioner.h"
 #include "../ViewListener.h"
 #include <algorithm>
 namespace Manifold

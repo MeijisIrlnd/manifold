@@ -10,7 +10,7 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "../../Macros.h"
+#include "../../../Macros.h"
 #include "BaseWindow.h"
 namespace Manifold
 {

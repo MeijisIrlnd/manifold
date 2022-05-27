@@ -128,72 +128,78 @@
           <FILE id="JXijWR" name="SVGButton.h" compile="0" resource="0" file="Source/UI/Primitives/SVGButton.h"/>
         </GROUP>
         <GROUP id="{9CB32F7C-4716-309C-7CA7-5B390BBBCAEE}" name="Components">
-          <FILE id="BJuwb4" name="WindowListener.cpp" compile="1" resource="0"
-                file="Source/UI/Components/WindowListener.cpp"/>
-          <FILE id="biD73v" name="WindowListener.h" compile="0" resource="0"
-                file="Source/UI/Components/WindowListener.h"/>
-          <FILE id="dXjlUq" name="BaseWindow.h" compile="0" resource="0" file="Source/UI/Components/BaseWindow.h"/>
-          <GROUP id="{1C677276-C059-B016-C127-A707FC01338E}" name="Subcomponents">
-            <FILE id="OrQZ0z" name="BasePluginListComponent.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Subcomponents/BasePluginListComponent.cpp"/>
-            <FILE id="y4bhrZ" name="BasePluginListComponent.h" compile="0" resource="0"
-                  file="Source/UI/Components/Subcomponents/BasePluginListComponent.h"/>
-            <FILE id="qYLt4y" name="ChannelListItem.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Subcomponents/ChannelListItem.cpp"/>
-            <FILE id="ssITVN" name="ChannelListItem.h" compile="0" resource="0"
-                  file="Source/UI/Components/Subcomponents/ChannelListItem.h"/>
-            <FILE id="ffNgTk" name="ColourPicker.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Subcomponents/ColourPicker.cpp"/>
-            <FILE id="fMLUuF" name="ColourPicker.h" compile="0" resource="0" file="Source/UI/Components/Subcomponents/ColourPicker.h"/>
-            <FILE id="gf5PYa" name="ColourPickerMenuItem.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Subcomponents/ColourPickerMenuItem.cpp"/>
-            <FILE id="Nz50jU" name="ColourPickerMenuItem.h" compile="0" resource="0"
-                  file="Source/UI/Components/Subcomponents/ColourPickerMenuItem.h"/>
-            <FILE id="Q5vKs0" name="InsertPluginList.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Subcomponents/InsertPluginList.cpp"/>
-            <FILE id="C4zegC" name="InsertPluginList.h" compile="0" resource="0"
-                  file="Source/UI/Components/Subcomponents/InsertPluginList.h"/>
-            <FILE id="hqkRjj" name="PluginListComponentItem.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Subcomponents/PluginListComponentItem.cpp"/>
-            <FILE id="VVKSh0" name="PluginListComponentItem.h" compile="0" resource="0"
-                  file="Source/UI/Components/Subcomponents/PluginListComponentItem.h"/>
+          <GROUP id="{4A87FDCD-B52D-48F6-6936-0E7C01F09832}" name="Arrangement">
+            <FILE id="fCeBI9" name="ChannelListComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/ChannelListComponent.cpp"/>
+            <FILE id="QnMqle" name="ChannelListComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/ChannelListComponent.h"/>
+            <FILE id="GhsN2s" name="ChannelListItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/ChannelListItem.cpp"/>
+            <FILE id="Rv3s8G" name="ChannelListItem.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/ChannelListItem.h"/>
+            <FILE id="J09vE9" name="PlayheadPositioner.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/PlayheadPositioner.cpp"/>
+            <FILE id="hfdPf3" name="PlayheadPositioner.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/PlayheadPositioner.h"/>
+            <FILE id="KOcezf" name="TimestripComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/TimestripComponent.cpp"/>
+            <FILE id="iRM1Ps" name="TimestripComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/TimestripComponent.h"/>
           </GROUP>
-          <FILE id="A9FDOZ" name="AudioMixerChannel.cpp" compile="1" resource="0"
-                file="Source/UI/Components/AudioMixerChannel.cpp"/>
-          <FILE id="nhduIG" name="AudioMixerChannel.h" compile="0" resource="0"
-                file="Source/UI/Components/AudioMixerChannel.h"/>
-          <FILE id="WhDcMu" name="ChannelListComponent.cpp" compile="1" resource="0"
-                file="Source/UI/Components/ChannelListComponent.cpp"/>
-          <FILE id="B21OGa" name="ChannelListComponent.h" compile="0" resource="0"
-                file="Source/UI/Components/ChannelListComponent.h"/>
-          <FILE id="KlRMUW" name="MidiMixerChannel.cpp" compile="1" resource="0"
-                file="Source/UI/Components/MidiMixerChannel.cpp"/>
-          <FILE id="KDNnDh" name="MidiMixerChannel.h" compile="0" resource="0"
-                file="Source/UI/Components/MidiMixerChannel.h"/>
-          <FILE id="sYZgQ6" name="MixerChannel.cpp" compile="1" resource="0"
-                file="Source/UI/Components/MixerChannel.cpp"/>
-          <FILE id="ncw2N2" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/MixerChannel.h"/>
-          <FILE id="REy8oC" name="PlayheadPositioner.cpp" compile="1" resource="0"
-                file="Source/UI/Components/PlayheadPositioner.cpp"/>
-          <FILE id="jY0PEB" name="PlayheadPositioner.h" compile="0" resource="0"
-                file="Source/UI/Components/PlayheadPositioner.h"/>
-          <FILE id="myJ7fa" name="PluginContainerWindow.cpp" compile="1" resource="0"
-                file="Source/UI/Components/PluginContainerWindow.cpp"/>
-          <FILE id="sIf6Nu" name="PluginContainerWindow.h" compile="0" resource="0"
-                file="Source/UI/Components/PluginContainerWindow.h"/>
-          <FILE id="uFd00B" name="WindowManager.cpp" compile="1" resource="0"
-                file="Source/UI/Components/WindowManager.cpp"/>
-          <FILE id="qLfaA4" name="WindowManager.h" compile="0" resource="0" file="Source/UI/Components/WindowManager.h"/>
-          <FILE id="hw890d" name="SettingsWindow.cpp" compile="1" resource="0"
-                file="Source/UI/Components/SettingsWindow.cpp"/>
-          <FILE id="qe6q9F" name="SettingsWindow.h" compile="0" resource="0"
-                file="Source/UI/Components/SettingsWindow.h"/>
-          <FILE id="Bm2D6M" name="TimestripComponent.cpp" compile="1" resource="0"
-                file="Source/UI/Components/TimestripComponent.cpp"/>
-          <FILE id="QWAIvG" name="TimestripComponent.h" compile="0" resource="0"
-                file="Source/UI/Components/TimestripComponent.h"/>
-          <FILE id="ujVEhV" name="TopMenuBar.cpp" compile="1" resource="0" file="Source/UI/Components/TopMenuBar.cpp"/>
-          <FILE id="qNACAo" name="TopMenuBar.h" compile="0" resource="0" file="Source/UI/Components/TopMenuBar.h"/>
+          <GROUP id="{8697A220-B83F-AFA1-C3B3-1B14AEB4F446}" name="MenuBar">
+            <FILE id="oEkvL1" name="TopMenuBar.cpp" compile="1" resource="0" file="Source/UI/Components/MenuBar/TopMenuBar.cpp"/>
+            <FILE id="jtheyQ" name="TopMenuBar.h" compile="0" resource="0" file="Source/UI/Components/MenuBar/TopMenuBar.h"/>
+          </GROUP>
+          <GROUP id="{E9A90861-8549-6B64-0EF9-1AF166B3AA3D}" name="Mixer">
+            <FILE id="ZzIlYz" name="AudioMixerChannel.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/AudioMixerChannel.cpp"/>
+            <FILE id="ldONxV" name="AudioMixerChannel.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/AudioMixerChannel.h"/>
+            <FILE id="BAdAKJ" name="BasePluginListComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/BasePluginListComponent.cpp"/>
+            <FILE id="ANWhNr" name="BasePluginListComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/BasePluginListComponent.h"/>
+            <FILE id="YgLJN0" name="ColourPicker.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/ColourPicker.cpp"/>
+            <FILE id="VeCokY" name="ColourPicker.h" compile="0" resource="0" file="Source/UI/Components/Mixer/ColourPicker.h"/>
+            <FILE id="b2CbUq" name="ColourPickerMenuItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/ColourPickerMenuItem.cpp"/>
+            <FILE id="GobNrb" name="ColourPickerMenuItem.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/ColourPickerMenuItem.h"/>
+            <FILE id="T764RE" name="InsertPluginList.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/InsertPluginList.cpp"/>
+            <FILE id="Q9dYuy" name="InsertPluginList.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/InsertPluginList.h"/>
+            <FILE id="Qb6LYe" name="MidiMixerChannel.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/MidiMixerChannel.cpp"/>
+            <FILE id="zwtiVW" name="MidiMixerChannel.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/MidiMixerChannel.h"/>
+            <FILE id="qBFcAJ" name="MixerChannel.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/MixerChannel.cpp"/>
+            <FILE id="Rb0oS5" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/Mixer/MixerChannel.h"/>
+            <FILE id="L6ro7K" name="PluginListComponentItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/PluginListComponentItem.cpp"/>
+            <FILE id="MMhmXh" name="PluginListComponentItem.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/PluginListComponentItem.h"/>
+          </GROUP>
+          <GROUP id="{8398E3ED-EAAA-BE19-83A5-3F83F435633B}" name="Windows">
+            <FILE id="dDzG5U" name="BaseWindow.h" compile="0" resource="0" file="Source/UI/Components/Windows/BaseWindow.h"/>
+            <FILE id="y1dBLy" name="PluginContainerWindow.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Windows/PluginContainerWindow.cpp"/>
+            <FILE id="w534V1" name="PluginContainerWindow.h" compile="0" resource="0"
+                  file="Source/UI/Components/Windows/PluginContainerWindow.h"/>
+            <FILE id="EzmDsB" name="SettingsWindow.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Windows/SettingsWindow.cpp"/>
+            <FILE id="UmwVt7" name="SettingsWindow.h" compile="0" resource="0"
+                  file="Source/UI/Components/Windows/SettingsWindow.h"/>
+            <FILE id="sJOauR" name="WindowListener.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Windows/WindowListener.cpp"/>
+            <FILE id="V84gnP" name="WindowListener.h" compile="0" resource="0"
+                  file="Source/UI/Components/Windows/WindowListener.h"/>
+            <FILE id="IZKwxN" name="WindowManager.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Windows/WindowManager.cpp"/>
+            <FILE id="dC3aNd" name="WindowManager.h" compile="0" resource="0" file="Source/UI/Components/Windows/WindowManager.h"/>
+          </GROUP>
           <FILE id="i7Jsfx" name="TransportComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/TransportComponent.cpp"/>
           <FILE id="BjBCLW" name="TransportComponent.h" compile="0" resource="0"

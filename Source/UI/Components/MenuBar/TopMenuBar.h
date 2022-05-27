@@ -10,9 +10,9 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "WindowManager.h"
-#include "../Primitives/LabelButton.h"
-#include "../Primitives/ImageButton.h"
+#include "../Windows/WindowManager.h"
+#include "../../Primitives/LabelButton.h"
+#include "../../Primitives/ImageButton.h"
 namespace Manifold
 {
     namespace UI

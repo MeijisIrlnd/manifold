@@ -10,11 +10,11 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "../../Types/Channel/InternalChannel.h"
-#include "../Primitives/ImageButton.h"
-#include "Subcomponents/ColourPicker.h"
-#include "../Primitives/ButtonListener.h"
-#include "Subcomponents/InsertPluginList.h"
+#include "../../../Types/Channel/InternalChannel.h"
+#include "../../Primitives/ImageButton.h"
+#include "ColourPicker.h"
+#include "../../Primitives/ButtonListener.h"
+#include "InsertPluginList.h"
 namespace Manifold
 {
     namespace UI

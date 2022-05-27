@@ -15,8 +15,8 @@
 #include "../Audio/ManifoldEngine.h"
 #include "Views/ArrangementView.h"
 #include "Views/MixerView.h"
-#include "Components/WindowManager.h"
-#include "Components/TopMenuBar.h"
+#include "Components/Windows/WindowManager.h"
+#include "Components/MenuBar/TopMenuBar.h"
 #include "LookAndFeel/OverallLF.h"
 
 namespace Manifold

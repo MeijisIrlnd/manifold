@@ -11,7 +11,7 @@
 #pragma once
 #include <JuceHeader.h>
 #include "../../Audio/ManifoldEngine.h"
-#include "../Components/ChannelListComponent.h"
+#include "../Components/Arrangement/ChannelListComponent.h"
 #include "../../Audio/ManifoldEngine.h"
 #include "PlaylistView.h"
 #include "../../Types/ManifoldScrollbar.h"

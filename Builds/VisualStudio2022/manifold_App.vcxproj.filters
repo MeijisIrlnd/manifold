@@ -41,8 +41,17 @@
     <Filter Include="manifold\Source\UI\Primitives">
       <UniqueIdentifier>{E1F470AF-EB6B-3F61-CC06-BFABEC005BD7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="manifold\Source\UI\Components\Subcomponents">
-      <UniqueIdentifier>{60B19D21-921A-C5AC-796D-0396887F5C9F}</UniqueIdentifier>
+    <Filter Include="manifold\Source\UI\Components\Arrangement">
+      <UniqueIdentifier>{3521CAC3-47B7-AFDF-EE10-496AAD670DC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\UI\Components\MenuBar">
+      <UniqueIdentifier>{F5931460-B6C8-9419-5E29-EB966A214CEB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\UI\Components\Mixer">
+      <UniqueIdentifier>{16B12ECC-4AA4-E5F7-B963-A94EEAF3B6E7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\UI\Components\Windows">
+      <UniqueIdentifier>{B8A0FCBA-2E8D-0BF5-4FBE-091BA7752C43}</UniqueIdentifier>
     </Filter>
     <Filter Include="manifold\Source\UI\Components">
       <UniqueIdentifier>{D19D1DEC-78AD-C3A7-3642-092507985A01}</UniqueIdentifier>
@@ -571,56 +580,56 @@
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\WindowListener.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.cpp">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelListItem.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.cpp">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.cpp">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.cpp">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.cpp">
+      <Filter>manifold\Source\UI\Components\MenuBar</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.cpp">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\AudioMixerChannel.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.cpp">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\BasePluginListComponent.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\AudioMixerChannel.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\ColourPicker.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\ChannelListComponent.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\ColourPickerMenuItem.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\MidiMixerChannel.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\InsertPluginList.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\MixerChannel.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\PlayheadPositioner.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\MixerChannel.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\PluginContainerWindow.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\WindowManager.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.cpp">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\SettingsWindow.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Windows\SettingsWindow.cpp">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\TimestripComponent.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Windows\WindowListener.cpp">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\TopMenuBar.cpp">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClCompile Include="..\..\Source\UI\Components\Windows\WindowManager.cpp">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\TransportComponent.cpp">
       <Filter>manifold\Source\UI\Components</Filter>
@@ -2922,59 +2931,59 @@
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\WindowListener.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\BaseWindow.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelListItem.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.h">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ChannelListItem.h">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPicker.h">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.h">
+      <Filter>manifold\Source\UI\Components\MenuBar</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\ColourPickerMenuItem.h">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\AudioMixerChannel.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\InsertPluginList.h">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\BasePluginListComponent.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Subcomponents\PluginListComponentItem.h">
-      <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\ColourPicker.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\AudioMixerChannel.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\ColourPickerMenuItem.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\ChannelListComponent.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\InsertPluginList.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\MidiMixerChannel.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\MixerChannel.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\MixerChannel.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\PlayheadPositioner.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\PluginContainerWindow.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Windows\BaseWindow.h">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\WindowManager.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.h">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\SettingsWindow.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Windows\SettingsWindow.h">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\TimestripComponent.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Windows\WindowListener.h">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\TopMenuBar.h">
-      <Filter>manifold\Source\UI\Components</Filter>
+    <ClInclude Include="..\..\Source\UI\Components\Windows\WindowManager.h">
+      <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\TransportComponent.h">
       <Filter>manifold\Source\UI\Components</Filter>

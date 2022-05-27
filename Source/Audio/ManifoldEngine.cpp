@@ -42,6 +42,7 @@ namespace Manifold
 
         ManifoldEngine* ManifoldEngine::getInstance()
         {
+           
             std::lock_guard<std::mutex> lock(m_mutex);
             if (m_instance == nullptr) {
                 m_instance.reset(new ManifoldEngine);
