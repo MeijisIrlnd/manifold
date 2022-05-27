@@ -11,22 +11,16 @@
 #pragma once
 #include <JuceHeader.h>
 #include "../../Macros.h"
+#include "BaseWindow.h"
 namespace Manifold
 {
     namespace UI
     {
-        class PluginContainerWindow;
-        struct PluginContainerListener
-        {
-            virtual ~PluginContainerListener() {} 
-            virtual void onWindowClosed(MANIFOLD_UNUSED PluginContainerWindow* window) = 0;
-        };
-
-        class PluginContainerWindow : public juce::DocumentWindow
+        class PluginContainerWindow : public BaseWindow
         {
         public:
-            PluginContainerWindow(const juce::String& name, juce::AudioProcessor* audioProcessor);
-            MANIFOLD_INLINE void addListener(PluginContainerListener* newListener) { m_listener = newListener; }
+            PluginContainerWindow(const juce::String& name, juce::AudioProcessor* audioProcessor, WindowListener* listener);
+            
             MANIFOLD_INLINE void closeButtonPressed() { 
                 if (m_listener != nullptr) {
                     m_listener->onWindowClosed(this);
@@ -34,7 +28,6 @@ namespace Manifold
             }
         private: 
             std::unique_ptr<juce::AudioProcessorEditor> m_editor{ nullptr };
-            PluginContainerListener* m_listener{ nullptr };
         };
     }
 }

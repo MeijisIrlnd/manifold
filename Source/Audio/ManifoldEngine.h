@@ -18,6 +18,7 @@
 #include "Core/MidiChannelProcessor.h"
 #include "../Types/Channel/Channel.h"
 #include "../Settings/Pathing.h"
+#include <LeakBacktracer.h>
 using Graph = juce::AudioProcessorGraph;
 using Node = Graph::Node;
 using Tree = juce::AudioProcessorValueTreeState;
@@ -88,7 +89,6 @@ namespace Manifold
             void loadPlugin(const int channelId, const int slot, int selectedIndex);
             void createEditorForPlugin(const int channelId, const int slot);
         private: 
-            static std::unique_ptr<ManifoldEngine> m_instance;
             static std::mutex m_mutex;
             //std::unordered_map<std::string, std::string> m_vsts;
             juce::AudioPluginFormatManager m_pluginFormatManager;
@@ -110,7 +110,8 @@ namespace Manifold
             std::unordered_map<int, std::unique_ptr<InternalChannel> > m_channelList;
             unsigned int m_nextAvailableId = 0;
             std::vector<EngineListener*> m_listeners;
-            
+            AdvancedLeakDetector m_leakDetector;
+            static std::unique_ptr<ManifoldEngine> m_instance;
         };
     }
 }

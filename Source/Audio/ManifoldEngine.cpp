@@ -63,6 +63,7 @@ namespace Manifold
             m_audioDriver = m_graph.addNode(std::make_unique<AudioDriver>(m_positionTracker));
             m_audioOutputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::audioOutputNode));
             connectAudioNodes(2);
+            connectMidiNodes(2);
             
         }
 

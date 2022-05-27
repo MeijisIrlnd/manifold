@@ -38,8 +38,8 @@ public:
     void shutdown() override
     {
         // Add your application's shutdown code here..
-        ManifoldEngine::shutdown();
         mainWindow = nullptr; // (deletes our window)
+        ManifoldEngine::shutdown();
     }
 
     //==============================================================================

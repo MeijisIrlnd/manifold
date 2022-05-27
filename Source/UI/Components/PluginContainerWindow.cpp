@@ -14,8 +14,9 @@ namespace Manifold
 {
     namespace UI
     {
-        PluginContainerWindow::PluginContainerWindow(const juce::String& name, juce::AudioProcessor* audioProcessor) : 
-            juce::DocumentWindow(name, juce::Colours::black, 7)
+        PluginContainerWindow::PluginContainerWindow(const juce::String& name, juce::AudioProcessor* audioProcessor,
+            WindowListener* listener) : 
+            BaseWindow(name, juce::Colours::black, 7, WINDOW_TYPE::PLUGIN, listener)
         {
             m_editor.reset(audioProcessor->createEditor());
             setContentNonOwned(m_editor.get(), true);

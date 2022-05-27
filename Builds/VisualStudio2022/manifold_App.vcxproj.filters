@@ -565,8 +565,14 @@
     <ClCompile Include="..\..\Source\UI\Primitives\ImageButton.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Primitives\LabelButton.cpp">
+      <Filter>manifold\Source\UI\Primitives</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\WindowListener.cpp">
+      <Filter>manifold\Source\UI\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.cpp">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
@@ -604,10 +610,16 @@
     <ClCompile Include="..\..\Source\UI\Components\PluginContainerWindow.cpp">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\PluginWindowManager.cpp">
+    <ClCompile Include="..\..\Source\UI\Components\WindowManager.cpp">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\SettingsWindow.cpp">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\TimestripComponent.cpp">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\TopMenuBar.cpp">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\TransportComponent.cpp">
@@ -2904,8 +2916,17 @@
     <ClInclude Include="..\..\Source\UI\Primitives\ImageButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Primitives\LabelButton.h">
+      <Filter>manifold\Source\UI\Primitives</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\WindowListener.h">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\BaseWindow.h">
+      <Filter>manifold\Source\UI\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Subcomponents\BasePluginListComponent.h">
       <Filter>manifold\Source\UI\Components\Subcomponents</Filter>
@@ -2943,10 +2964,16 @@
     <ClInclude Include="..\..\Source\UI\Components\PluginContainerWindow.h">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\PluginWindowManager.h">
+    <ClInclude Include="..\..\Source\UI\Components\WindowManager.h">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\SettingsWindow.h">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\TimestripComponent.h">
+      <Filter>manifold\Source\UI\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\TopMenuBar.h">
       <Filter>manifold\Source\UI\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\TransportComponent.h">

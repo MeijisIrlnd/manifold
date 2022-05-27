@@ -122,10 +122,17 @@
                 file="Source/UI/Primitives/ButtonListener.h"/>
           <FILE id="Mn18Im" name="ImageButton.cpp" compile="1" resource="0" file="Source/UI/Primitives/ImageButton.cpp"/>
           <FILE id="bQDkrH" name="ImageButton.h" compile="0" resource="0" file="Source/UI/Primitives/ImageButton.h"/>
+          <FILE id="UjN8ih" name="LabelButton.cpp" compile="1" resource="0" file="Source/UI/Primitives/LabelButton.cpp"/>
+          <FILE id="rhzVo0" name="LabelButton.h" compile="0" resource="0" file="Source/UI/Primitives/LabelButton.h"/>
           <FILE id="lH1yHA" name="SVGButton.cpp" compile="1" resource="0" file="Source/UI/Primitives/SVGButton.cpp"/>
           <FILE id="JXijWR" name="SVGButton.h" compile="0" resource="0" file="Source/UI/Primitives/SVGButton.h"/>
         </GROUP>
         <GROUP id="{9CB32F7C-4716-309C-7CA7-5B390BBBCAEE}" name="Components">
+          <FILE id="BJuwb4" name="WindowListener.cpp" compile="1" resource="0"
+                file="Source/UI/Components/WindowListener.cpp"/>
+          <FILE id="biD73v" name="WindowListener.h" compile="0" resource="0"
+                file="Source/UI/Components/WindowListener.h"/>
+          <FILE id="dXjlUq" name="BaseWindow.h" compile="0" resource="0" file="Source/UI/Components/BaseWindow.h"/>
           <GROUP id="{1C677276-C059-B016-C127-A707FC01338E}" name="Subcomponents">
             <FILE id="OrQZ0z" name="BasePluginListComponent.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Subcomponents/BasePluginListComponent.cpp"/>
@@ -174,14 +181,19 @@
                 file="Source/UI/Components/PluginContainerWindow.cpp"/>
           <FILE id="sIf6Nu" name="PluginContainerWindow.h" compile="0" resource="0"
                 file="Source/UI/Components/PluginContainerWindow.h"/>
-          <FILE id="uFd00B" name="PluginWindowManager.cpp" compile="1" resource="0"
-                file="Source/UI/Components/PluginWindowManager.cpp"/>
-          <FILE id="qLfaA4" name="PluginWindowManager.h" compile="0" resource="0"
-                file="Source/UI/Components/PluginWindowManager.h"/>
+          <FILE id="uFd00B" name="WindowManager.cpp" compile="1" resource="0"
+                file="Source/UI/Components/WindowManager.cpp"/>
+          <FILE id="qLfaA4" name="WindowManager.h" compile="0" resource="0" file="Source/UI/Components/WindowManager.h"/>
+          <FILE id="hw890d" name="SettingsWindow.cpp" compile="1" resource="0"
+                file="Source/UI/Components/SettingsWindow.cpp"/>
+          <FILE id="qe6q9F" name="SettingsWindow.h" compile="0" resource="0"
+                file="Source/UI/Components/SettingsWindow.h"/>
           <FILE id="Bm2D6M" name="TimestripComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/TimestripComponent.cpp"/>
           <FILE id="QWAIvG" name="TimestripComponent.h" compile="0" resource="0"
                 file="Source/UI/Components/TimestripComponent.h"/>
+          <FILE id="ujVEhV" name="TopMenuBar.cpp" compile="1" resource="0" file="Source/UI/Components/TopMenuBar.cpp"/>
+          <FILE id="qNACAo" name="TopMenuBar.h" compile="0" resource="0" file="Source/UI/Components/TopMenuBar.h"/>
           <FILE id="i7Jsfx" name="TransportComponent.cpp" compile="1" resource="0"
                 file="Source/UI/Components/TransportComponent.cpp"/>
           <FILE id="BjBCLW" name="TransportComponent.h" compile="0" resource="0"
@@ -201,9 +213,9 @@
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="manifold" warningsAreErrors="1"
-                       headerPath="${PROJECT_DIR}../../../../include"/>
+                       headerPath="${PROJECT_DIR}../../../../Include"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="manifold" warningsAreErrors="1"
-                       headerPath="${PROJECT_DIR}../../../../include"/>
+                       headerPath="${PROJECT_DIR}../../../../Include"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../../JUCE/modules"/>
