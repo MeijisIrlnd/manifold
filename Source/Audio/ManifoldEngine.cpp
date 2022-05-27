@@ -99,16 +99,16 @@ namespace Manifold
 
         void ManifoldEngine::scanForVsts()
         {
-            m_vsts.clear();
+            m_plugins.clear();
             for (auto& dir : juce::RangedDirectoryIterator(juce::File(VST_PATH), true, "*.vst3,*.dll", juce::File::findFiles))
             {
                 for (auto i = 0; i < m_pluginFormatManager.getNumFormats(); i++) {
-                    m_vsts.scanAndAddFile(dir.getFile().getFullPathName(), true, m_vstDescriptions, *m_pluginFormatManager.getFormat(i));
+                    m_plugins.scanAndAddFile(dir.getFile().getFullPathName(), true, m_pluginDescriptions, *m_pluginFormatManager.getFormat(i));
                 }
             }
         }
 
-        void ManifoldEngine::createChannel(CHANNEL_TYPE t, int sourcePluginIndex)
+        void ManifoldEngine::createChannel(CHANNEL_TYPE t, juce::PluginDescription desc)
         {
             bool channelCreated = false;
             int currentId = m_nextAvailableId;
@@ -136,11 +136,9 @@ namespace Manifold
                 channelCreated = true;
             }
             else {
-                if (sourcePluginIndex != -1) {
                     std::unique_ptr<MidiChannelProcessor> currentProcessor(new MidiChannelProcessor(current));
                     Node::Ptr handle = m_graph.addNode(std::move(currentProcessor));
                     m_channelNodes.emplace(std::make_pair(current->getId(), handle));
-                    auto desc = m_vsts.getTypes()[sourcePluginIndex];
                     auto sr = m_deviceManager.getAudioDeviceSetup().sampleRate;
                     auto bufferSize = m_deviceManager.getAudioDeviceSetup().bufferSize;
                     std::function<void(std::unique_ptr<juce::AudioPluginInstance>, const juce::String&)> loadedCallback =
@@ -154,8 +152,8 @@ namespace Manifold
                     connectAudioNodes(2);
                     connectMidiNodes(2);
                     channelCreated = true;
-                }
             }
+            
 
             if (channelCreated) {
                 for (auto& l : m_listeners) {
@@ -173,9 +171,8 @@ namespace Manifold
 
         }
 
-        void ManifoldEngine::loadPlugin(MANIFOLD_UNUSED const int channelId, MANIFOLD_UNUSED const int slot, int selectedIndex)
+        void ManifoldEngine::loadPlugin(const int channelId, const int slot, juce::PluginDescription desc)
         {
-            auto desc = m_vsts.getTypes()[selectedIndex];
             auto sr = m_deviceManager.getAudioDeviceSetup().sampleRate;
             auto bufferSize = m_deviceManager.getAudioDeviceSetup().bufferSize;
             std::function<void(std::unique_ptr<juce::AudioPluginInstance>, const juce::String&)> loadedCallback = 
@@ -187,6 +184,7 @@ namespace Manifold
 
             m_pluginFormatManager.createPluginInstanceAsync(desc, sr, bufferSize, loadedCallback);
         }
+
 
         void ManifoldEngine::createEditorForPlugin(const int channelId, const int slot)
         {

@@ -33,18 +33,18 @@ namespace Manifold
         {
             if (ev.mods.isRightButtonDown()) {
                 m_vstContextMenu.clear();
-                juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
-                
-                std::function<void(int)> userCallback = [this](int result) {
-                    juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
-                    juce::Array<juce::PluginDescription> descriptions = vstList.getTypes();
-                    MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(descriptions, result);
+                juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
+                juce::Array<juce::PluginDescription> filtered = GET_ENGINE->getFilteredDescriptions(false);
+                std::function<void(int)> userCallback = [this, filtered](int result) {
+                    juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
+                    MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(filtered, result);
                     if (chosenIndex == -1) { return; }
-                    m_readout.setText(descriptions[chosenIndex].name, juce::dontSendNotification);
-                    GET_ENGINE->loadPlugin(m_channelId, m_slotIndex, chosenIndex);
+                    m_readout.setText(filtered[chosenIndex].name, juce::dontSendNotification);
+                    auto current = filtered[chosenIndex];
+                    GET_ENGINE->loadPlugin(m_channelId, m_slotIndex, current);
                 };
                 
-                vstList.addToMenu(m_vstContextMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);
+                vstList.addToMenu(m_vstContextMenu, filtered, juce::KnownPluginList::sortAlphabetically);
                 m_vstContextMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
             }
             else if (ev.mods.isLeftButtonDown()) {

@@ -64,16 +64,18 @@ namespace Manifold
                     }
                     case 2:
                     {
-                        juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
-                        std::function<void(int)> userCallback = [this](int result) {
-                            juce::KnownPluginList& vstList = GET_ENGINE->getVstList();
-                            juce::Array<juce::PluginDescription> descriptions = vstList.getTypes();
-                            MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(descriptions, result);
+                        juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
+                        juce::Array<juce::PluginDescription> descs = GET_ENGINE->getFilteredDescriptions(true);
+                        std::function<void(int)> userCallback = [this, descs](int result) {
+                            juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
+                            auto chosenIndex = vstList.getIndexChosenByMenu(descs, result);
                             if (chosenIndex == -1) { return; }
-                            GET_ENGINE->createChannel(MIDI_CHANNEL, chosenIndex);
+                            auto selected = descs[chosenIndex];
+                            GET_ENGINE->createChannel(MIDI_CHANNEL, selected);
                         };
                         juce::PopupMenu vstMenu;
-                        vstList.addToMenu(vstMenu, vstList.getTypes(), juce::KnownPluginList::sortAlphabetically);
+
+                        vstList.addToMenu(vstMenu, descs, juce::KnownPluginList::sortAlphabetically);
                         vstMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
                         break;
                     }

@@ -34,7 +34,6 @@ namespace Manifold
             virtual void onChannelCreated(MANIFOLD_UNUSED InternalChannel* newChannel) {};
             virtual void onChannelDeleted(MANIFOLD_UNUSED InternalChannel* toDelete) {};
         };
-
         class ManifoldEngine
         {
         protected: 
@@ -82,20 +81,28 @@ namespace Manifold
             MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
             MANIFOLD_INLINE juce::AudioDeviceManager& getDeviceManager() { return m_deviceManager; }
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
-            MANIFOLD_INLINE juce::KnownPluginList& getVstList() { return m_vsts; }
-            MANIFOLD_INLINE const juce::OwnedArray<juce::PluginDescription>& getVstDescriptions() { return m_vstDescriptions; }
-            void createChannel(CHANNEL_TYPE t, int sourcePluginInstrument = -1);
+            MANIFOLD_INLINE juce::KnownPluginList& getPluginList() { return m_plugins; }
+            MANIFOLD_INLINE juce::Array<juce::PluginDescription> getFilteredDescriptions(bool findInstruments) {
+                juce::Array<juce::PluginDescription> current = m_plugins.getTypes();
+                std::function<bool(const juce::PluginDescription&)> predicate = [findInstruments](const juce::PluginDescription& el) {
+                    return findInstruments ? !el.isInstrument : el.isInstrument;
+                };
+                current.removeIf(predicate);
+                return current;
+            }
+            MANIFOLD_INLINE const juce::OwnedArray<juce::PluginDescription>& getDescriptions() { return m_pluginDescriptions; }
+            void createChannel(CHANNEL_TYPE t, juce::PluginDescription desc = {});
             void deleteChannel(InternalChannel* toDelete);
 
-            void loadPlugin(const int channelId, const int slot, int selectedIndex);
+            void loadPlugin(const int channelId, const int slot, juce::PluginDescription desc);
             void createEditorForPlugin(const int channelId, const int slot);
             void createEditorForMidiChannelPlugin(const int channelId);
         private: 
             static std::mutex m_mutex;
             //std::unordered_map<std::string, std::string> m_vsts;
             juce::AudioPluginFormatManager m_pluginFormatManager;
-            juce::OwnedArray<juce::PluginDescription> m_vstDescriptions;
-            juce::KnownPluginList m_vsts;
+            juce::OwnedArray<juce::PluginDescription> m_pluginDescriptions;
+            juce::KnownPluginList m_plugins;
             juce::AudioDeviceManager m_deviceManager;
             juce::AudioProcessorPlayer m_player;
             PositionTracker m_positionTracker;
