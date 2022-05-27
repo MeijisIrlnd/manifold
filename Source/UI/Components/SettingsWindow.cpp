@@ -22,11 +22,11 @@ namespace Manifold
         SettingsWindowContainer::SettingsWindowContainer(const juce::String& name, WindowListener* listener) : 
             BaseWindow(name, juce::Colours::lightgrey, 7, WINDOW_TYPE::SETTINGS, listener)
         {
-            m_window.reset(new SettingsWindow());
+            
+            m_window.reset(new SettingsWindow(GET_ENGINE->getDeviceManager()));
             m_window->setSize(500, 900);
             setContentNonOwned(m_window.get(), true);
             setVisible(true);
-
         }
 
         void SettingsWindowContainer::closeButtonPressed()
@@ -36,15 +36,23 @@ namespace Manifold
             }
         }
 
+        SettingsWindow::SettingsWindow(juce::AudioDeviceManager& deviceManager) : 
+            m_deviceManager(deviceManager),
+            m_selector(deviceManager, 1, 2, 1, 2, true, true, true, true)
+        {
+            addAndMakeVisible(&m_selector);
+        }
+
         SettingsWindow::~SettingsWindow()
         {
         }
         void SettingsWindow::paint(MANIFOLD_UNUSED juce::Graphics& g)
         {
-            g.fillAll(juce::Colours::red);
+            g.fillAll(juce::Colours::darkslategrey);
         }
         void SettingsWindow::resized()
         {
+            m_selector.setBounds(getLocalBounds());
         }
     }
 }

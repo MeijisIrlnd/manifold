@@ -21,7 +21,7 @@ namespace Manifold
             public: 
                 MidiChannelProcessor(InternalChannel* associatedChannel);
                 MANIFOLD_INLINE void loadSourcePlugin(std::unique_ptr<juce::AudioPluginInstance>&& sourcePlugin) {
-                    m_pluginInstrument.reset(sourcePlugin.get());
+                    m_pluginInstrument.reset(sourcePlugin.release());
                     m_pluginInstrument->prepareToPlay(m_sampleRate, m_samplesPerBlock);
                 }
                 void prepareToPlay(double sampleRate, int samplesPerBlockExpected) override;

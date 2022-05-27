@@ -80,6 +80,7 @@ namespace Manifold
             
             MANIFOLD_INLINE UIListener* getUIListener() { return &m_uiListener; }
             MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
+            MANIFOLD_INLINE juce::AudioDeviceManager& getDeviceManager() { return m_deviceManager; }
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
             MANIFOLD_INLINE juce::KnownPluginList& getVstList() { return m_vsts; }
             MANIFOLD_INLINE const juce::OwnedArray<juce::PluginDescription>& getVstDescriptions() { return m_vstDescriptions; }

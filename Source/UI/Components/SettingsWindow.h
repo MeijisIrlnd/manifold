@@ -10,6 +10,7 @@
 
 #pragma once
 #include <JuceHeader.h>
+#include "../../Audio/ManifoldEngine.h"
 #include "../../Macros.h"
 #include "BaseWindow.h"
 namespace Manifold
@@ -30,11 +31,13 @@ namespace Manifold
         class SettingsWindow : public juce::Component
         {
         public: 
+            SettingsWindow(juce::AudioDeviceManager& deviceManager);
             ~SettingsWindow() override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private: 
-
+            juce::AudioDeviceManager& m_deviceManager;
+            juce::AudioDeviceSelectorComponent m_selector;
         };
     }
 }

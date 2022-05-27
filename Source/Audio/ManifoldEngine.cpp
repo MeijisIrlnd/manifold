@@ -32,6 +32,7 @@ namespace Manifold
             initialiseGraph();
             bindUICallbacks();
             m_player.setProcessor(&m_graph);
+            MANIFOLD_UNUSED auto& collector = m_player.getMidiMessageCollector();
             scanForVsts();
         }
 

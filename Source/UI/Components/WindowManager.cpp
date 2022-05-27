@@ -20,6 +20,7 @@ namespace Manifold
         WindowManager::WindowManager()
         {
         }
+
         WindowManager::~WindowManager()
         {
         }
