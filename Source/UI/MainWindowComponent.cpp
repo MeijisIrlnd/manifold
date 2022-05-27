@@ -42,10 +42,6 @@ namespace Manifold
             WindowManager::shutdown();
         }
 
-        void MainWindowComponent::onPluginUIOpened(juce::AudioProcessor* processor) {
-            GET_WINDOW_MANAGER()->addPluginWindow(processor);
-        }
-
         bool MainWindowComponent::keyPressed(const juce::KeyPress& key, MANIFOLD_UNUSED juce::Component* fromComponent)
         {
             if (key.isKeyCode(juce::KeyPress::tabKey)) {

@@ -9,7 +9,7 @@
 */
 
 #include "SettingsWindow.h"
-
+#include "../../Audio/ManifoldEngine.h"
 namespace Manifold
 {
     namespace UI

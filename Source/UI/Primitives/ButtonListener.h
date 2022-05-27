@@ -18,12 +18,14 @@ namespace Manifold
         namespace Primitives
         {
             class SVGButton;
+            class ImageButton;
             class ImageToggleButton;
             class LabelButton;
             struct ButtonListener
             {
                 virtual ~ButtonListener() { }
                 virtual void svgButtonClicked(MANIFOLD_UNUSED SVGButton* b) {};
+                virtual void imageButtonClicked(MANIFOLD_UNUSED ImageButton* b) {}
                 virtual void imageToggleButtonClicked(MANIFOLD_UNUSED ImageToggleButton* b, MANIFOLD_UNUSED bool newState) {};
                 virtual void labelButtonClicked(MANIFOLD_UNUSED LabelButton* b) {};
             };

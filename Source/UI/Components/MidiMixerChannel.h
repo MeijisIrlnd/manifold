@@ -19,6 +19,7 @@ namespace Manifold
         {
         public: 
             MidiMixerChannel(Manifold::Audio::InternalChannel* channel);
+            void imageButtonClicked(Primitives::ImageButton* b) override;
             void resized() override;
         private: 
             Manifold::UI::Primitives::ImageButton m_instrumentButton;

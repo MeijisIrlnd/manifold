@@ -21,6 +21,13 @@ namespace Manifold
                 m_image = juce::ImageCache::getFromMemory(image, imageSize);
             }
 
+            void ImageButton::mouseUp(MANIFOLD_UNUSED const juce::MouseEvent& ev)
+            {
+                if (m_listener != nullptr) {
+                    m_listener->imageButtonClicked(this);
+                }
+            }
+
             void ImageButton::paint(MANIFOLD_UNUSED juce::Graphics& g)
             {
                 juce::Rectangle<float> bounds(0, 0, static_cast<float>(getWidth()), static_cast<float>(getHeight()));

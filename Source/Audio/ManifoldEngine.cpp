@@ -191,14 +191,21 @@ namespace Manifold
         {
             if (m_channelInserts.find(channelId) != m_channelInserts.end()) {
                 if (m_channelInserts[channelId][slot] != nullptr) {
-                    for (auto& l : m_listeners) {
-                        if (l != nullptr) {
-                            l->onPluginUIOpened(m_channelInserts[channelId][slot]);
-                        }
-                    }
+                    GET_WINDOW_MANAGER()->addPluginWindow(m_channelInserts[channelId][slot]);
                 }
             }
         }
+
+        void ManifoldEngine::createEditorForMidiChannelPlugin(const int channelId)
+        {
+            auto it = m_channelNodes.find(channelId);
+            if (it != m_channelNodes.end()) {
+                auto* current = dynamic_cast<MidiChannelProcessor*>(it->second->getProcessor());
+                GET_WINDOW_MANAGER()->addPluginWindow(current->getPluginInstance());
+            }
+        }
+
+
     }
 }
 

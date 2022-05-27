@@ -29,7 +29,6 @@ namespace Manifold
         public: 
             MainWindowComponent(UIListener* uiListener);
             ~MainWindowComponent() override;
-            void onPluginUIOpened(juce::AudioProcessor* processor) override;
             bool keyPressed(const juce::KeyPress& key, juce::Component* fromComponent) override;
             void paint(juce::Graphics& g) override;
             void resized() override;

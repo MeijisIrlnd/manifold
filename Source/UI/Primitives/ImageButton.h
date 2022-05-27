@@ -20,6 +20,7 @@ namespace Manifold
             {
             public: 
                 ImageButton(const char* image, const int imageSize);
+                void mouseUp(const juce::MouseEvent& ev) override;
                 void paint(juce::Graphics& g) override;
                 void resized() override;
 

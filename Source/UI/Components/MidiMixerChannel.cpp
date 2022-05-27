@@ -19,6 +19,14 @@ namespace Manifold
             m_instrumentButton(BinaryData::InstrumentSelect_png, BinaryData::InstrumentSelect_pngSize)
         {
             addAndMakeVisible(&m_instrumentButton);
+            m_instrumentButton.addListener(this);
+        }
+
+        void MidiMixerChannel::imageButtonClicked(Primitives::ImageButton* b)
+        {
+            if (b == &m_instrumentButton) {
+                GET_ENGINE->createEditorForMidiChannelPlugin(m_channel->getId());
+            }
         }
 
         void MidiMixerChannel::resized()

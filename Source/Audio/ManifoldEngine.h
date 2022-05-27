@@ -16,6 +16,7 @@
 #include "Core/AudioDriver.h"
 #include "Core/AudioChannelProcessor.h"
 #include "Core/MidiChannelProcessor.h"
+#include "../UI/Components/WindowManager.h"
 #include "../Types/Channel/Channel.h"
 #include "../Settings/Pathing.h"
 #include <LeakBacktracer.h>
@@ -32,7 +33,6 @@ namespace Manifold
             virtual ~EngineListener() {}
             virtual void onChannelCreated(MANIFOLD_UNUSED InternalChannel* newChannel) {};
             virtual void onChannelDeleted(MANIFOLD_UNUSED InternalChannel* toDelete) {};
-            virtual void onPluginUIOpened(MANIFOLD_UNUSED juce::AudioProcessor* processor) {}
         };
 
         class ManifoldEngine
@@ -89,6 +89,7 @@ namespace Manifold
 
             void loadPlugin(const int channelId, const int slot, int selectedIndex);
             void createEditorForPlugin(const int channelId, const int slot);
+            void createEditorForMidiChannelPlugin(const int channelId);
         private: 
             static std::mutex m_mutex;
             //std::unordered_map<std::string, std::string> m_vsts;
