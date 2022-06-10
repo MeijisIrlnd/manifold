@@ -10,7 +10,7 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "../../Audio/Core/PositionTracker.h"
+#include "../../../Audio/Core/PositionTracker.h"
 namespace Manifold
 {
     namespace UI

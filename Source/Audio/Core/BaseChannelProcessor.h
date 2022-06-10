@@ -35,8 +35,6 @@ namespace Manifold
 
             protected:
                 CHANNEL_TYPE m_type;
-                double m_sampleRate;
-                int m_samplesPerBlock;
                 InternalChannel* m_associatedChannel{ nullptr };
                 std::vector<std::unique_ptr<juce::AudioPluginInstance> > m_inserts;
             };

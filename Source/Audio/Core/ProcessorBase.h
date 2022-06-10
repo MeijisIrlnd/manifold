@@ -35,8 +35,8 @@ namespace Manifold
 
                 //==============================================================================
                 const juce::String getName() const override { return {}; }
-                bool acceptsMidi() const override { return false; }
-                bool producesMidi() const override { return false; }
+                virtual bool acceptsMidi() const override { return false; }
+                virtual bool producesMidi() const override { return false; }
                 double getTailLengthSeconds() const override { return 0; }
 
                 //==============================================================================
@@ -51,6 +51,7 @@ namespace Manifold
                 void setStateInformation(const void*, int) override {}
             protected: 
                 double m_sampleRate{ 0 };
+                int m_samplesPerBlock{ 0 };
             private:
                 //==============================================================================
                 JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProcessorBase) 

@@ -7,7 +7,7 @@
 
   ==============================================================================
 */
-#include "../../Macros.h"
+#include "../../../Macros.h"
 #include "TimestripComponent.h"
 
 namespace Manifold

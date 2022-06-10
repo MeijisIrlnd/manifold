@@ -16,39 +16,30 @@ namespace Manifold
     {
         namespace Core
         {
-            MidiChannelProcessor::MidiChannelProcessor(InternalChannel* associatedChannel) :
-                BaseChannelProcessor(CHANNEL_TYPE::MIDI, associatedChannel)
+            MidiChannelProcessor::MidiChannelProcessor(InternalChannel* associatedChannel, juce::AudioProcessorGraph::Node::Ptr sourcePlugin) :
+                BaseChannelProcessor(MIDI_CHANNEL, associatedChannel), m_sourceNode(sourcePlugin)
             {
                 
             }
-
             void MidiChannelProcessor::prepareToPlay(double sampleRate, int samplesPerBlockExpected)
             {
                 m_sampleRate = sampleRate;
                 m_samplesPerBlock = samplesPerBlockExpected;
             }
 
-            void MidiChannelProcessor::processBlock(juce::AudioSampleBuffer& buffer, juce::MidiBuffer& messages)
+            void MidiChannelProcessor::processBlock(juce::AudioSampleBuffer& buffer, MANIFOLD_UNUSED juce::MidiBuffer& messages)
             {
-                if (m_pluginInstrument.get() != nullptr) {
-                    m_pluginInstrument->processBlock(buffer, messages);
-                    for (auto i = 0; i < m_inserts.size(); i++) {
-                        if (m_inserts[i] != nullptr) {
-                            m_inserts[i]->processBlock(buffer, messages);
-                        }
+                for (auto& i : m_inserts) {
+                    if (i != nullptr) {
+                        i->processBlock(buffer, messages);
                     }
-                    buffer.applyGain(static_cast<float>(m_associatedChannel->getVolume()));
-                    if (m_associatedChannel->getMuteState()) { buffer.applyGain(0.0f); }
                 }
+                buffer.applyGain(static_cast<float>(m_associatedChannel->getVolume()));
+                if (m_associatedChannel->getMuteState()) { buffer.applyGain(0.0f); }
             }
 
             void MidiChannelProcessor::releaseResources()
             {
-                for (auto& i : m_inserts) {
-                    if (i != nullptr) {
-                        i->releaseResources();
-                    }
-                }
             }
         }
     }

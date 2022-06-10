@@ -44,6 +44,9 @@ namespace Manifold
         protected: 
             CHANNEL_TYPE m_channelType;
             std::string m_name;
+            // The group should hold volume, pan, mute etc
+            juce::AudioProcessorParameterGroup* m_group{ nullptr };
+            
             const int m_internalId;
             double m_channelVolume{ 1 };
             double m_channelPan{ 0.5 };

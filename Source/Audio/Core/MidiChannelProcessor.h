@@ -9,7 +9,7 @@
 */
 
 #pragma once
-#include "BaseChannelProcessor.h"
+#include "AudioChannelProcessor.h"
 namespace Manifold
 {
     namespace Audio
@@ -19,18 +19,14 @@ namespace Manifold
             class MidiChannelProcessor : public BaseChannelProcessor
             {
             public: 
-                MidiChannelProcessor(InternalChannel* associatedChannel);
-                MANIFOLD_INLINE void loadSourcePlugin(std::unique_ptr<juce::AudioPluginInstance>&& sourcePlugin) {
-                    m_pluginInstrument.reset(sourcePlugin.release());
-                    m_pluginInstrument->prepareToPlay(m_sampleRate, m_samplesPerBlock);
-                }
-                MANIFOLD_INLINE juce::AudioPluginInstance* getPluginInstance() { return m_pluginInstrument.get(); }
+                MidiChannelProcessor(InternalChannel* associatedChannel, juce::AudioProcessorGraph::Node::Ptr sourcePlugin);
+                MANIFOLD_INLINE juce::AudioProcessorGraph::Node::Ptr getNode() const { return m_sourceNode; }
                 void prepareToPlay(double sampleRate, int samplesPerBlockExpected) override;
-                void processBlock(juce::AudioSampleBuffer& buffer, juce::MidiBuffer& messages) override;
+                void processBlock(juce::AudioSampleBuffer& buffer, MANIFOLD_UNUSED juce::MidiBuffer& messages) override;
                 void releaseResources() override;
 
             private: 
-                std::unique_ptr<juce::AudioPluginInstance> m_pluginInstrument;
+                juce::AudioProcessorGraph::Node::Ptr m_sourceNode;
             };
         }
     }

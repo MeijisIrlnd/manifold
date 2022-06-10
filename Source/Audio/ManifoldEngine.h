@@ -59,7 +59,10 @@ namespace Manifold
                 
                 for (auto channel = 0; channel < numChannels; channel++) {
                     for (auto& c : m_channelNodes) {
-                        m_graph.addConnection({ {m_audioInputNode->nodeID, channel}, {c.second->nodeID, channel} });
+                        BaseChannelProcessor* current = dynamic_cast<BaseChannelProcessor*>(c.second->getProcessor());
+                        if (current->getType() != CHANNEL_TYPE::MIDI) {
+                            m_graph.addConnection({ {m_audioInputNode->nodeID, channel}, {c.second->nodeID, channel} });
+                        }
                         m_graph.addConnection({ { c.second->nodeID, channel}, { m_audioOutputNode->nodeID, channel} });
                     }
                 }
@@ -71,7 +74,7 @@ namespace Manifold
                         BaseChannelProcessor* current = dynamic_cast<BaseChannelProcessor*>(c.second->getProcessor());
                         if (current->getType() == CHANNEL_TYPE::MIDI) {
                             m_graph.addConnection({{ m_midiInputNode->nodeID, channel}, {c.second->nodeID, channel}});
-                            m_graph.addConnection({ {c.second->nodeID, channel}, {m_midiOutputNode->nodeID, channel} });
+                            //m_graph.addConnection({ {c.second->nodeID, channel}, {m_midiOutputNode->nodeID, channel} });
                         }
                     }
                 }
@@ -82,7 +85,7 @@ namespace Manifold
             MANIFOLD_INLINE juce::AudioDeviceManager& getDeviceManager() { return m_deviceManager; }
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
             MANIFOLD_INLINE juce::KnownPluginList& getPluginList() { return m_plugins; }
-            MANIFOLD_INLINE juce::Array<juce::PluginDescription> getFilteredDescriptions(bool findInstruments) {
+            juce::Array<juce::PluginDescription> getFilteredDescriptions(bool findInstruments) {
                 juce::Array<juce::PluginDescription> current = m_plugins.getTypes();
                 std::function<bool(const juce::PluginDescription&)> predicate = [findInstruments](const juce::PluginDescription& el) {
                     return findInstruments ? !el.isInstrument : el.isInstrument;
