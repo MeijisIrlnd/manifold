@@ -10,7 +10,7 @@ FINALLY <br><br><br>MANIFOLD
 
 manifold is (or will hopefully be once i finish it ha ha) a fully featured DAW, which injects some analog weirdness, and a generous slice of 80s retro futurism into your production workflow
 
-(insert cool looking screenshot) 
+![image](https://user-images.githubusercontent.com/38221014/173170213-d5231f55-1411-438a-8f76-dc5f2a743633.png)
 
 
 it's very much a work in progress passion project, so if you stumble across this repo don't expect it to actually do anything for a while, it's getting there
