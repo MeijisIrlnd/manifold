@@ -17,6 +17,7 @@ it's very much a work in progress passion project, so if you stumble across this
 
 ## TODO 
 - Make pan control actually work
+- Sends
 - Set up audio busses, and flesh out group channels 
 - Sidechain, alternative channel routings (don't lock to stereo)
 - Make the arrange window not awful
