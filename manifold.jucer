@@ -76,10 +76,16 @@
                 file="Source/Audio/Core/AudioChannelProcessor.h"/>
           <FILE id="U7Nt8g" name="AudioDriver.cpp" compile="1" resource="0" file="Source/Audio/Core/AudioDriver.cpp"/>
           <FILE id="hH3Kza" name="AudioDriver.h" compile="0" resource="0" file="Source/Audio/Core/AudioDriver.h"/>
+          <FILE id="YFVaGe" name="AudioRouter.cpp" compile="1" resource="0" file="Source/Audio/Core/AudioRouter.cpp"/>
+          <FILE id="jHAgXq" name="AudioRouter.h" compile="0" resource="0" file="Source/Audio/Core/AudioRouter.h"/>
           <FILE id="oRmNhl" name="BaseChannelProcessor.cpp" compile="1" resource="0"
                 file="Source/Audio/Core/BaseChannelProcessor.cpp"/>
           <FILE id="XPIR1H" name="BaseChannelProcessor.h" compile="0" resource="0"
                 file="Source/Audio/Core/BaseChannelProcessor.h"/>
+          <FILE id="LJVHhz" name="GroupChannelProcessor.cpp" compile="1" resource="0"
+                file="Source/Audio/Core/GroupChannelProcessor.cpp"/>
+          <FILE id="K9fxHN" name="GroupChannelProcessor.h" compile="0" resource="0"
+                file="Source/Audio/Core/GroupChannelProcessor.h"/>
           <FILE id="vj2LMg" name="MidiChannelProcessor.cpp" compile="1" resource="0"
                 file="Source/Audio/Core/MidiChannelProcessor.cpp"/>
           <FILE id="fzYD5b" name="MidiChannelProcessor.h" compile="0" resource="0"

@@ -19,9 +19,11 @@ namespace Manifold
             AudioChannelProcessor::AudioChannelProcessor(AudioChannel* associatedChannel) : 
                 BaseChannelProcessor(AUDIO_CHANNEL, dynamic_cast<InternalChannel*>(associatedChannel))
             {
-                
+                m_volume = GET_PARAM_AS_VALUE(associatedChannel, "volume");
+                m_pan = GET_PARAM_AS_VALUE(associatedChannel, "pan");
+                m_mute = GET_PARAM_AS_VALUE(associatedChannel, "mute");
+                m_solo = GET_PARAM_AS_VALUE(associatedChannel, "solo");
             }
-
 
             void AudioChannelProcessor::prepareToPlay(double sampleRate, MANIFOLD_UNUSED int samplesPerBlockExpected)
             {
@@ -36,8 +38,8 @@ namespace Manifold
                     }
                 }
                 
-                buffer.applyGain(static_cast<float>(m_associatedChannel->getVolume()));
-                if (m_associatedChannel->getMuteState()) { buffer.applyGain(0.0f); }
+                buffer.applyGain(static_cast<float>(m_volume.getValue()));
+                if (static_cast<bool>(m_mute.getValue())) { buffer.applyGain(0.0f); }
 
             }
             void AudioChannelProcessor::releaseResources()

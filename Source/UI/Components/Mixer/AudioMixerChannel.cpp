@@ -25,6 +25,22 @@ namespace Manifold
             addAndMakeVisible(&m_recordEnableButton);
         }
 
+        void AudioMixerChannel::imageToggleButtonClicked(Primitives::ImageToggleButton* b, bool newState)
+        {
+            if (b == &m_muteButton) {
+                GET_PARAM_AS_VALUE(m_channel, "mute").setValue(newState);
+            }
+            else if (b == &m_soloButton) {
+                GET_PARAM_AS_VALUE(m_channel, "solo").setValue(newState);
+            }
+            else if (b == &m_inputMonitorButton) {
+                GET_PARAM_AS_VALUE(m_channel, "inputmonitor").setValue(newState);
+            }
+            else if (b == &m_recordEnableButton) {
+                GET_PARAM_AS_VALUE(m_channel, "recordenable").setValue(newState);
+            }
+        }
+
         void AudioMixerChannel::resized()
         {
             drawCommonElements();

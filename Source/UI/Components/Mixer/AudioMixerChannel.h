@@ -18,7 +18,7 @@ namespace Manifold
         {
         public: 
             AudioMixerChannel(Manifold::Audio::InternalChannel* channel);
-
+            void AudioMixerChannel::imageToggleButtonClicked(Primitives::ImageToggleButton* b, bool newState) override;
             void resized() override;
         private:
             Manifold::UI::Primitives::ImageToggleButton m_inputMonitorButton;

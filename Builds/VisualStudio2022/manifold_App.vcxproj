@@ -148,7 +148,9 @@
     <ClCompile Include="..\..\Source\Types\Channel\MidiChannel.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioChannelProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioDriver.cpp"/>
+    <ClCompile Include="..\..\Source\Audio\Core\AudioRouter.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\BaseChannelProcessor.cpp"/>
+    <ClCompile Include="..\..\Source\Audio\Core\GroupChannelProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\MidiChannelProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp"/>
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp"/>
@@ -2252,7 +2254,9 @@
     <ClInclude Include="..\..\Source\Utils\UIListener.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\AudioChannelProcessor.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\AudioDriver.h"/>
+    <ClInclude Include="..\..\Source\Audio\Core\AudioRouter.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\BaseChannelProcessor.h"/>
+    <ClInclude Include="..\..\Source\Audio\Core\GroupChannelProcessor.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\MidiChannelProcessor.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\PositionTracker.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\ProcessorBase.h"/>

@@ -25,14 +25,14 @@ namespace Manifold
         {
             m_volumeSlider.setSliderStyle(juce::Slider::LinearVertical);
             m_volumeSlider.setRange(0, 1, 0.01);
-            m_volumeSlider.setValue(associatedChannel->getVolume(), juce::dontSendNotification);
+            m_volumeSlider.setValue(GET_PARAM_AS_VALUE(associatedChannel, "volume").getValue(), juce::dontSendNotification);
             m_volumeSlider.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
             addAndMakeVisible(&m_volumeSlider);
-            m_volumeSlider.onValueChange = [this] {m_channel->setVolume(m_volumeSlider.getValue()); };
+            m_volumeSlider.onValueChange = [this] {GET_PARAM_AS_VALUE(m_channel, "volume").setValue(m_volumeSlider.getValue()); };
 
             m_panSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
             m_panSlider.setRange(0, 1, 0.01);
-            m_panSlider.setValue(associatedChannel->getPan(), juce::dontSendNotification);
+            m_panSlider.setValue(GET_PARAM_AS_VALUE(m_channel, "pan").getValue(), juce::dontSendNotification);
             m_panSlider.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
             addAndMakeVisible(&m_panSlider);
 
@@ -57,22 +57,13 @@ namespace Manifold
         void MixerChannel::imageToggleButtonClicked(Primitives::ImageToggleButton* b, bool newState)
         {
             if (b == &m_muteButton) {
-                m_channel->setMuteState(newState);
+                GET_PARAM_AS_VALUE(m_channel, "mute").setValue(newState);
             }
             else if (b == &m_soloButton) {
-                m_channel->setSoloState(newState);
+                GET_PARAM_AS_VALUE(m_channel, "solo").setValue(newState);
             }
         }
 
-        void MixerChannel::sliderValueChanged(juce::Slider* slider)
-        {
-            if (slider == &m_volumeSlider) {
-                m_channel->setVolume(slider->getValue());
-            }
-            else if (slider == &m_panSlider) {
-                m_channel->setPan(slider->getValue());
-            }
-        }
 
         void MixerChannel::onColourPicked(juce::Colour& newColour)
         {

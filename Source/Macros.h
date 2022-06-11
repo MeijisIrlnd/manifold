@@ -37,3 +37,7 @@
 #ifndef VST_PATH 
 #define VST_PATH Manifold::Settings::Pathing::s_vstFolderPath
 #endif
+
+#ifndef GET_PARAM_AS_VALUE
+    #define GET_PARAM_AS_VALUE(channel, param) channel->getParamAsValue({std::to_string(channel->getId()) + "_" + param})
+#endif

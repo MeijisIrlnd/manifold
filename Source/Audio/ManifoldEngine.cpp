@@ -123,6 +123,7 @@ namespace Manifold
                 std::make_pair(currentId, std::move(ch))
             );
             InternalChannel* current = m_channelList[currentId].get();
+
             if (t == CHANNEL_TYPE::AUDIO) {
                 std::unique_ptr<AudioChannelProcessor> currentProcessor(new AudioChannelProcessor(dynamic_cast<AudioChannel*>(current)));
                 Node::Ptr handle = m_graph.addNode(std::move(currentProcessor));

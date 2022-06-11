@@ -21,7 +21,6 @@ namespace Manifold
     {
         class MixerChannel : public juce::Component, 
             public Manifold::UI::Primitives::ButtonListener, 
-            public juce::Slider::Listener,
             public ColourPickerListener
         {
         public: 
@@ -29,7 +28,6 @@ namespace Manifold
             virtual ~MixerChannel() override;
             MANIFOLD_INLINE Manifold::Audio::CHANNEL_TYPE getChannelType() { return m_channel->getChannelType(); }
             void imageToggleButtonClicked(Primitives::ImageToggleButton* b, bool newState) override;
-            void sliderValueChanged(juce::Slider* slider) override;
             void onColourPicked(juce::Colour& newColour) override;
             void paint(juce::Graphics& g) override;
             virtual void resized() override = 0;
@@ -43,6 +41,7 @@ namespace Manifold
             juce::Slider m_panSlider;
             Manifold::UI::Primitives::ImageToggleButton m_muteButton;
             Manifold::UI::Primitives::ImageToggleButton m_soloButton;
+            std::unique_ptr<juce::SliderParameterAttachment> m_volumeAttachment{ nullptr }, m_panAttachment{nullptr};
             ColourPicker m_colourPicker;
             InsertPluginList m_insertPluginList;
             //0xFFF5F5DC -> Beige 

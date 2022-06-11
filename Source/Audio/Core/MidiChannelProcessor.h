@@ -27,6 +27,7 @@ namespace Manifold
 
             private: 
                 juce::AudioProcessorGraph::Node::Ptr m_sourceNode;
+                
             };
         }
     }

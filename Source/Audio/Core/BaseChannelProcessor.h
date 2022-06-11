@@ -25,7 +25,9 @@ namespace Manifold
 
                 MANIFOLD_INLINE virtual void loadPlugin(int slotIndex, std::unique_ptr<juce::AudioPluginInstance>&& plugin) {
                     m_inserts[slotIndex].reset(plugin.release());
+                    m_inserts[slotIndex]->enableAllBuses();
                     m_inserts[slotIndex]->prepareToPlay(m_sampleRate, m_samplesPerBlock);
+                    
                 }
 
                 MANIFOLD_INLINE CHANNEL_TYPE getType() const { return m_type; }
@@ -37,6 +39,7 @@ namespace Manifold
                 CHANNEL_TYPE m_type;
                 InternalChannel* m_associatedChannel{ nullptr };
                 std::vector<std::unique_ptr<juce::AudioPluginInstance> > m_inserts;
+                juce::Value m_volume, m_pan, m_mute, m_solo;
             };
         }
     }

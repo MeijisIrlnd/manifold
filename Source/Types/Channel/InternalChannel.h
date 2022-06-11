@@ -18,7 +18,8 @@ namespace Manifold
         enum class CHANNEL_TYPE
         {
             AUDIO,
-            MIDI
+            MIDI,
+            GROUP
         };
 
         class InternalChannel
@@ -31,27 +32,17 @@ namespace Manifold
             MANIFOLD_INLINE CHANNEL_TYPE getChannelType() const { return m_channelType; }
             MANIFOLD_INLINE const int getId() const { return m_internalId; }
             MANIFOLD_INLINE const std::string& getName() const { return m_name; }
-            MANIFOLD_INLINE void setVolume(double newVolume) { m_channelVolume = newVolume; }
-            MANIFOLD_INLINE double getVolume() const { return m_channelVolume; }
-            MANIFOLD_INLINE void setPan(double newPan) { m_channelPan = newPan; }
-            MANIFOLD_INLINE double getPan() const { return m_channelPan; }
-            MANIFOLD_INLINE void setMuteState(bool state) { m_muteState = state; }
-            MANIFOLD_INLINE bool getMuteState() const { return m_muteState; }
-            MANIFOLD_INLINE void setSoloState(bool state) { m_soloState = state; }
-            MANIFOLD_INLINE bool getSoloState() const { return m_soloState; }
+            MANIFOLD_INLINE void addListener(juce::ValueTree::Listener* newListener) { m_valueTree.addListener(newListener); }
+            MANIFOLD_INLINE juce::Value getParamAsValue(juce::Identifier param) { return m_valueTree.getPropertyAsValue(param, nullptr); }
             MANIFOLD_INLINE void setColour(juce::Colour& c) { m_colour = c; }
             MANIFOLD_INLINE juce::Colour& getColour() { return m_colour; }
         protected: 
             CHANNEL_TYPE m_channelType;
             std::string m_name;
-            // The group should hold volume, pan, mute etc
-            juce::AudioProcessorParameterGroup* m_group{ nullptr };
             
             const int m_internalId;
-            double m_channelVolume{ 1 };
-            double m_channelPan{ 0.5 };
-            bool m_muteState{ false };
-            bool m_soloState{ false };
+            juce::ValueTree m_valueTree;
+
             juce::Colour m_colour{ 0xFFF5F5DC };
         };
     }
