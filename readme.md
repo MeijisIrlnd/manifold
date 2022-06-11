@@ -16,5 +16,18 @@ manifold is (or will hopefully be once i finish it ha ha) a fully featured DAW, 
 it's very much a work in progress passion project, so if you stumble across this repo don't expect it to actually do anything for a while, it's getting there
 
 ## TODO 
-- <!p> learn markdown :) 
-- :)
+- Make pan control actually work
+- Set up audio busses, and flesh out group channels 
+- Sidechain, alternative channel routings (don't lock to stereo)
+- Make the arrange window not awful
+- Samples in arrange window 
+- Midi piano roll 
+- Save / Load project
+- Cubase-esque multitool in arrange window (cut, select, etc)
+- Implement selection in general 
+- Make input monitor, record enable actually do stuff
+- Allow the user to change the source on a midi channel 
+- Automation
+- Looping 
+- In place editing (reverse / normalise / etc)
+- VFX (shaders, etc)
