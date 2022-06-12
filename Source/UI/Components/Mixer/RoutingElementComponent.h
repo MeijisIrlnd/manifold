@@ -16,12 +16,11 @@ namespace Manifold::UI
     class RoutingElementComponent : public juce::Component
     {
     public: 
-        RoutingElementComponent(const std::string& titleText);
+        RoutingElementComponent();
         ~RoutingElementComponent() override;
         void paint(juce::Graphics& g) override;
         void resized() override;
     private: 
-        juce::Label m_titleLabel;
         juce::Label m_text;
         Manifold::UI::Primitives::ImageButton m_button;
     };

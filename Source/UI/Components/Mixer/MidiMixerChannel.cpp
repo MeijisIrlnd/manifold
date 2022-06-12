@@ -32,7 +32,7 @@ namespace Manifold
         void MidiMixerChannel::resized()
         {
             drawCommonElements();
-            m_instrumentButton.setBounds(m_muteButton.getX() + m_muteButton.getWidth() / 2, m_muteButton.getY() - getHeight() / 16, m_muteButton.getWidth(), m_muteButton.getHeight());
+            m_instrumentButton.setBounds(m_muteButton.getX() + m_muteButton.getWidth() / 2, m_muteButton.getY() + m_muteButton.getHeight() + getHeight() / 64, m_muteButton.getWidth(), m_muteButton.getHeight());
         }
     }
 }

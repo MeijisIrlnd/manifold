@@ -12,11 +12,9 @@
 
 namespace Manifold::UI
 {
-    RoutingElementComponent::RoutingElementComponent(const std::string& titleText) : 
+    RoutingElementComponent::RoutingElementComponent() : 
         m_button(BinaryData::VSTSlotBackground_png, BinaryData::VSTSlotBackground_pngSize)
     {
-        m_titleLabel.setText(titleText, juce::dontSendNotification);
-        addAndMakeVisible(&m_titleLabel);
         m_text.setText("Test", juce::dontSendNotification);
         m_text.setInterceptsMouseClicks(false, false);
         addAndMakeVisible(&m_button);

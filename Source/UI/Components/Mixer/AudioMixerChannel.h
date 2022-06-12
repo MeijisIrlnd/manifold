@@ -23,6 +23,8 @@ namespace Manifold
         private:
             Manifold::UI::Primitives::ImageToggleButton m_inputMonitorButton;
             Manifold::UI::Primitives::ImageToggleButton m_recordEnableButton;
+            juce::Label m_inputSelectLabel;
+            RoutingElementComponent m_inputSelector;
         };
     }
 }

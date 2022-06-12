@@ -21,9 +21,7 @@ namespace Manifold
             m_soloButton(BinaryData::SoloOff_png, BinaryData::SoloOff_pngSize,
                 BinaryData::SoloOn_png, BinaryData::SoloOn_pngSize),
             m_colourPicker(associatedChannel),
-            m_insertPluginList(associatedChannel->getId()),
-            m_inputSelector("Input Source"), 
-            m_outputSelector("Output Source")
+            m_insertPluginList(associatedChannel->getId())
         {
             m_volumeSlider.setSliderStyle(juce::Slider::LinearVertical);
             m_volumeSlider.setRange(0, 1, 0.01);
@@ -125,10 +123,11 @@ namespace Manifold
             // colour picker
             auto elSpacing = getHeight() / 64;
             m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 4);
-            m_inputSelectLabel.setBounds(0, m_insertPluginList.getHeight() + m_insertPluginList.getY(), getWidth(), elSpacing);
-            m_inputSelector.setBounds(0, m_insertPluginList.getHeight() + elSpacing, getWidth(), getHeight() / 32);
-            m_outputSelectLabel.setBounds(0, m_inputSelector.getHeight() + m_inputSelector.getY(), getWidth(), elSpacing);
-            m_outputSelector.setBounds(0, m_inputSelector.getY() + m_inputSelector.getHeight() + elSpacing, getWidth(), getHeight() / 32);
+            auto blankSpaceY = getHeight() / 32 + (elSpacing * 2) + m_insertPluginList.getY() + m_insertPluginList.getHeight();
+            //m_inputSelectLabel.setBounds(0, m_insertPluginList.getHeight() + m_insertPluginList.getY(), getWidth(), elSpacing);
+            //m_inputSelector.setBounds(0, m_insertPluginList.getHeight() + elSpacing, getWidth(), getHeight() / 32);
+            m_outputSelectLabel.setBounds(0, blankSpaceY, getWidth(), elSpacing);
+            m_outputSelector.setBounds(0, blankSpaceY + elSpacing, getWidth(), getHeight() / 32);
             m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_outputSelector.getY() + m_outputSelector.getHeight() + elSpacing, getWidth() / 3, getWidth() / 3);
             m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, m_panSlider.getY() + m_panSlider.getHeight() + elSpacing, getWidth() / 4, getWidth() / 4);
             m_soloButton.setBounds(getWidth() / 2, m_muteButton.getY(), getWidth() / 4, getWidth() / 4);
