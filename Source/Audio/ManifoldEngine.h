@@ -9,6 +9,7 @@
 */
 
 #pragma once
+#include <ranges>
 #include <JuceHeader.h>
 #include "../Macros.h"
 #include "../Utils/UIListener.h"
@@ -84,6 +85,7 @@ namespace Manifold
             MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
             MANIFOLD_INLINE juce::AudioDeviceManager& getDeviceManager() { return m_deviceManager; }
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
+            std::unordered_map<int, InternalChannel*> getChannelsOfType(CHANNEL_TYPE t);
             MANIFOLD_INLINE juce::KnownPluginList& getPluginList() { return m_plugins; }
             juce::Array<juce::PluginDescription> getFilteredDescriptions(bool findInstruments) {
                 juce::Array<juce::PluginDescription> current = m_plugins.getTypes();

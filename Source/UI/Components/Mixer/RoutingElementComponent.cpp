@@ -18,11 +18,19 @@ namespace Manifold::UI
         m_text.setText("Test", juce::dontSendNotification);
         m_text.setInterceptsMouseClicks(false, false);
         addAndMakeVisible(&m_button);
+        m_button.addListener(this);
         addAndMakeVisible(&m_text);
     }
 
     RoutingElementComponent::~RoutingElementComponent()
     {
+    }
+
+    void RoutingElementComponent::imageButtonClicked(MANIFOLD_UNUSED Manifold::UI::Primitives::ImageButton* b)
+    {
+        if (m_listener != nullptr) MANIFOLD_LIKELY {
+            m_listener->onRoutingElementPress(this);
+        }
     }
 
     void RoutingElementComponent::paint(MANIFOLD_UNUSED juce::Graphics& g)

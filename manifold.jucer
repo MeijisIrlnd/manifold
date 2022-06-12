@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="dsunQ0" name="manifold" projectType="guiapp" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
-              cppLanguageStandard="17">
+              cppLanguageStandard="20">
   <MAINGROUP id="xOly6w" name="manifold">
     <GROUP id="{47D65248-4DA2-18DA-4CE5-47411DD21DD3}" name="Resources">
       <GROUP id="{37E9A2FE-398E-8416-54AB-40DDF1DF61C7}" name="Assets">

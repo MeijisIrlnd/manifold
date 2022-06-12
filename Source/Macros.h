@@ -22,6 +22,14 @@
 #define MANIFOLD_UNUSED [[maybe_unused]]
 #endif
 
+#ifndef MANIFOLD_LIKELY 
+    #define MANIFOLD_LIKELY [[likely]]
+#endif
+
+#ifndef MANIFOLD_UNLIKELY 
+    #define MANIFOLD_UNLIKELY [[unlikely]]
+#endif 
+
 #ifndef GET_ENGINE
 #define GET_ENGINE Manifold::Audio::ManifoldEngine::getInstance()
 #endif

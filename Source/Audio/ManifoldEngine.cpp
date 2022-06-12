@@ -105,6 +105,17 @@ namespace Manifold
             }
         }
 
+        std::unordered_map<int, InternalChannel*> ManifoldEngine::getChannelsOfType(CHANNEL_TYPE t)
+        {
+            std::unordered_map<int, InternalChannel*> retval;
+            for (auto it = m_channelList.begin(); it != m_channelList.end(); it++) {
+                if (it->second->getChannelType() == t) {
+                    retval.emplace(std::make_pair(it->first, it->second.get()));
+                }
+            }
+            return retval;
+        }
+
         void ManifoldEngine::createChannel(CHANNEL_TYPE t, juce::PluginDescription desc)
         {
             bool channelCreated = false;
