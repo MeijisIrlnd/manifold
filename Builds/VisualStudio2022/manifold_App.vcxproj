@@ -176,6 +176,7 @@
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Windows\SettingsWindow.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Windows\WindowListener.cpp"/>
@@ -2285,6 +2286,7 @@
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Windows\BaseWindow.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Windows\SettingsWindow.h"/>
@@ -3147,6 +3149,7 @@
     <None Include="..\..\Resources\Assets\RecordEnableOff.png"/>
     <None Include="..\..\Resources\Assets\RecordEnableOn.png"/>
     <None Include="..\..\Resources\Assets\RotaryHandle.png"/>
+    <None Include="..\..\Resources\Assets\RoutingFrame.png"/>
     <None Include="..\..\Resources\Assets\ScrollbarThumb.png"/>
     <None Include="..\..\Resources\Assets\SoloOff.png"/>
     <None Include="..\..\Resources\Assets\SoloOn.png"/>

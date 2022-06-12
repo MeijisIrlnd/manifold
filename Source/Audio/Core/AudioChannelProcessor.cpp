@@ -40,6 +40,14 @@ namespace Manifold
                 
                 buffer.applyGain(static_cast<float>(m_volume.getValue()));
                 if (static_cast<bool>(m_mute.getValue())) { buffer.applyGain(0.0f); }
+                for (auto channel = 0; channel < buffer.getNumChannels(); channel++) {
+                    if (channel == 0) {
+                        buffer.applyGain(std::sinf(static_cast<float>(m_pan.getValue()) * juce::MathConstants<float>::halfPi));
+                    }
+                    else {
+                        buffer.applyGain(std::cosf(static_cast<float>(m_pan.getValue()) * juce::MathConstants<float>::halfPi));
+                    }
+                }
 
             }
             void AudioChannelProcessor::releaseResources()

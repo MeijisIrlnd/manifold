@@ -625,6 +625,9 @@
     <ClCompile Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.cpp">
       <Filter>manifold\Source\UI\Components\Windows</Filter>
     </ClCompile>
@@ -2980,6 +2983,9 @@
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Windows\BaseWindow.h">
@@ -5562,6 +5568,9 @@
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\Assets\RotaryHandle.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\RoutingFrame.png">
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\Assets\ScrollbarThumb.png">

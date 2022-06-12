@@ -15,6 +15,7 @@
 #include "ColourPicker.h"
 #include "../../Primitives/ButtonListener.h"
 #include "InsertPluginList.h"
+#include "RoutingElementComponent.h"
 namespace Manifold
 {
     namespace UI
@@ -44,6 +45,8 @@ namespace Manifold
             std::unique_ptr<juce::SliderParameterAttachment> m_volumeAttachment{ nullptr }, m_panAttachment{nullptr};
             ColourPicker m_colourPicker;
             InsertPluginList m_insertPluginList;
+            RoutingElementComponent m_inputSelector, m_outputSelector;
+            juce::Label m_inputSelectLabel, m_outputSelectLabel;
             //0xFFF5F5DC -> Beige 
             //0xFF1C2541 ->Midnight Blurp
             //0XFFEF626C ->Salmon of knowledge

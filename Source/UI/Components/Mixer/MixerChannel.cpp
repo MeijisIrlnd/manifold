@@ -14,14 +14,16 @@ namespace Manifold
 {
     namespace UI
     {       
-        MixerChannel::MixerChannel(Manifold::Audio::InternalChannel* associatedChannel) : 
-            m_channel(associatedChannel), 
-            m_muteButton(BinaryData::MuteOff_png, BinaryData::MuteOff_pngSize, 
-                BinaryData::MuteOn_png, BinaryData::MuteOn_pngSize), 
+        MixerChannel::MixerChannel(Manifold::Audio::InternalChannel* associatedChannel) :
+            m_channel(associatedChannel),
+            m_muteButton(BinaryData::MuteOff_png, BinaryData::MuteOff_pngSize,
+                BinaryData::MuteOn_png, BinaryData::MuteOn_pngSize),
             m_soloButton(BinaryData::SoloOff_png, BinaryData::SoloOff_pngSize,
-                BinaryData::SoloOn_png, BinaryData::SoloOn_pngSize), 
+                BinaryData::SoloOn_png, BinaryData::SoloOn_pngSize),
             m_colourPicker(associatedChannel),
-            m_insertPluginList(associatedChannel->getId())
+            m_insertPluginList(associatedChannel->getId()),
+            m_inputSelector("Input Source"), 
+            m_outputSelector("Output Source")
         {
             m_volumeSlider.setSliderStyle(juce::Slider::LinearVertical);
             m_volumeSlider.setRange(0, 1, 0.01);
@@ -35,7 +37,7 @@ namespace Manifold
             m_panSlider.setValue(GET_PARAM_AS_VALUE(m_channel, "pan").getValue(), juce::dontSendNotification);
             m_panSlider.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
             addAndMakeVisible(&m_panSlider);
-
+            m_panSlider.onValueChange = [this] {GET_PARAM_AS_VALUE(m_channel, "pan").setValue(m_panSlider.getValue()); };
             m_panText.setImage(juce::ImageCache::getFromMemory(BinaryData::PanText_png, BinaryData::PanText_pngSize));
             addAndMakeVisible(&m_panText);
 
@@ -48,6 +50,15 @@ namespace Manifold
             m_colourPicker.addListener(this);
 
             addAndMakeVisible(&m_insertPluginList);
+            addAndMakeVisible(&m_inputSelector);
+            addAndMakeVisible(&m_outputSelector);
+            m_inputSelectLabel.setText("Input Source", juce::dontSendNotification);
+            m_inputSelectLabel.setJustificationType(juce::Justification::centred);
+            addAndMakeVisible(&m_inputSelectLabel);
+            m_outputSelectLabel.setText("Output Source", juce::dontSendNotification);
+            m_outputSelectLabel.setJustificationType(juce::Justification::centred);
+            addAndMakeVisible(&m_outputSelectLabel);
+
         }
 
         MixerChannel::~MixerChannel()
@@ -80,17 +91,48 @@ namespace Manifold
             g.drawRect(bounds, 0.25f);
         }
 
+        //void MixerChannel::drawCommonElements()
+        //{
+        //    // insert
+        //    // i/o
+        //    // pan 
+        //    // im, re
+        //    // mute / solo 
+        //    // volume 
+        //    // colour picker
+        //
+        //    m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 4);
+        //    m_inputSelector.setBounds(0, m_insertPluginList.getHeight(), getWidth(), getHeight() / 32);
+        //    m_outputSelector.setBounds(0, m_inputSelector.getY() + m_inputSelector.getHeight(), getWidth(), getHeight() / 32);
+        //    m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, getHeight() / 2 - getWidth() / 6 - getHeight() / 32, getWidth() / 4, getWidth() / 4);
+        //    m_soloButton.setBounds(getWidth() / 2, m_muteButton.getY(), getWidth() / 4, getWidth() / 4);
+        //    // Some spacing for Input mon and record enable / vst select 
+        //    // Assume same height, and spacing.. 
+        //    int spacing = m_soloButton.getHeight() + getHeight() / 32;
+        //    m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_soloButton.getY() - getHeight() / 32 - getWidth() / 3 - spacing, getWidth() / 3, getWidth() / 3);
+        //    //m_panText.setBounds(getWidth() / 2 - getWidth() / 6, m_panSlider.getY() - m_panSlider.getHeight(), getWidth() / 3, getHeight() / 24);
+        //    m_volumeSlider.setBounds(0, static_cast<int>(getHeight() * 0.5f), getWidth(), getHeight() / 2 - getHeight() / 32);
+        //    m_colourPicker.setBounds(0, m_volumeSlider.getY() + m_volumeSlider.getHeight(), getWidth(), getHeight() / 32);
+        //}
         void MixerChannel::drawCommonElements()
         {
+            // insert
+            // i/o
+            // pan 
+            // im, re
+            // mute / solo 
+            // volume 
+            // colour picker
+            auto elSpacing = getHeight() / 64;
             m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 4);
-            m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, getHeight() / 2 - getWidth() / 6 - getHeight() / 32, getWidth() / 4, getWidth() / 4);
+            m_inputSelectLabel.setBounds(0, m_insertPluginList.getHeight() + m_insertPluginList.getY(), getWidth(), elSpacing);
+            m_inputSelector.setBounds(0, m_insertPluginList.getHeight() + elSpacing, getWidth(), getHeight() / 32);
+            m_outputSelectLabel.setBounds(0, m_inputSelector.getHeight() + m_inputSelector.getY(), getWidth(), elSpacing);
+            m_outputSelector.setBounds(0, m_inputSelector.getY() + m_inputSelector.getHeight() + elSpacing, getWidth(), getHeight() / 32);
+            m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_outputSelector.getY() + m_outputSelector.getHeight() + elSpacing, getWidth() / 3, getWidth() / 3);
+            m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, m_panSlider.getY() + m_panSlider.getHeight() + elSpacing, getWidth() / 4, getWidth() / 4);
             m_soloButton.setBounds(getWidth() / 2, m_muteButton.getY(), getWidth() / 4, getWidth() / 4);
-            // Some spacing for Input mon and record enable / vst select 
-            // Assume same height, and spacing.. 
-            int spacing = m_soloButton.getHeight() + getHeight() / 32;
-            m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_soloButton.getY() - getHeight() / 32 - getWidth() / 3 - spacing, getWidth() / 3, getWidth() / 3);
-            m_panText.setBounds(getWidth() / 2 - getWidth() / 6, m_panSlider.getY() - m_panSlider.getHeight(), getWidth() / 3, getHeight() / 24);
-            m_volumeSlider.setBounds(0, static_cast<int>(getHeight() * 0.5f), getWidth(), getHeight() / 2 - getHeight() / 32);
+            m_volumeSlider.setBounds(0, getHeight() / 2, getWidth(), getHeight() / 2 - getHeight() / 32);
             m_colourPicker.setBounds(0, m_volumeSlider.getY() + m_volumeSlider.getHeight(), getWidth(), getHeight() / 32);
         }
     }

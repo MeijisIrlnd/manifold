@@ -22,6 +22,8 @@
               file="Resources/Assets/RecordEnableOn.png"/>
         <FILE id="NXxAE1" name="RotaryHandle.png" compile="0" resource="1"
               file="Resources/Assets/RotaryHandle.png"/>
+        <FILE id="KL2CKl" name="RoutingFrame.png" compile="0" resource="1"
+              file="Resources/Assets/RoutingFrame.png"/>
         <FILE id="CNKeES" name="ScrollbarThumb.png" compile="0" resource="1"
               file="Resources/Assets/ScrollbarThumb.png"/>
         <FILE id="r2zv2p" name="SoloOff.png" compile="0" resource="1" file="Resources/Assets/SoloOff.png"/>
@@ -187,6 +189,10 @@
                   file="Source/UI/Components/Mixer/PluginListComponentItem.cpp"/>
             <FILE id="MMhmXh" name="PluginListComponentItem.h" compile="0" resource="0"
                   file="Source/UI/Components/Mixer/PluginListComponentItem.h"/>
+            <FILE id="RVGKOD" name="RoutingElementComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/RoutingElementComponent.cpp"/>
+            <FILE id="bo6gAM" name="RoutingElementComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/RoutingElementComponent.h"/>
           </GROUP>
           <GROUP id="{8398E3ED-EAAA-BE19-83A5-3F83F435633B}" name="Windows">
             <FILE id="dDzG5U" name="BaseWindow.h" compile="0" resource="0" file="Source/UI/Components/Windows/BaseWindow.h"/>

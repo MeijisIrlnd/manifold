@@ -43,8 +43,9 @@ namespace Manifold
 
         void AudioMixerChannel::resized()
         {
+            auto elSpacing = getHeight() / 64;
             drawCommonElements();
-            m_inputMonitorButton.setBounds(m_muteButton.getX(), m_muteButton.getY() - getHeight() / 16, m_muteButton.getWidth(), m_muteButton.getHeight());
+            m_inputMonitorButton.setBounds(m_muteButton.getX(), m_muteButton.getY() + m_muteButton.getHeight() + elSpacing, m_muteButton.getWidth(), m_muteButton.getHeight());
             m_recordEnableButton.setBounds(m_inputMonitorButton.getX() + m_inputMonitorButton.getWidth(), m_inputMonitorButton.getY(),
                 m_inputMonitorButton.getWidth(), m_inputMonitorButton.getHeight());
         }
