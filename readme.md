@@ -16,7 +16,7 @@ manifold is (or will hopefully be once i finish it ha ha) a fully featured DAW, 
 it's very much a work in progress passion project, so if you stumble across this repo don't expect it to actually do anything for a while, it's getting there i swear im trying my best this shit is <b>hard</b>
 
 ## TODO 
-- Make pan control actually work
+- <s>Make pan control actually work</s>
 - Sends
 - Set up audio busses, and flesh out group channels 
 - Sidechain, alternative channel routings (don't lock to stereo)
