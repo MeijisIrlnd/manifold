@@ -17,6 +17,7 @@
 #include "Core/AudioDriver.h"
 #include "Core/AudioChannelProcessor.h"
 #include "Core/MidiChannelProcessor.h"
+#include "Core/GroupChannelProcessor.h"
 #include "../UI/Components/Windows/WindowManager.h"
 #include "../Types/Channel/Channel.h"
 #include "../Settings/Pathing.h"
@@ -56,18 +57,6 @@ namespace Manifold
                 }
             }
 
-            MANIFOLD_INLINE void connectAudioNodes(int numChannels) {
-                
-                for (auto channel = 0; channel < numChannels; channel++) {
-                    for (auto& c : m_channelNodes) {
-                        BaseChannelProcessor* current = dynamic_cast<BaseChannelProcessor*>(c.second->getProcessor());
-                        if (current->getType() != CHANNEL_TYPE::MIDI) {
-                            m_graph.addConnection({ {m_audioInputNode->nodeID, channel}, {c.second->nodeID, channel} });
-                        }
-                        m_graph.addConnection({ { c.second->nodeID, channel}, { m_audioOutputNode->nodeID, channel} });
-                    }
-                }
-            }
 
             MANIFOLD_INLINE void connectMidiNodes(int numChannels) {
                 for (auto channel = 0; channel < numChannels; channel++) {
@@ -102,6 +91,7 @@ namespace Manifold
             void loadPlugin(const int channelId, const int slot, juce::PluginDescription desc);
             void createEditorForPlugin(const int channelId, const int slot);
             void createEditorForMidiChannelPlugin(const int channelId);
+            void connectNodes(const int nodeA, const int nodeB = -1);
         private: 
             static std::mutex m_mutex;
             //std::unordered_map<std::string, std::string> m_vsts;

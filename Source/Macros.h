@@ -31,7 +31,7 @@
 #endif 
 
 #ifndef GET_ENGINE
-#define GET_ENGINE Manifold::Audio::ManifoldEngine::getInstance()
+#define GET_ENGINE() Manifold::Audio::ManifoldEngine::getInstance()
 #endif
 
 #ifndef AUDIO_CHANNEL
@@ -40,6 +40,10 @@
 
 #ifndef MIDI_CHANNEL 
 #define MIDI_CHANNEL Manifold::Audio::CHANNEL_TYPE::MIDI 
+#endif
+
+#ifndef GROUP_CHANNEL 
+#define GROUP_CHANNEL Manifold::Audio::CHANNEL_TYPE::GROUP 
 #endif
 
 #ifndef VST_PATH 

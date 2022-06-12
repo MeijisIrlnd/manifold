@@ -14,12 +14,11 @@ namespace Manifold
 {
     namespace UI
     {
-        class AudioMixerChannel : public MixerChannel, public RoutingElementComponent::Listener
+        class AudioMixerChannel : public MixerChannel
         {
         public: 
             AudioMixerChannel(Manifold::Audio::InternalChannel* channel);
             void imageToggleButtonClicked(Primitives::ImageToggleButton* b, bool newState) override;
-            void onRoutingElementPress(RoutingElementComponent* element) override;
             void resized() override;
         private:
             Manifold::UI::Primitives::ImageToggleButton m_inputMonitorButton;

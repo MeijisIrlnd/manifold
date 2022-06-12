@@ -33,7 +33,7 @@ namespace Manifold
             addAndMakeVisible(&m_mixerScrollbar);
             addAndMakeVisible(&m_menuBar);
             addKeyListener(this);
-            GET_ENGINE->addListener(this);
+            GET_ENGINE()->addListener(this);
         }
 
         MainWindowComponent::~MainWindowComponent()
@@ -55,28 +55,34 @@ namespace Manifold
                 juce::PopupMenu popup;
                 popup.addItem(1, "Create audio channel");
                 popup.addItem(2, "Create midi channel");
+                popup.addItem(3, "Create bus channel");
                 popup.showMenuAsync(juce::PopupMenu::Options(), [this](int res) {
                     switch (res) {
                     case 1:
                     {
-                        GET_ENGINE->createChannel(AUDIO_CHANNEL);
+                        GET_ENGINE()->createChannel(AUDIO_CHANNEL);
                         break;
                     }
                     case 2:
                     {
-                        juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
-                        juce::Array<juce::PluginDescription> descs = GET_ENGINE->getFilteredDescriptions(true);
+                        juce::KnownPluginList& vstList = GET_ENGINE()->getPluginList();
+                        juce::Array<juce::PluginDescription> descs = GET_ENGINE()->getFilteredDescriptions(true);
                         std::function<void(int)> userCallback = [this, descs](int result) {
-                            juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
+                            juce::KnownPluginList& vstList = GET_ENGINE()->getPluginList();
                             auto chosenIndex = vstList.getIndexChosenByMenu(descs, result);
                             if (chosenIndex == -1) { return; }
                             auto selected = descs[chosenIndex];
-                            GET_ENGINE->createChannel(MIDI_CHANNEL, selected);
+                            GET_ENGINE()->createChannel(MIDI_CHANNEL, selected);
                         };
                         juce::PopupMenu vstMenu;
 
                         vstList.addToMenu(vstMenu, descs, juce::KnownPluginList::sortAlphabetically);
                         vstMenu.showMenuAsync(juce::PopupMenu::Options(), userCallback);
+                        break;
+                    }
+                    case 3: 
+                    {
+                        GET_ENGINE()->createChannel(GROUP_CHANNEL);
                         break;
                     }
                     default:

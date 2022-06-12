@@ -10,13 +10,13 @@
 
 #pragma once
 #include "BaseChannelProcessor.h"
-
+#include "../../Types/Channel/GroupChannel.h"
 namespace Manifold::Audio::Core
 {
     class GroupChannelProcessor : public BaseChannelProcessor
     {
     public: 
-        GroupChannelProcessor(InternalChannel* internalChannel);
+        GroupChannelProcessor(GroupChannel* internalChannel);
         void prepareToPlay(double sampleRate, int samplesPerBlockExpected) override;
         void processBlock(juce::AudioSampleBuffer& buffer, juce::MidiBuffer& messages) override;
         void releaseResources() override;

@@ -16,11 +16,11 @@ namespace Manifold
     {
         ChannelListComponent::ChannelListComponent()
         {
-            GET_ENGINE->addListener(this);
+            GET_ENGINE()->addListener(this);
         }
         ChannelListComponent::~ChannelListComponent()
         {
-            GET_ENGINE->removeListener(this);
+            GET_ENGINE()->removeListener(this);
         }
 
         void ChannelListComponent::onChannelCreated(Manifold::Audio::InternalChannel* newChannel)
@@ -48,12 +48,12 @@ namespace Manifold
                         case 1: 
                         {
                             DBG("Creating new audio channel");
-                            GET_ENGINE->createChannel(AUDIO_CHANNEL);
+                            GET_ENGINE()->createChannel(AUDIO_CHANNEL);
                             break;
                         }
                         case 2: 
                         {
-                            GET_ENGINE->createChannel(MIDI_CHANNEL);
+                            GET_ENGINE()->createChannel(MIDI_CHANNEL);
                             break;
                         }
                         default: 

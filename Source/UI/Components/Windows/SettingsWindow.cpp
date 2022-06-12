@@ -23,7 +23,7 @@ namespace Manifold
             BaseWindow(name, juce::Colours::lightgrey, 7, WINDOW_TYPE::SETTINGS, listener)
         {
             
-            m_window.reset(new SettingsWindow(GET_ENGINE->getDeviceManager()));
+            m_window.reset(new SettingsWindow(GET_ENGINE()->getDeviceManager()));
             m_window->setSize(500, 900);
             setContentNonOwned(m_window.get(), true);
             setVisible(true);

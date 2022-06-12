@@ -25,7 +25,7 @@ namespace Manifold
         void MidiMixerChannel::imageButtonClicked(Primitives::ImageButton* b)
         {
             if (b == &m_instrumentButton) {
-                GET_ENGINE->createEditorForMidiChannelPlugin(m_channel->getId());
+                GET_ENGINE()->createEditorForMidiChannelPlugin(m_channel->getId());
             }
         }
 

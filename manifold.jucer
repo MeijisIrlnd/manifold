@@ -55,6 +55,9 @@
                 file="Source/Types/Channel/AudioChannel.cpp"/>
           <FILE id="LnR9wS" name="AudioChannel.h" compile="0" resource="0" file="Source/Types/Channel/AudioChannel.h"/>
           <FILE id="S09ZK5" name="Channel.h" compile="0" resource="0" file="Source/Types/Channel/Channel.h"/>
+          <FILE id="OoS9dv" name="GroupChannel.cpp" compile="1" resource="0"
+                file="Source/Types/Channel/GroupChannel.cpp"/>
+          <FILE id="piOLE8" name="GroupChannel.h" compile="0" resource="0" file="Source/Types/Channel/GroupChannel.h"/>
           <FILE id="OTyuV5" name="InternalChannel.cpp" compile="1" resource="0"
                 file="Source/Types/Channel/InternalChannel.cpp"/>
           <FILE id="F9S5D2" name="InternalChannel.h" compile="0" resource="0"
@@ -174,6 +177,10 @@
                   file="Source/UI/Components/Mixer/ColourPickerMenuItem.cpp"/>
             <FILE id="GobNrb" name="ColourPickerMenuItem.h" compile="0" resource="0"
                   file="Source/UI/Components/Mixer/ColourPickerMenuItem.h"/>
+            <FILE id="NQC4pA" name="GroupMixerChannel.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/GroupMixerChannel.cpp"/>
+            <FILE id="rBa3gu" name="GroupMixerChannel.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/GroupMixerChannel.h"/>
             <FILE id="T764RE" name="InsertPluginList.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Mixer/InsertPluginList.cpp"/>
             <FILE id="Q9dYuy" name="InsertPluginList.h" compile="0" resource="0"

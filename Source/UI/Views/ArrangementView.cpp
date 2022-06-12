@@ -12,7 +12,7 @@
 
 Manifold::UI::ArrangementView::ArrangementView() : 
     m_channelListComponent(),
-    m_playlistView(GET_ENGINE->getPositionTracker()),
+    m_playlistView(GET_ENGINE()->getPositionTracker()),
     m_horizontalScrollbar(false),
     m_verticalScrollbar(true)
 {

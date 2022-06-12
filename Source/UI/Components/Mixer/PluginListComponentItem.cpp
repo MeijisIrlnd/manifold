@@ -33,15 +33,15 @@ namespace Manifold
         {
             if (ev.mods.isRightButtonDown()) {
                 m_vstContextMenu.clear();
-                juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
-                juce::Array<juce::PluginDescription> filtered = GET_ENGINE->getFilteredDescriptions(false);
+                juce::KnownPluginList& vstList = GET_ENGINE()->getPluginList();
+                juce::Array<juce::PluginDescription> filtered = GET_ENGINE()->getFilteredDescriptions(false);
                 std::function<void(int)> userCallback = [this, filtered](int result) {
-                    juce::KnownPluginList& vstList = GET_ENGINE->getPluginList();
+                    juce::KnownPluginList& vstList = GET_ENGINE()->getPluginList();
                     MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(filtered, result);
                     if (chosenIndex == -1) { return; }
                     m_readout.setText(filtered[chosenIndex].name, juce::dontSendNotification);
                     auto current = filtered[chosenIndex];
-                    GET_ENGINE->loadPlugin(m_channelId, m_slotIndex, current);
+                    GET_ENGINE()->loadPlugin(m_channelId, m_slotIndex, current);
                 };
                 
                 vstList.addToMenu(m_vstContextMenu, filtered, juce::KnownPluginList::sortAlphabetically);
@@ -49,7 +49,7 @@ namespace Manifold
             }
             else if (ev.mods.isLeftButtonDown()) {
                 // Open the plugin's editor...
-                GET_ENGINE->createEditorForPlugin(m_channelId, m_slotIndex);
+                GET_ENGINE()->createEditorForPlugin(m_channelId, m_slotIndex);
             }
         }
 

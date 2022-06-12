@@ -22,6 +22,7 @@ namespace Manifold
             GROUP
         };
 
+        using Connection = juce::AudioProcessorGraph::Connection;
         class InternalChannel
         {
         public: 
@@ -36,14 +37,18 @@ namespace Manifold
             MANIFOLD_INLINE juce::Value getParamAsValue(juce::Identifier param) { return m_valueTree.getPropertyAsValue(param, nullptr); }
             MANIFOLD_INLINE void setColour(juce::Colour& c) { m_colour = c; }
             MANIFOLD_INLINE juce::Colour& getColour() { return m_colour; }
+
+            MANIFOLD_INLINE std::vector<Connection>& getOutputConnections() { return m_outputConnections; }
+            MANIFOLD_INLINE void addOutputConnection(const Connection& connection) {
+                m_outputConnections.push_back(connection);
+            }
         protected: 
             CHANNEL_TYPE m_channelType;
             std::string m_name;
-            
             const int m_internalId;
             juce::ValueTree m_valueTree;
-
             juce::Colour m_colour{ 0xFFF5F5DC };
+            std::vector<Connection> m_outputConnections;
         };
     }
 }

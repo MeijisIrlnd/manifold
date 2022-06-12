@@ -144,6 +144,7 @@
     <ClCompile Include="..\..\Source\Settings\Pathing.cpp"/>
     <ClCompile Include="..\..\Source\Testing\ChannelTester.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp"/>
+    <ClCompile Include="..\..\Source\Types\Channel\GroupChannel.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\InternalChannel.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\MidiChannel.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioChannelProcessor.cpp"/>
@@ -172,6 +173,7 @@
     <ClCompile Include="..\..\Source\UI\Components\Mixer\BasePluginListComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\ColourPicker.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\ColourPickerMenuItem.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\GroupMixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\InsertPluginList.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MixerChannel.cpp"/>
@@ -2248,6 +2250,7 @@
     <ClInclude Include="..\..\Source\Testing\ChannelTester.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\AudioChannel.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\Channel.h"/>
+    <ClInclude Include="..\..\Source\Types\Channel\GroupChannel.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\InternalChannel.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\MidiChannel.h"/>
     <ClInclude Include="..\..\Source\Types\BroadcastVariable.h"/>
@@ -2282,6 +2285,7 @@
     <ClInclude Include="..\..\Source\UI\Components\Mixer\BasePluginListComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\ColourPicker.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\ColourPickerMenuItem.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\GroupMixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\InsertPluginList.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MixerChannel.h"/>

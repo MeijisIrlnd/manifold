@@ -19,8 +19,12 @@ namespace Manifold
         public: 
             AudioChannel(int internalId, std::string name);
             AudioChannel(const AudioChannel& other);
+            MANIFOLD_INLINE void addInputConnection(const Connection& connection) {
+                m_inputConnections.push_back(connection);
+            }
+            MANIFOLD_INLINE std::vector<Connection>& getInputConnection() { return m_inputConnections; }
         private: 
-            // Also holds audio data, etc
+            std::vector<Connection> m_inputConnections;
         };
     }
 }

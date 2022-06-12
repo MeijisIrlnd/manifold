@@ -22,7 +22,8 @@ namespace Manifold
     {
         class MixerChannel : public juce::Component, 
             public Manifold::UI::Primitives::ButtonListener, 
-            public ColourPickerListener
+            public ColourPickerListener,
+            public RoutingElementComponent::Listener
         {
         public: 
             MixerChannel(Manifold::Audio::InternalChannel* associatedChannel);
@@ -30,11 +31,13 @@ namespace Manifold
             MANIFOLD_INLINE Manifold::Audio::CHANNEL_TYPE getChannelType() { return m_channel->getChannelType(); }
             void imageToggleButtonClicked(Primitives::ImageToggleButton* b, bool newState) override;
             void onColourPicked(juce::Colour& newColour) override;
+            virtual void onRoutingElementPress(RoutingElementComponent* el);
             void paint(juce::Graphics& g) override;
             virtual void resized() override = 0;
 
         protected:
             void drawCommonElements();
+            void handleOutputRouting(RoutingElementComponent* element);
             Manifold::Audio::InternalChannel* m_channel{ nullptr };
             juce::TextEditor m_nameDisplay;
             juce::ImageComponent m_panText;

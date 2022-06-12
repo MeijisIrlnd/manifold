@@ -529,6 +529,9 @@
     <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Types\Channel\GroupChannel.cpp">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Types\Channel\InternalChannel.cpp">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClCompile>
@@ -611,6 +614,9 @@
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\ColourPickerMenuItem.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\GroupMixerChannel.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\InsertPluginList.cpp">
@@ -2871,6 +2877,9 @@
     <ClInclude Include="..\..\Source\Types\Channel\Channel.h">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Types\Channel\GroupChannel.h">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Types\Channel\InternalChannel.h">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClInclude>
@@ -2971,6 +2980,9 @@
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\ColourPickerMenuItem.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\GroupMixerChannel.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\InsertPluginList.h">

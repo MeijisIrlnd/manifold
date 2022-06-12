@@ -18,22 +18,27 @@ namespace Manifold
             m_mixerChannelWidth(mixerChannelWidth)
         {
             setLookAndFeel(&m_lf);
-            GET_ENGINE->addListener(this);
+            GET_ENGINE()->addListener(this);
         }
         MixerView::~MixerView()
         {
             setLookAndFeel(nullptr);
-            GET_ENGINE->removeListener(this);
+            GET_ENGINE()->removeListener(this);
         }
 
         void MixerView::onChannelCreated(Manifold::Audio::InternalChannel* newChannel)
         {
             std::unique_ptr<MixerChannel> current;
-            if (newChannel->getChannelType() == AUDIO_CHANNEL) {
+            switch (newChannel->getChannelType()) {
+            case AUDIO_CHANNEL: 
                 current.reset(dynamic_cast<MixerChannel*>(new AudioMixerChannel(newChannel)));
-            }
-            else {
+                break;
+            case MIDI_CHANNEL: 
                 current.reset(dynamic_cast<MixerChannel*>(new MidiMixerChannel(newChannel)));
+                break;
+            case GROUP_CHANNEL: 
+                current.reset(dynamic_cast<MixerChannel*>(new GroupMixerChannel(newChannel)));
+                break;
             }
 
             m_mixerChannels.push_back(std::move(current));

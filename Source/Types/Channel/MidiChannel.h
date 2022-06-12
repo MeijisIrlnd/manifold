@@ -20,8 +20,15 @@ namespace Manifold
         public: 
             MidiChannel(int internalId, std::string name);
             MidiChannel(const MidiChannel& other);
-        private: 
+            MANIFOLD_INLINE void addInputConnection(const Connection& connection) {
+                m_inputConnections.push_back(connection);
+            }
+            MANIFOLD_INLINE std::vector<Connection>& getInputConnections() {
+                return m_inputConnections;
+            }
 
+        private: 
+            std::vector<Connection> m_inputConnections;
         };
     }
 }

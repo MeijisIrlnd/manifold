@@ -20,6 +20,10 @@ namespace Manifold
                 m_associatedChannel(internalChannel)
             {
                 m_inserts.resize(8);
+                m_volume = GET_PARAM_AS_VALUE(m_associatedChannel, "volume");
+                m_pan = GET_PARAM_AS_VALUE(m_associatedChannel, "pan");
+                m_mute = GET_PARAM_AS_VALUE(m_associatedChannel, "mute");
+                m_solo = GET_PARAM_AS_VALUE(m_associatedChannel, "solo");
             }
 
             BaseChannelProcessor::~BaseChannelProcessor()

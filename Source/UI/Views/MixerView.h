@@ -13,6 +13,7 @@
 #include "../../Audio/ManifoldEngine.h"
 #include "../Components/Mixer/AudioMixerChannel.h"
 #include "../Components/Mixer/MidiMixerChannel.h"
+#include "../Components/Mixer/GroupMixerChannel.h"
 #include "../LookAndFeel/MixerLF.h"
 #include "../../Macros.h"
 namespace Manifold

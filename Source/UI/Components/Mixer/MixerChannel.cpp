@@ -55,6 +55,8 @@ namespace Manifold
             addAndMakeVisible(&m_inputSelectLabel);
             m_outputSelectLabel.setText("Output Source", juce::dontSendNotification);
             m_outputSelectLabel.setJustificationType(juce::Justification::centred);
+            m_outputSelector.setText("1/2");
+            m_outputSelector.addListener(this);
             addAndMakeVisible(&m_outputSelectLabel);
 
         }
@@ -80,6 +82,41 @@ namespace Manifold
             repaint();
         }
 
+        void MixerChannel::onRoutingElementPress(RoutingElementComponent* el)
+        {
+            if (el == &m_outputSelector) MANIFOLD_LIKELY
+            {
+                handleOutputRouting(el);
+            }
+        }
+
+        void MixerChannel::handleOutputRouting(RoutingElementComponent* element)
+        {
+            auto elements = GET_ENGINE()->getChannelsOfType(GROUP_CHANNEL);
+            std::unordered_map<int, int> keyToId;
+            juce::PopupMenu popup;
+            int count = 0;
+            popup.addItem(1, "1/2");
+            for (auto it = elements.begin(); it != elements.end(); it++) {
+                if (it->second != m_channel) {
+                    popup.addItem(count + 2, it->second->getName());
+                    keyToId.emplace(std::make_pair(count + 2, it->first));
+                    ++count;
+                }
+            }
+            popup.showMenuAsync(juce::PopupMenu::Options(), [this, element, keyToId, elements](MANIFOLD_UNUSED int res) {
+                if (res == 0) return;
+                if (res == 1) {
+                    element->setText("1/2");
+                    GET_ENGINE()->connectNodes(m_channel->getId());
+                }
+                else {
+                    element->setText(elements.at(keyToId.at(res))->getName());
+                    GET_ENGINE()->connectNodes(m_channel->getId(), elements.at(keyToId.at(res))->getId());
+                }
+                });
+        }
+
         void MixerChannel::paint(juce::Graphics& g)
         {
             g.setColour(m_channel->getColour());
@@ -89,29 +126,6 @@ namespace Manifold
             g.drawRect(bounds, 0.25f);
         }
 
-        //void MixerChannel::drawCommonElements()
-        //{
-        //    // insert
-        //    // i/o
-        //    // pan 
-        //    // im, re
-        //    // mute / solo 
-        //    // volume 
-        //    // colour picker
-        //
-        //    m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 4);
-        //    m_inputSelector.setBounds(0, m_insertPluginList.getHeight(), getWidth(), getHeight() / 32);
-        //    m_outputSelector.setBounds(0, m_inputSelector.getY() + m_inputSelector.getHeight(), getWidth(), getHeight() / 32);
-        //    m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, getHeight() / 2 - getWidth() / 6 - getHeight() / 32, getWidth() / 4, getWidth() / 4);
-        //    m_soloButton.setBounds(getWidth() / 2, m_muteButton.getY(), getWidth() / 4, getWidth() / 4);
-        //    // Some spacing for Input mon and record enable / vst select 
-        //    // Assume same height, and spacing.. 
-        //    int spacing = m_soloButton.getHeight() + getHeight() / 32;
-        //    m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_soloButton.getY() - getHeight() / 32 - getWidth() / 3 - spacing, getWidth() / 3, getWidth() / 3);
-        //    //m_panText.setBounds(getWidth() / 2 - getWidth() / 6, m_panSlider.getY() - m_panSlider.getHeight(), getWidth() / 3, getHeight() / 24);
-        //    m_volumeSlider.setBounds(0, static_cast<int>(getHeight() * 0.5f), getWidth(), getHeight() / 2 - getHeight() / 32);
-        //    m_colourPicker.setBounds(0, m_volumeSlider.getY() + m_volumeSlider.getHeight(), getWidth(), getHeight() / 32);
-        //}
         void MixerChannel::drawCommonElements()
         {
             // insert
@@ -134,5 +148,6 @@ namespace Manifold
             m_volumeSlider.setBounds(0, getHeight() / 2, getWidth(), getHeight() / 2 - getHeight() / 32);
             m_colourPicker.setBounds(0, m_volumeSlider.getY() + m_volumeSlider.getHeight(), getWidth(), getHeight() / 32);
         }
+
     }
 }

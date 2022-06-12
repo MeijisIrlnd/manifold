@@ -11,3 +11,4 @@
 #pragma once
 #include "AudioChannel.h"
 #include "MidiChannel.h"
+#include "GroupChannel.h"
