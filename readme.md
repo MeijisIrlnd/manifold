@@ -36,6 +36,6 @@ it's very much a work in progress passion project, so if you stumble across this
 - blazing 🚬 fast ![image](https://user-images.githubusercontent.com/38221014/173170474-bf0041fd-63be-4293-a1dc-becc0da0e536.png) rust rewrite
 
 ## reviews 
-“THIS DAW’S OFF THE CHAIN” - Hays Holladay
-“BEWARE OF INTUITIVE USER INTERFACE” - Hays Holladay
+“THIS DAW’S OFF THE CHAIN” - Hays Holladay<br>
+“BEWARE OF INTUITIVE USER INTERFACE” - Hays Holladay<br>
 “SIT. STAY. SLAY.” - Hays Holladay
