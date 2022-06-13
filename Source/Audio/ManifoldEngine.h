@@ -18,8 +18,10 @@
 #include "Core/AudioChannelProcessor.h"
 #include "Core/MidiChannelProcessor.h"
 #include "Core/GroupChannelProcessor.h"
+#include "Core/VolumeNodeProcessor.h"
 #include "../UI/Components/Windows/WindowManager.h"
 #include "../Types/Channel/Channel.h"
+#include "../Types/TrackNode.h"
 #include "../Settings/Pathing.h"
 #include <LeakBacktracer.h>
 using Graph = juce::AudioProcessorGraph;
@@ -54,19 +56,6 @@ namespace Manifold
                 auto it = std::find(m_listeners.begin(), m_listeners.end(), toRemove);
                 if (it != m_listeners.end()) {
                     m_listeners.erase(it);
-                }
-            }
-
-
-            MANIFOLD_INLINE void connectMidiNodes(int numChannels) {
-                for (auto channel = 0; channel < numChannels; channel++) {
-                    for (auto& c : m_channelNodes) {
-                        BaseChannelProcessor* current = dynamic_cast<BaseChannelProcessor*>(c.second->getProcessor());
-                        if (current->getType() == CHANNEL_TYPE::MIDI) {
-                            m_graph.addConnection({{ m_midiInputNode->nodeID, channel}, {c.second->nodeID, channel}});
-                            //m_graph.addConnection({ {c.second->nodeID, channel}, {m_midiOutputNode->nodeID, channel} });
-                        }
-                    }
                 }
             }
             
@@ -107,7 +96,7 @@ namespace Manifold
             Node::Ptr m_audioInputNode;
             Node::Ptr m_audioOutputNode;
             Node::Ptr m_audioDriver;
-            std::unordered_map<int, Node::Ptr> m_channelNodes;
+            std::unordered_map<int, TrackNode> m_channelNodes;
             std::unordered_map<int, std::vector<juce::AudioPluginInstance*> > m_channelInserts;
             Tree m_tree;
             UIListener m_uiListener;

@@ -69,6 +69,8 @@
               file="Source/Types/BroadcastVariable.h"/>
         <FILE id="nDjtXA" name="ManifoldScrollbar.h" compile="0" resource="0"
               file="Source/Types/ManifoldScrollbar.h"/>
+        <FILE id="I4p3Aq" name="TrackNode.cpp" compile="1" resource="0" file="Source/Types/TrackNode.cpp"/>
+        <FILE id="puXqrG" name="TrackNode.h" compile="0" resource="0" file="Source/Types/TrackNode.h"/>
       </GROUP>
       <GROUP id="{5D1C9A09-2EBC-49BA-D3FB-6A38CE26A9DF}" name="Utils">
         <FILE id="v5x1aE" name="UIListener.h" compile="0" resource="0" file="Source/Utils/UIListener.h"/>
@@ -100,6 +102,10 @@
           <FILE id="aTAolk" name="PositionTracker.h" compile="0" resource="0"
                 file="Source/Audio/Core/PositionTracker.h"/>
           <FILE id="kgCEa1" name="ProcessorBase.h" compile="0" resource="0" file="Source/Audio/Core/ProcessorBase.h"/>
+          <FILE id="EQVuJN" name="VolumeNodeProcessor.cpp" compile="1" resource="0"
+                file="Source/Audio/Core/VolumeNodeProcessor.cpp"/>
+          <FILE id="EN3mhs" name="VolumeNodeProcessor.h" compile="0" resource="0"
+                file="Source/Audio/Core/VolumeNodeProcessor.h"/>
         </GROUP>
         <FILE id="hUFmL8" name="ManifoldEngine.cpp" compile="1" resource="0"
               file="Source/Audio/ManifoldEngine.cpp"/>

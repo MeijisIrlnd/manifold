@@ -143,14 +143,24 @@ namespace Manifold
             if (t == CHANNEL_TYPE::AUDIO) {
                 auto* currentAudioChannel = dynamic_cast<AudioChannel*>(current);
                 std::unique_ptr<AudioChannelProcessor> currentProcessor(new AudioChannelProcessor(dynamic_cast<AudioChannel*>(current)));
-                Node::Ptr handle = m_graph.addNode(std::move(currentProcessor));
-                m_channelNodes.emplace(std::make_pair(current->getId(), handle));
+                std::unique_ptr<VolumeNodeProcessor> volumeProcessor(new VolumeNodeProcessor(current));
+
+                Node::Ptr topHandle = m_graph.addNode(std::move(currentProcessor));
+                Node::Ptr volumeHandle = m_graph.addNode(std::move(volumeProcessor));
+                TrackNode trackNode(current, topHandle, volumeHandle);
+                m_channelNodes.emplace(std::make_pair(current->getId(), trackNode));
                 std::vector<juce::AudioPluginInstance*> temp{8};
                 m_channelInserts.emplace(current->getId(), std::move(temp));
                 using Connection = juce::AudioProcessorGraph::Connection;
+                for (auto& intcon : trackNode.getInternalConnections()) {
+                    m_graph.addConnection(intcon);
+                }
+
                 for (auto channel = 0; channel < 2; channel++) {
-                    Connection input({ { m_audioInputNode->nodeID, channel}, {handle->nodeID, channel} });
-                    Connection output({ { handle->nodeID, channel}, {m_audioOutputNode->nodeID, channel} });
+                    auto ip = trackNode.getInputNode();
+                    auto op = trackNode.getOutputNode();
+                    Connection input({ { m_audioInputNode->nodeID, channel}, {ip->nodeID, channel} });
+                    Connection output({ { op->nodeID, channel}, {m_audioOutputNode->nodeID, channel} });
                     m_graph.addConnection(input);
                     currentAudioChannel->addInputConnection(input);
                     m_graph.addConnection(output);
@@ -166,23 +176,25 @@ namespace Manifold
                 {
                     DBG(errorMessage);
                     instance->enableAllBuses();
-                    Node::Ptr handle = m_graph.addNode(std::move(instance));
-                    // Instead of a midi channel processor, why dont we just have a midi plugin instance, plugged IN to another audio processor, 
-                    // Said audio processor can hold a Node::Ptr to its caller
+                    Node::Ptr vstHandle = m_graph.addNode(std::move(instance));
                     auto* currentMidiChannel = dynamic_cast<MidiChannel*>(current);
-                    std::unique_ptr<MidiChannelProcessor> currentProcessor(new MidiChannelProcessor(current, handle));
+                    std::unique_ptr<MidiChannelProcessor> currentProcessor(new MidiChannelProcessor(current, vstHandle));
+                    std::unique_ptr<VolumeNodeProcessor> volumeProcessor(new VolumeNodeProcessor(current));
                     currentProcessor->enableAllBuses();
-                    Node::Ptr fxHandle = m_graph.addNode(std::move(currentProcessor));
+                    volumeProcessor->enableAllBuses();
+                    Node::Ptr topHandle = m_graph.addNode(std::move(currentProcessor));
+                    Node::Ptr volHandle = m_graph.addNode(std::move(volumeProcessor));
                     using Connection = juce::AudioProcessorGraph::Connection;
+                    TrackNode trackNode(current, vstHandle, topHandle, volHandle);
+                    for (auto& conn : trackNode.getInternalConnections()) {
+                        m_graph.addConnection(conn);
+                    }
                     for (auto channel = 0; channel < 2; channel++) {
-                        Connection input({ { handle->nodeID, channel }, {fxHandle->nodeID, channel } });
-                        Connection output({ {fxHandle->nodeID, channel}, {m_audioOutputNode->nodeID, channel} });
-                        m_graph.addConnection(input);
-                        currentMidiChannel->addInputConnection(input);
+                        Connection output({ { trackNode.getInputNode()->nodeID, channel }, { m_audioOutputNode->nodeID, channel } });
                         m_graph.addConnection(output);
                         currentMidiChannel->addOutputConnection(output);
                     }
-                    m_channelNodes.emplace(std::make_pair(current->getId(), fxHandle));
+                    m_channelNodes.emplace(std::make_pair(current->getId(), trackNode));
                     std::vector<juce::AudioPluginInstance*> temp{ 8 };
                     m_channelInserts.emplace(current->getId(), std::move(temp));
                 };
@@ -191,21 +203,26 @@ namespace Manifold
             }
             else if (t == CHANNEL_TYPE::GROUP) {
                 std::unique_ptr<GroupChannelProcessor> currentProcessor(new GroupChannelProcessor(dynamic_cast<GroupChannel*>(current)));
+                std::unique_ptr<VolumeNodeProcessor> volumeProcessor(new VolumeNodeProcessor(current));
                 currentProcessor->enableAllBuses();
                 auto* currentGroupChannel = dynamic_cast<GroupChannel*>(current);
-                Node::Ptr handle = m_graph.addNode(std::move(currentProcessor));
-                m_channelNodes.emplace(current->getId(), handle);
-                std::vector<juce::AudioPluginInstance*> temp{ 8 };
-                m_channelInserts.emplace(current->getId(), std::move(temp));
+                Node::Ptr topHandle = m_graph.addNode(std::move(currentProcessor));
+                Node::Ptr volHandle = m_graph.addNode(std::move(volumeProcessor));
+                TrackNode trackNode(current, topHandle, volHandle);
+                for (auto& conn : trackNode.getInternalConnections()) {
+                    m_graph.addConnection(conn);
+                }
                 using Connection = juce::AudioProcessorGraph::Connection;
                 for (auto channel = 0; channel < 2; channel++) {
-                    Connection output({ {handle->nodeID, channel}, {m_audioOutputNode->nodeID, channel} });
+                    Connection output({ {trackNode.getOutputNode()->nodeID, channel}, {m_audioOutputNode->nodeID, channel} });
                     m_graph.addConnection(output);
                     currentGroupChannel->addOutputConnection(output);
                 }
+                m_channelNodes.emplace(current->getId(), trackNode);
+                std::vector<juce::AudioPluginInstance*> temp{ 8 };
+                m_channelInserts.emplace(current->getId(), std::move(temp));
                 channelCreated = true;
             }
-            
 
             if (channelCreated) {
                 for (auto& l : m_listeners) {
@@ -230,9 +247,7 @@ namespace Manifold
             std::function<void(std::unique_ptr<juce::AudioPluginInstance>, const juce::String&)> loadedCallback = 
             [this, channelId, slot] (std::unique_ptr<juce::AudioPluginInstance> instance, MANIFOLD_UNUSED const juce::String& errorMessage) {
                 m_channelInserts[channelId][slot] = instance.get();
-                BaseChannelProcessor* current = dynamic_cast<BaseChannelProcessor*>(m_channelNodes[channelId]->getProcessor());
-                current->loadPlugin(slot, std::move(instance));
-
+                m_channelNodes.at(channelId).loadPlugin(slot, std::move(instance));
             };
 
             m_pluginFormatManager.createPluginInstanceAsync(desc, sr, bufferSize, loadedCallback);
@@ -252,8 +267,8 @@ namespace Manifold
         {
             auto it = m_channelNodes.find(channelId);
             if (it != m_channelNodes.end()) {
-                auto* current = dynamic_cast<MidiChannelProcessor*>(it->second->getProcessor());
-                GET_WINDOW_MANAGER()->addPluginWindow(current->getNode()->getProcessor());
+                auto& vstNode = m_channelNodes.at(channelId).getVstNode();
+                GET_WINDOW_MANAGER()->addPluginWindow(vstNode->getProcessor());
             }
         }
 
@@ -270,7 +285,7 @@ namespace Manifold
                 connections.clear();
                 // Connect to output..
                 for (auto channel = 0; channel < 2; channel++) {
-                    Connection current({ {m_channelNodes.at(nodeA)->nodeID, channel}, {m_audioOutputNode->nodeID, channel} });
+                    Connection current({ {m_channelNodes.at(nodeA).getOutputNode()->nodeID, channel}, {m_audioOutputNode->nodeID, channel}});
                     m_graph.addConnection(current);
                     channelA->addOutputConnection(current);
                 }
@@ -286,7 +301,7 @@ namespace Manifold
                 channelAOuts.clear();
                 // Make the new connections, and plug them into B 
                 for (auto channel = 0; channel < 2; channel++) {
-                    Connection current({ {m_channelNodes.at(nodeA)->nodeID, channel}, {m_channelNodes.at(nodeB)->nodeID, channel} });
+                    Connection current({ {m_channelNodes.at(nodeA).getOutputNode()->nodeID, channel}, {m_channelNodes.at(nodeB).getInputNode()->nodeID, channel}});
                     m_graph.addConnection(current);
                     channelA->addOutputConnection(current);
                     channelB->addInputConnection(nodeA, current);

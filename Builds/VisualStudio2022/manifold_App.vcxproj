@@ -147,6 +147,7 @@
     <ClCompile Include="..\..\Source\Types\Channel\GroupChannel.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\InternalChannel.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\MidiChannel.cpp"/>
+    <ClCompile Include="..\..\Source\Types\TrackNode.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioChannelProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioDriver.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\AudioRouter.cpp"/>
@@ -154,6 +155,7 @@
     <ClCompile Include="..\..\Source\Audio\Core\GroupChannelProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\MidiChannelProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp"/>
+    <ClCompile Include="..\..\Source\Audio\Core\VolumeNodeProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp"/>
     <ClCompile Include="..\..\Source\UI\LookAndFeel\MixerLF.cpp"/>
     <ClCompile Include="..\..\Source\UI\LookAndFeel\OverallLF.cpp"/>
@@ -2255,6 +2257,7 @@
     <ClInclude Include="..\..\Source\Types\Channel\MidiChannel.h"/>
     <ClInclude Include="..\..\Source\Types\BroadcastVariable.h"/>
     <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h"/>
+    <ClInclude Include="..\..\Source\Types\TrackNode.h"/>
     <ClInclude Include="..\..\Source\Utils\UIListener.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\AudioChannelProcessor.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\AudioDriver.h"/>
@@ -2264,6 +2267,7 @@
     <ClInclude Include="..\..\Source\Audio\Core\MidiChannelProcessor.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\PositionTracker.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\ProcessorBase.h"/>
+    <ClInclude Include="..\..\Source\Audio\Core\VolumeNodeProcessor.h"/>
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h"/>
     <ClInclude Include="..\..\Source\UI\LookAndFeel\MixerLF.h"/>
     <ClInclude Include="..\..\Source\UI\LookAndFeel\OverallLF.h"/>

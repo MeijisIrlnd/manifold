@@ -538,6 +538,9 @@
     <ClCompile Include="..\..\Source\Types\Channel\MidiChannel.cpp">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Types\TrackNode.cpp">
+      <Filter>manifold\Source\Types</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Audio\Core\AudioChannelProcessor.cpp">
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClCompile>
@@ -557,6 +560,9 @@
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp">
+      <Filter>manifold\Source\Audio\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Audio\Core\VolumeNodeProcessor.cpp">
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp">
@@ -2892,6 +2898,9 @@
     <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h">
       <Filter>manifold\Source\Types</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Types\TrackNode.h">
+      <Filter>manifold\Source\Types</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Utils\UIListener.h">
       <Filter>manifold\Source\Utils</Filter>
     </ClInclude>
@@ -2917,6 +2926,9 @@
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Audio\Core\ProcessorBase.h">
+      <Filter>manifold\Source\Audio\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Audio\Core\VolumeNodeProcessor.h">
       <Filter>manifold\Source\Audio\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h">
