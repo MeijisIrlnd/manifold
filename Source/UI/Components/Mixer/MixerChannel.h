@@ -10,11 +10,14 @@
 
 #pragma once
 #include <JuceHeader.h>
+
 #include "../../../Types/Channel/InternalChannel.h"
 #include "../../Primitives/ImageButton.h"
 #include "ColourPicker.h"
 #include "../../Primitives/ButtonListener.h"
-#include "InsertPluginList.h"
+#include "MixerList.h"
+#include "InsertListItem.h"
+#include "SendListItem.h"
 #include "RoutingElementComponent.h"
 namespace Manifold
 {
@@ -47,7 +50,8 @@ namespace Manifold
             Manifold::UI::Primitives::ImageToggleButton m_soloButton;
             std::unique_ptr<juce::SliderParameterAttachment> m_volumeAttachment{ nullptr }, m_panAttachment{nullptr};
             ColourPicker m_colourPicker;
-            InsertPluginList m_insertPluginList;
+            MixerList<InsertListItem> m_insertPluginList;
+            MixerList<SendListItem> m_sendList;
             RoutingElementComponent m_inputSelector, m_outputSelector;
             juce::Label m_inputSelectLabel, m_outputSelectLabel;
             //0xFFF5F5DC -> Beige 

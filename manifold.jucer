@@ -168,14 +168,19 @@
             <FILE id="jtheyQ" name="TopMenuBar.h" compile="0" resource="0" file="Source/UI/Components/MenuBar/TopMenuBar.h"/>
           </GROUP>
           <GROUP id="{E9A90861-8549-6B64-0EF9-1AF166B3AA3D}" name="Mixer">
+            <FILE id="bK6E9s" name="InsertListItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/InsertListItem.cpp"/>
+            <FILE id="fPEKoS" name="InsertListItem.h" compile="0" resource="0"
+                  file="Source/UI/Components/Mixer/InsertListItem.h"/>
+            <FILE id="gHrzo9" name="ListItem.cpp" compile="1" resource="0" file="Source/UI/Components/Mixer/ListItem.cpp"/>
+            <FILE id="jEoIJf" name="ListItem.h" compile="0" resource="0" file="Source/UI/Components/Mixer/ListItem.h"/>
+            <FILE id="oF3VRh" name="SendListItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Mixer/SendListItem.cpp"/>
+            <FILE id="eA59as" name="SendListItem.h" compile="0" resource="0" file="Source/UI/Components/Mixer/SendListItem.h"/>
             <FILE id="ZzIlYz" name="AudioMixerChannel.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Mixer/AudioMixerChannel.cpp"/>
             <FILE id="ldONxV" name="AudioMixerChannel.h" compile="0" resource="0"
                   file="Source/UI/Components/Mixer/AudioMixerChannel.h"/>
-            <FILE id="BAdAKJ" name="BasePluginListComponent.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Mixer/BasePluginListComponent.cpp"/>
-            <FILE id="ANWhNr" name="BasePluginListComponent.h" compile="0" resource="0"
-                  file="Source/UI/Components/Mixer/BasePluginListComponent.h"/>
             <FILE id="YgLJN0" name="ColourPicker.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Mixer/ColourPicker.cpp"/>
             <FILE id="VeCokY" name="ColourPicker.h" compile="0" resource="0" file="Source/UI/Components/Mixer/ColourPicker.h"/>
@@ -187,10 +192,7 @@
                   file="Source/UI/Components/Mixer/GroupMixerChannel.cpp"/>
             <FILE id="rBa3gu" name="GroupMixerChannel.h" compile="0" resource="0"
                   file="Source/UI/Components/Mixer/GroupMixerChannel.h"/>
-            <FILE id="T764RE" name="InsertPluginList.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Mixer/InsertPluginList.cpp"/>
-            <FILE id="Q9dYuy" name="InsertPluginList.h" compile="0" resource="0"
-                  file="Source/UI/Components/Mixer/InsertPluginList.h"/>
+            <FILE id="xpTl00" name="MixerList.h" compile="0" resource="0" file="Source/UI/Components/Mixer/MixerList.h"/>
             <FILE id="Qb6LYe" name="MidiMixerChannel.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Mixer/MidiMixerChannel.cpp"/>
             <FILE id="zwtiVW" name="MidiMixerChannel.h" compile="0" resource="0"
@@ -198,10 +200,6 @@
             <FILE id="qBFcAJ" name="MixerChannel.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Mixer/MixerChannel.cpp"/>
             <FILE id="Rb0oS5" name="MixerChannel.h" compile="0" resource="0" file="Source/UI/Components/Mixer/MixerChannel.h"/>
-            <FILE id="L6ro7K" name="PluginListComponentItem.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Mixer/PluginListComponentItem.cpp"/>
-            <FILE id="MMhmXh" name="PluginListComponentItem.h" compile="0" resource="0"
-                  file="Source/UI/Components/Mixer/PluginListComponentItem.h"/>
             <FILE id="RVGKOD" name="RoutingElementComponent.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Mixer/RoutingElementComponent.cpp"/>
             <FILE id="bo6gAM" name="RoutingElementComponent.h" compile="0" resource="0"

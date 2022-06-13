@@ -21,7 +21,8 @@ namespace Manifold
             m_soloButton(BinaryData::SoloOff_png, BinaryData::SoloOff_pngSize,
                 BinaryData::SoloOn_png, BinaryData::SoloOn_pngSize),
             m_colourPicker(associatedChannel),
-            m_insertPluginList(associatedChannel->getId())
+            m_insertPluginList(associatedChannel->getId(), 4),
+            m_sendList(associatedChannel->getId(), 4)
         {
             m_volumeSlider.setSliderStyle(juce::Slider::LinearVertical);
             m_volumeSlider.setRange(0, 1, 0.01);
@@ -48,6 +49,8 @@ namespace Manifold
             m_colourPicker.addListener(this);
 
             addAndMakeVisible(&m_insertPluginList);
+            addAndMakeVisible(&m_sendList);
+
             addAndMakeVisible(&m_inputSelector);
             addAndMakeVisible(&m_outputSelector);
             m_inputSelectLabel.setText("Input Source", juce::dontSendNotification);
@@ -136,8 +139,9 @@ namespace Manifold
             // volume 
             // colour picker
             auto elSpacing = getHeight() / 64;
-            m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 4);
-            auto blankSpaceY = getHeight() / 32 + (elSpacing * 2) + m_insertPluginList.getY() + m_insertPluginList.getHeight();
+            m_insertPluginList.setBounds(0, 0, getWidth(), getHeight() / 8);
+            m_sendList.setBounds(0, getHeight() / 8, getWidth(), getHeight() / 8);
+            auto blankSpaceY = getHeight() / 32 + (elSpacing * 2) + m_sendList.getY() + m_sendList.getHeight();
             //m_inputSelectLabel.setBounds(0, m_insertPluginList.getHeight() + m_insertPluginList.getY(), getWidth(), elSpacing);
             //m_inputSelector.setBounds(0, m_insertPluginList.getHeight() + elSpacing, getWidth(), getHeight() / 32);
             m_outputSelectLabel.setBounds(0, blankSpaceY, getWidth(), elSpacing);

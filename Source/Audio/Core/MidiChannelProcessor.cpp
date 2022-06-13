@@ -16,8 +16,8 @@ namespace Manifold
     {
         namespace Core
         {
-            MidiChannelProcessor::MidiChannelProcessor(InternalChannel* associatedChannel, juce::AudioProcessorGraph::Node::Ptr sourcePlugin) :
-                BaseChannelProcessor(MIDI_CHANNEL, associatedChannel), m_sourceNode(sourcePlugin)
+            MidiChannelProcessor::MidiChannelProcessor(InternalChannel* associatedChannel) :
+                BaseChannelProcessor(MIDI_CHANNEL, associatedChannel)
             {
                 m_volume = GET_PARAM_AS_VALUE(associatedChannel, "volume");
                 m_pan = GET_PARAM_AS_VALUE(associatedChannel, "pan");

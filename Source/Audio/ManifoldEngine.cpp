@@ -175,13 +175,13 @@ namespace Manifold
                     [this, sr, bufferSize, current](std::unique_ptr<juce::AudioPluginInstance> instance, MANIFOLD_UNUSED const juce::String& errorMessage)
                 {
                     DBG(errorMessage);
-                    instance->enableAllBuses();
-                    Node::Ptr vstHandle = m_graph.addNode(std::move(instance));
                     auto* currentMidiChannel = dynamic_cast<MidiChannel*>(current);
-                    std::unique_ptr<MidiChannelProcessor> currentProcessor(new MidiChannelProcessor(current, vstHandle));
+                    instance->enableAllBuses();
+                    std::unique_ptr<MidiChannelProcessor> currentProcessor(new MidiChannelProcessor(current));
                     std::unique_ptr<VolumeNodeProcessor> volumeProcessor(new VolumeNodeProcessor(current));
                     currentProcessor->enableAllBuses();
                     volumeProcessor->enableAllBuses();
+                    Node::Ptr vstHandle = m_graph.addNode(std::move(instance));
                     Node::Ptr topHandle = m_graph.addNode(std::move(currentProcessor));
                     Node::Ptr volHandle = m_graph.addNode(std::move(volumeProcessor));
                     using Connection = juce::AudioProcessorGraph::Connection;
@@ -252,7 +252,6 @@ namespace Manifold
 
             m_pluginFormatManager.createPluginInstanceAsync(desc, sr, bufferSize, loadedCallback);
         }
-
 
         void ManifoldEngine::createEditorForPlugin(const int channelId, const int slot)
         {

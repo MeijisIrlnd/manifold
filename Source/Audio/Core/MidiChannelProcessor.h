@@ -19,14 +19,12 @@ namespace Manifold
             class MidiChannelProcessor : public BaseChannelProcessor
             {
             public: 
-                MidiChannelProcessor(InternalChannel* associatedChannel, juce::AudioProcessorGraph::Node::Ptr sourcePlugin);
-                MANIFOLD_INLINE juce::AudioProcessorGraph::Node::Ptr getNode() const { return m_sourceNode; }
+                MidiChannelProcessor(InternalChannel* associatedChannel);
                 void prepareToPlay(double sampleRate, int samplesPerBlockExpected) override;
                 void processBlock(juce::AudioSampleBuffer& buffer, MANIFOLD_UNUSED juce::MidiBuffer& messages) override;
                 void releaseResources() override;
 
             private: 
-                juce::AudioProcessorGraph::Node::Ptr m_sourceNode;
                 
             };
         }

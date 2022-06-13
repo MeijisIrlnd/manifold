@@ -53,7 +53,7 @@ namespace Manifold
         {
             auto elSpacing = getHeight() / 64;
             drawCommonElements();
-            m_inputSelectLabel.setBounds(0, m_insertPluginList.getY() + m_insertPluginList.getHeight(), getWidth(), elSpacing);
+            m_inputSelectLabel.setBounds(0, m_sendList.getY() + m_sendList.getHeight(), getWidth(), elSpacing);
             m_inputSelector.setBounds(0, m_inputSelectLabel.getY() + m_inputSelectLabel.getHeight(), getWidth(), getHeight() / 32);
             m_inputMonitorButton.setBounds(m_muteButton.getX(), m_muteButton.getY() + m_muteButton.getHeight() + elSpacing, m_muteButton.getWidth(), m_muteButton.getHeight());
             m_recordEnableButton.setBounds(m_inputMonitorButton.getX() + m_inputMonitorButton.getWidth(), m_inputMonitorButton.getY(),

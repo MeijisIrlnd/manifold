@@ -610,10 +610,16 @@
     <ClCompile Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.cpp">
       <Filter>manifold\Source\UI\Components\MenuBar</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Mixer\AudioMixerChannel.cpp">
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\InsertListItem.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Mixer\BasePluginListComponent.cpp">
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\ListItem.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\SendListItem.cpp">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Mixer\AudioMixerChannel.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\ColourPicker.cpp">
@@ -625,16 +631,10 @@
     <ClCompile Include="..\..\Source\UI\Components\Mixer\GroupMixerChannel.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Mixer\InsertPluginList.cpp">
-      <Filter>manifold\Source\UI\Components\Mixer</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MixerChannel.cpp">
-      <Filter>manifold\Source\UI\Components\Mixer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.cpp">
@@ -2982,10 +2982,16 @@
     <ClInclude Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.h">
       <Filter>manifold\Source\UI\Components\MenuBar</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Mixer\AudioMixerChannel.h">
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\InsertListItem.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Mixer\BasePluginListComponent.h">
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\ListItem.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\SendListItem.h">
+      <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\AudioMixerChannel.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\ColourPicker.h">
@@ -2997,16 +3003,13 @@
     <ClInclude Include="..\..\Source\UI\Components\Mixer\GroupMixerChannel.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Mixer\InsertPluginList.h">
+    <ClInclude Include="..\..\Source\UI\Components\Mixer\MixerList.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MixerChannel.h">
-      <Filter>manifold\Source\UI\Components\Mixer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UI\Components\Mixer\PluginListComponentItem.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.h">
