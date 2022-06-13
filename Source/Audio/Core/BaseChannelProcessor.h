@@ -39,7 +39,7 @@ namespace Manifold
                 InternalChannel* m_associatedChannel{ nullptr };
                 
                 std::vector<std::unique_ptr<juce::AudioPluginInstance> > m_inserts;
-                juce::Value m_volume, m_pan, m_mute, m_solo;
+                juce::Value m_pan, m_mute, m_solo;
 
             };
         }

@@ -308,6 +308,20 @@ namespace Manifold
             }
         }
 
+        void ManifoldEngine::addSend(const int source, const int dest)
+        {
+            using Connection = juce::AudioProcessorGraph::Connection;
+            // Need a way to set AFL / PFL, lets default to PFL though 
+            auto* sourceChannel = m_channelList.at(source).get();
+            auto& sourceNode = m_channelNodes.at(source);
+            auto& destNode = m_channelNodes.at(dest);
+            for (auto channel = 0; channel < 2; channel++) {
+                Connection current({ {sourceNode.getSendNode(true)->nodeID, channel}, {destNode.getInputNode()->nodeID, channel} });
+                m_graph.addConnection(current);
+                sourceChannel->addSendConnection(current);
+            }
+        }
+
 
     }
 }

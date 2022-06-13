@@ -26,7 +26,7 @@ namespace Manifold::UI
             std::function<void(int)> userCallback = [this, filtered](int result) {
                 juce::KnownPluginList& vstList = GET_ENGINE()->getPluginList();
                 MANIFOLD_UNUSED auto chosenIndex = vstList.getIndexChosenByMenu(filtered, result);
-                if (chosenIndex == -1) { return; }
+                if (chosenIndex == 0) { return; }
                 m_readout.setText(filtered[chosenIndex].name, juce::dontSendNotification);
                 auto current = filtered[chosenIndex];
                 GET_ENGINE()->loadPlugin(m_channelId, m_slotIndex, current);

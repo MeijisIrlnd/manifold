@@ -81,6 +81,7 @@ namespace Manifold
             void createEditorForPlugin(const int channelId, const int slot);
             void createEditorForMidiChannelPlugin(const int channelId);
             void connectNodes(const int nodeA, const int nodeB = -1);
+            void addSend(const int source, const int dest);
         private: 
             static std::mutex m_mutex;
             //std::unordered_map<std::string, std::string> m_vsts;

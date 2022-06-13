@@ -19,7 +19,6 @@ namespace Manifold
             MidiChannelProcessor::MidiChannelProcessor(InternalChannel* associatedChannel) :
                 BaseChannelProcessor(MIDI_CHANNEL, associatedChannel)
             {
-                m_volume = GET_PARAM_AS_VALUE(associatedChannel, "volume");
                 m_pan = GET_PARAM_AS_VALUE(associatedChannel, "pan");
                 m_mute = GET_PARAM_AS_VALUE(associatedChannel, "mute");
                 m_solo = GET_PARAM_AS_VALUE(associatedChannel, "solo");
@@ -38,7 +37,6 @@ namespace Manifold
                         i->processBlock(buffer, messages);
                     }
                 }
-                buffer.applyGain(static_cast<float>(m_volume.getValue()));
                 if (static_cast<bool>(m_mute.getValue())) { buffer.applyGain(0.0f); }
                 for (auto channel = 0; channel < buffer.getNumChannels(); channel++) {
                     float panGain = channel == 0 ? std::sinf(static_cast<float>(m_pan.getValue()) * juce::MathConstants<float>::halfPi) :

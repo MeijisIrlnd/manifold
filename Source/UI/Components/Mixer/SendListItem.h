@@ -19,5 +19,6 @@ namespace Manifold::UI
         SendListItem(const int id, const int index);
         void mouseUp(const juce::MouseEvent& ev) override;
     private: 
+        juce::PopupMenu m_popup;
     };
 }

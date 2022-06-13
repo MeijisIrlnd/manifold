@@ -30,7 +30,6 @@ namespace Manifold::Audio::Core
             }
         }
 
-        buffer.applyGain(static_cast<float>(GET_PARAM_AS_VALUE(m_associatedChannel, "volume").getValue()));
         if (static_cast<bool>(GET_PARAM_AS_VALUE(m_associatedChannel, "mute").getValue())) {
             buffer.applyGain(0);
         }

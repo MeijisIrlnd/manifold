@@ -56,6 +56,7 @@ namespace Manifold
                 popup.addItem(1, "Create audio channel");
                 popup.addItem(2, "Create midi channel");
                 popup.addItem(3, "Create bus channel");
+
                 popup.showMenuAsync(juce::PopupMenu::Options(), [this](int res) {
                     switch (res) {
                     case 1:
