@@ -14,8 +14,7 @@ namespace Manifold
 {
     namespace UI
     {
-        PlaylistView::PlaylistView(Manifold::Audio::Core::PositionTracker* positionTracker) : 
-            m_playheadPositioner(positionTracker)
+        PlaylistView::PlaylistView()
         {
             addAndMakeVisible(&m_playheadPositioner);
         }

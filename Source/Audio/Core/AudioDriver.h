@@ -21,14 +21,13 @@ namespace Manifold
             class AudioDriver : public ProcessorBase
             {
             public: 
-                AudioDriver(PositionTracker& positionTracker);
+                AudioDriver();
                 ~AudioDriver() override;
                 const juce::String getName() { return "AudioDriver"; }
                 void prepareToPlay(double sampleRate, int samplesPerBlock) override;
                 void processBlock(juce::AudioSampleBuffer& buffer, juce::MidiBuffer& messages) override;
                 void releaseResources() override;
             private: 
-                PositionTracker& m_positionTracker;
             };
         }
     }

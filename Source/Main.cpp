@@ -30,6 +30,7 @@ public:
     {
         // This method is where you should put your application's initialisation code..
 
+        GET_POSITION_TRACKER()->startup();
         auto instance = ManifoldEngine::getInstance();
         mainWindow.reset (new MainWindow (getApplicationName(), instance->getUIListener()));
         Manifold::Testing::ChannelTester tester;
@@ -78,8 +79,6 @@ public:
             setFullScreen (true);
            #else
             setFullScreen(true);
-            setResizable (true, true);
-            centreWithSize (getWidth(), getHeight());
            #endif
 
             setVisible (true);

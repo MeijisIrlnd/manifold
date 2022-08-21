@@ -154,6 +154,10 @@
                   file="Source/UI/Components/Arrangement/ChannelListItem.cpp"/>
             <FILE id="Rv3s8G" name="ChannelListItem.h" compile="0" resource="0"
                   file="Source/UI/Components/Arrangement/ChannelListItem.h"/>
+            <FILE id="ExeIfQ" name="PianoRollComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/PianoRollComponent.cpp"/>
+            <FILE id="xFBYkb" name="PianoRollComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/PianoRollComponent.h"/>
             <FILE id="J09vE9" name="PlayheadPositioner.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Arrangement/PlayheadPositioner.cpp"/>
             <FILE id="hfdPf3" name="PlayheadPositioner.h" compile="0" resource="0"
@@ -162,6 +166,8 @@
                   file="Source/UI/Components/Arrangement/TimestripComponent.cpp"/>
             <FILE id="iRM1Ps" name="TimestripComponent.h" compile="0" resource="0"
                   file="Source/UI/Components/Arrangement/TimestripComponent.h"/>
+            <FILE id="rx1bqD" name="ZoomManager.cpp" compile="1" resource="0" file="Source/UI/Components/Arrangement/ZoomManager.cpp"/>
+            <FILE id="nMYiQc" name="ZoomManager.h" compile="0" resource="0" file="Source/UI/Components/Arrangement/ZoomManager.h"/>
           </GROUP>
           <GROUP id="{8697A220-B83F-AFA1-C3B3-1B14AEB4F446}" name="MenuBar">
             <FILE id="oEkvL1" name="TopMenuBar.cpp" compile="1" resource="0" file="Source/UI/Components/MenuBar/TopMenuBar.cpp"/>

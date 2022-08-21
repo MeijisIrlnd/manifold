@@ -34,6 +34,14 @@
 #define GET_ENGINE() Manifold::Audio::ManifoldEngine::getInstance()
 #endif
 
+#ifndef GET_ZOOM_MANAGER
+    #define GET_ZOOM_MANAGER() Manifold::ZoomManager::getInstance()
+#endif
+
+#ifndef GET_POSITION_TRACKER 
+#define GET_POSITION_TRACKER() Manifold::Audio::Core::PositionTracker::getInstance()
+#endif 
+
 #ifndef AUDIO_CHANNEL
 #define AUDIO_CHANNEL Manifold::Audio::CHANNEL_TYPE::AUDIO
 #endif 

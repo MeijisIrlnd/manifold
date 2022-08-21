@@ -18,7 +18,9 @@ namespace Manifold
             m_transportComponent(uiListener),
             m_mixerView(m_mixerChannelWidth)
         {
-            setSize(1920, 1080);
+            auto screenSize = juce::Desktop::getInstance().getDisplays().getPrimaryDisplay()->userArea;
+            setSize(screenSize.getWidth(), screenSize.getHeight());
+            //setSize(1920, 1080);
             // Initialise baby.. 
             GET_WINDOW_MANAGER();
             setLookAndFeel(&m_overallLF);

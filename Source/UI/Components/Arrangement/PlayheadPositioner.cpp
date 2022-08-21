@@ -15,10 +15,9 @@ namespace Manifold
     namespace UI
     {
 
-        PlayheadPositioner::PlayheadPositioner(Manifold::Audio::Core::PositionTracker* positionTracker) : 
-            m_positionTracker(positionTracker)
+        PlayheadPositioner::PlayheadPositioner()
         {
-            m_positionTracker->addChangeListener(this);
+            GET_POSITION_TRACKER()->addChangeListener(this);
         }
 
         PlayheadPositioner::~PlayheadPositioner()

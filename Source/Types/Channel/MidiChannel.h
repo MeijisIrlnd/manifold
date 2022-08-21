@@ -29,6 +29,7 @@ namespace Manifold
 
         private: 
             std::vector<Connection> m_inputConnections;
+            juce::MidiMessageSequence m_midiInfo;
         };
     }
 }

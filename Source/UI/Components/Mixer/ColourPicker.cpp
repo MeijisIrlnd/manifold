@@ -19,7 +19,7 @@ namespace Manifold
         {
             for (auto i = 0; i < 5; i++) {
                 std::unique_ptr<ColourPickerMenuItem> current(new ColourPickerMenuItem(juce::Colour(m_availableColours[i])));
-                m_popup.addCustomItem(i + 1, std::move(current));
+                m_popup.addCustomItem(i + 1, std::move(current), nullptr, "Bollocks");
             }
         }
 

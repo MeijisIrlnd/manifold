@@ -20,7 +20,7 @@ namespace Manifold
         class PlaylistView : public juce::Component
         {
         public: 
-            PlaylistView(Manifold::Audio::Core::PositionTracker* positionTracker);
+            PlaylistView();
             ~PlaylistView() override;
             MANIFOLD_INLINE void addListener(ViewListener* newListener) { m_listener = newListener; }
             void mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel) override;

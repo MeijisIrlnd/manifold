@@ -60,7 +60,6 @@ namespace Manifold
             }
             
             MANIFOLD_INLINE UIListener* getUIListener() { return &m_uiListener; }
-            MANIFOLD_INLINE PositionTracker* getPositionTracker() { return &m_positionTracker; }
             MANIFOLD_INLINE juce::AudioDeviceManager& getDeviceManager() { return m_deviceManager; }
             std::unordered_map<int, std::unique_ptr<InternalChannel> >& getChannelList() { return m_channelList; }
             std::unordered_map<int, InternalChannel*> getChannelsOfType(CHANNEL_TYPE t);
@@ -90,7 +89,6 @@ namespace Manifold
             juce::KnownPluginList m_plugins;
             juce::AudioDeviceManager m_deviceManager;
             juce::AudioProcessorPlayer m_player;
-            PositionTracker m_positionTracker;
             Graph m_graph;
             Node::Ptr m_midiInputNode;
             Node::Ptr m_midiOutputNode;

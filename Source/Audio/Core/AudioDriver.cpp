@@ -16,8 +16,7 @@ namespace Manifold
     {
         namespace Core
         {
-            AudioDriver::AudioDriver(PositionTracker& positionTracker) :
-                m_positionTracker(positionTracker)
+            AudioDriver::AudioDriver()
             {
             }
 
@@ -27,13 +26,13 @@ namespace Manifold
 
             void AudioDriver::prepareToPlay(double sampleRate, MANIFOLD_UNUSED int samplesPerBlock)
             {
-                m_positionTracker.prepare(sampleRate);
+                GET_POSITION_TRACKER()->prepare(sampleRate);
             }
 
             void AudioDriver::processBlock(juce::AudioSampleBuffer& buffer, MANIFOLD_UNUSED juce::MidiBuffer& messages)
             {
-                if (m_positionTracker.getIsRunning()) {
-                    m_positionTracker += buffer.getNumSamples();
+                if (GET_POSITION_TRACKER()->getIsRunning()) {
+                    GET_POSITION_TRACKER()->operator+=(buffer.getNumSamples());
                 }
             }
 

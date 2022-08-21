@@ -62,7 +62,7 @@ namespace Manifold
             m_midiInputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::midiInputNode));
             m_midiOutputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::midiOutputNode));
             m_audioInputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::audioInputNode));
-            m_audioDriver = m_graph.addNode(std::make_unique<AudioDriver>(m_positionTracker));
+            m_audioDriver = m_graph.addNode(std::make_unique<AudioDriver>());
             m_audioOutputNode = m_graph.addNode(std::make_unique<Graph::AudioGraphIOProcessor>(Graph::AudioGraphIOProcessor::audioOutputNode));
         }
 
@@ -72,7 +72,7 @@ namespace Manifold
                 FUNCTION::TRANSPORT_PLAY,
                 [this]() { 
                     DBG("Play called");
-                    m_positionTracker.toggle(true);
+                    GET_POSITION_TRACKER()->toggle(true);
                 }
             ));
 
@@ -80,7 +80,7 @@ namespace Manifold
                 FUNCTION::TRANSPORT_PAUSE,
                 [this]() {
                     DBG("Pause called");
-                    m_positionTracker.toggle(false);
+                    GET_POSITION_TRACKER()->toggle(false);
                 }
             ));
 
@@ -88,8 +88,8 @@ namespace Manifold
                 FUNCTION::TRANSPORT_STOP,
                 [this]() { 
                     DBG("Stop called");
-                    m_positionTracker.toggle(false);
-                    m_positionTracker = 0;
+                    GET_POSITION_TRACKER()->toggle(false);
+                    GET_POSITION_TRACKER()->operator=(0);
                 }
             ));
         }

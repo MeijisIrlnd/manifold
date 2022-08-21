@@ -10,19 +10,21 @@
 
 #pragma once
 #include <JuceHeader.h>
+#include "ZoomManager.h"
 namespace Manifold
 {
     namespace UI
     {
-        class TimestripComponent : public juce::Component
+        class TimestripComponent : public juce::Component, public ZoomManager::Listener
         {
         public: 
             TimestripComponent();
             ~TimestripComponent() override;
+            void onZoomLevelChanged(double newZoom) override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private: 
-            
+            double m_timeAmtToDisplay{ 0 };
         };
     }
 }

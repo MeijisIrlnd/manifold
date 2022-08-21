@@ -9,6 +9,7 @@
 */
 
 #pragma once
+#include <mutex>
 #include <JuceHeader.h>
 #include "../../Macros.h"
 #include "../../Types/BroadcastVariable.h"
@@ -21,13 +22,18 @@ namespace Manifold
         {
             class PositionTracker : public juce::ChangeBroadcaster, public juce::ChangeListener
             {
-            public: 
-
+            protected:
                 PositionTracker() {
                    // m_bpm.addChangeListener(this);
                    // m_timeSig.addChangeListener(this);
                 }
-
+            public:
+                ~PositionTracker();
+                PositionTracker(const PositionTracker& other) = delete;
+                PositionTracker(PositionTracker&& other) = delete;
+                PositionTracker& operator=(const PositionTracker& other) = delete;
+                MANIFOLD_INLINE static void startup() { getInstance(); }
+                static PositionTracker* getInstance();
                 bool getIsRunning() const { return m_running; }
 
                 void changeListenerCallback(juce::ChangeBroadcaster* source) override {
@@ -72,6 +78,8 @@ namespace Manifold
                 MANIFOLD_INLINE void setTimeSignature(std::pair<int, int>& newTimeSig) { m_timeSig = newTimeSig; }
                 MANIFOLD_INLINE const std::pair<int, int>& getTimeSignature() const { return m_timeSig; }
             private: 
+                static std::mutex m_mutex;
+                static PositionTracker* m_instance;
                 bool m_running = false;
                 double m_sampleRate{ 0 };
                 juce::uint64 m_sampleCounter = 0;
