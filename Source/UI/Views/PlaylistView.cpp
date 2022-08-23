@@ -36,7 +36,7 @@ namespace Manifold
 
         void PlaylistView::paint(juce::Graphics& g)
         {
-            g.setColour(juce::Colours::lightblue);
+            g.setColour(juce::Colour(0xFFF0F0F0));
             g.fillAll();
             g.setColour(juce::Colours::black);
             for (auto i = 1; i < 12; i++) {

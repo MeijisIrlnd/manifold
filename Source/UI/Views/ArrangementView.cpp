@@ -31,11 +31,20 @@ Manifold::UI::ArrangementView::ArrangementView() :
 
     addAndMakeVisible(&m_verticalScrollbar);
     m_verticalScrollbar.addListener(this);
+
+    addAndMakeVisible(&m_timelineComponent);
 }
 
 Manifold::UI::ArrangementView::~ArrangementView()
 {
 
+}
+
+void Manifold::UI::ArrangementView::mouseWheelMove(MANIFOLD_UNUSED const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel)
+{
+    auto delta = wheel.deltaY;
+    DBG(delta);
+    m_timelineComponent.setTimeAmtToShow(std::max(m_timelineComponent.getTimeAmtToShow() + delta, 0.25));
 }
 
 void Manifold::UI::ArrangementView::playlistViewScroll(MANIFOLD_UNUSED double newValue)
@@ -61,7 +70,6 @@ void Manifold::UI::ArrangementView::paint(MANIFOLD_UNUSED juce::Graphics& g)
 
 void Manifold::UI::ArrangementView::resized()
 {
-
     m_channelListComponent.setBounds(0, 0, getWidth() / 8, getHeight());
     m_playlistView.setBounds(getWidth() / 8, 0, static_cast<int>(getWidth() * m_zoom), getHeight());
     m_horizontalScrollbar.setRangeLimits(m_playlistViewport.getHorizontalScrollBar().getRangeLimit());
@@ -70,4 +78,5 @@ void Manifold::UI::ArrangementView::resized()
     m_playlistViewport.setBounds(getWidth() / 8, 0, getWidth() - (getWidth() / 8) - (getHeight() / 64), getHeight() - getHeight() / 64);
     m_horizontalScrollbar.setBounds(getWidth() / 8, getHeight() - getHeight() / 64, getWidth() - getWidth() / 8, getHeight() / 64);
     m_verticalScrollbar.setBounds(getWidth() - getHeight() / 64, 0, getWidth() / 64, getHeight() - getHeight() / 64);
+    m_timelineComponent.setBounds(m_playlistViewport.getBounds());
 }

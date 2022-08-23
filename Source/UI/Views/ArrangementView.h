@@ -9,12 +9,14 @@
 */
 
 #pragma once
+#include <algorithm>
 #include <JuceHeader.h>
 #include "../../Audio/ManifoldEngine.h"
 #include "../Components/Arrangement/ChannelListComponent.h"
 #include "../../Audio/ManifoldEngine.h"
 #include "PlaylistView.h"
 #include "../../Types/ManifoldScrollbar.h"
+#include <UI/Components/Arrangement/TimelineComponent.h>
 
 namespace Manifold
 {
@@ -26,6 +28,7 @@ namespace Manifold
         public: 
             ArrangementView();
             ~ArrangementView() override;
+            void mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel) override;
             void playlistViewScroll(double newValue) override;
             void scrollBarMoved(juce::ScrollBar* scrollBarThatHasMoved, double newRangeStart) override;
             void paint(juce::Graphics& g) override;
@@ -38,6 +41,7 @@ namespace Manifold
             PlaylistView m_playlistView;
             ManifoldScrollbar m_horizontalScrollbar;
             ManifoldScrollbar m_verticalScrollbar;
+            TimelineComponent m_timelineComponent;
             double m_zoom = 10;
         };
     }

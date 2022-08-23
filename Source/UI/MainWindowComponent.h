@@ -19,6 +19,7 @@
 #include "Components/MenuBar/TopMenuBar.h"
 #include "LookAndFeel/OverallLF.h"
 
+
 namespace Manifold
 {
     namespace UI
@@ -35,6 +36,7 @@ namespace Manifold
         private: 
             TransportComponent m_transportComponent;
             ArrangementView m_arrangementView;
+
             juce::Viewport m_mixerScrollbar;
             int m_mixerChannelWidth{ 0 };
             MixerView m_mixerView;

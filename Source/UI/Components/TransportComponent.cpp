@@ -9,7 +9,7 @@
 */
 
 #include "TransportComponent.h"
-
+#include <Audio/Core/PositionTracker.h>
 namespace Manifold
 {
     namespace UI
@@ -22,6 +22,9 @@ namespace Manifold
             addAndMakeVisible(&m_playPauseButton);
             addAndMakeVisible(&m_stopButton);
             m_bpmInputField.setText("120", false);
+            m_bpmInputField.onReturnKey = [this] {
+                Audio::Core::PositionTracker::getInstance()->setBpm(std::stod(m_bpmInputField.getText().toStdString()));
+            };
             addAndMakeVisible(&m_bpmInputField);
             m_playPauseButton.addListener(this);
             m_stopButton.addListener(this);

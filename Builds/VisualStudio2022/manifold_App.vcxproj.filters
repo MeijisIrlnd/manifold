@@ -613,6 +613,9 @@
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.cpp">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.cpp">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
@@ -3001,6 +3004,9 @@
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.h">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.h">
