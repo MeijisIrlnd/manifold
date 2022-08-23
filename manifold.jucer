@@ -45,6 +45,7 @@
         <FILE id="j4fgFG" name="Pathing.h" compile="0" resource="0" file="Source/Settings/Pathing.h"/>
       </GROUP>
       <GROUP id="{A8DBA475-35D6-8DD7-09D6-ADC2ADE994CE}" name="Testing">
+        <FILE id="Ls7wq2" name="CacheTester.h" compile="0" resource="0" file="Source/Testing/CacheTester.h"/>
         <FILE id="yQ6gHK" name="ChannelTester.cpp" compile="1" resource="0"
               file="Source/Testing/ChannelTester.cpp"/>
         <FILE id="c4Ahax" name="ChannelTester.h" compile="0" resource="0" file="Source/Testing/ChannelTester.h"/>
@@ -73,6 +74,14 @@
         <FILE id="puXqrG" name="TrackNode.h" compile="0" resource="0" file="Source/Types/TrackNode.h"/>
       </GROUP>
       <GROUP id="{5D1C9A09-2EBC-49BA-D3FB-6A38CE26A9DF}" name="Utils">
+        <FILE id="gf1rAR" name="AudioCache.cpp" compile="1" resource="0" file="Source/Utils/AudioCache.cpp"/>
+        <FILE id="qPzcSc" name="AudioCache.h" compile="0" resource="0" file="Source/Utils/AudioCache.h"/>
+        <FILE id="FFFZvi" name="CachedAudioFile.cpp" compile="1" resource="0"
+              file="Source/Utils/CachedAudioFile.cpp"/>
+        <FILE id="E2yxUG" name="CachedAudioFile.h" compile="0" resource="0"
+              file="Source/Utils/CachedAudioFile.h"/>
+        <FILE id="sFRoDd" name="ReferenceCountedObject.h" compile="0" resource="0"
+              file="Source/Utils/ReferenceCountedObject.h"/>
         <FILE id="v5x1aE" name="UIListener.h" compile="0" resource="0" file="Source/Utils/UIListener.h"/>
       </GROUP>
       <GROUP id="{934BA6EB-E9D4-000D-8619-C49FE6B97D4E}" name="Audio">

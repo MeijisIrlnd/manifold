@@ -11,6 +11,7 @@
 #include "Macros.h"
 #include "Audio/ManifoldEngine.h"
 #include "Testing/ChannelTester.h"
+#include "Testing/CacheTester.h"
 using namespace Manifold;
 using namespace Manifold::UI;
 using namespace Manifold::Audio;
@@ -33,7 +34,8 @@ public:
         GET_POSITION_TRACKER()->startup();
         auto instance = ManifoldEngine::getInstance();
         mainWindow.reset (new MainWindow (getApplicationName(), instance->getUIListener()));
-        Manifold::Testing::ChannelTester tester;
+        //Manifold::Testing::ChannelTester tester;
+        Manifold::Testing::testCache();
     }
 
     void shutdown() override
