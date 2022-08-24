@@ -34,14 +34,14 @@ namespace Manifold
             DBG(currentMouseWheel);
         }
 
-        void PlaylistView::paint(juce::Graphics& g)
+        void PlaylistView::paint(MANIFOLD_UNUSED juce::Graphics& g)
         {
-            g.setColour(juce::Colour(0xFFF0F0F0));
-            g.fillAll();
-            g.setColour(juce::Colours::black);
-            for (auto i = 1; i < 12; i++) {
-                g.drawLine(0, (getHeight() / 12.0f) * static_cast<float>(i), static_cast<float>(getWidth()), (getHeight() / 12.0f) * static_cast<float>(i));
-            }
+            //g.setColour(juce::Colour(0xFFF0F0F0));
+            //g.fillAll();
+            //g.setColour(juce::Colours::black);
+            //for (auto i = 1; i < 12; i++) {
+            //    g.drawLine(0, (getHeight() / 12.0f) * static_cast<float>(i), static_cast<float>(getWidth()), (getHeight() / 12.0f) * static_cast<float>(i));
+            //}
         }
 
         void PlaylistView::resized()

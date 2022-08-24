@@ -30,8 +30,7 @@ namespace Manifold
             void ChannelListItem::paint(juce::Graphics& g)
             {
                 //g.setColour(juce::Colours::blanchedalmond);
-                g.fillAll(juce::Colour(0xFFF0F0F0));
-                g.fillAll();
+                g.fillAll(m_internal->getColour());
             }
 
             void ChannelListItem::resized()

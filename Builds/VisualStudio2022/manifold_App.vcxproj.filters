@@ -5603,6 +5603,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\Assets\ColourPickerIcon.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
     <None Include="..\..\Resources\Assets\InputMonitorOff.png">
       <Filter>manifold\Resources\Assets</Filter>
     </None>

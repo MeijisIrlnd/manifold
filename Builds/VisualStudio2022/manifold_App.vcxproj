@@ -3160,6 +3160,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\Assets\ColourPickerIcon.png"/>
     <None Include="..\..\Resources\Assets\InputMonitorOff.png"/>
     <None Include="..\..\Resources\Assets\InputMonitorOn.png"/>
     <None Include="..\..\Resources\Assets\InstrumentSelect.png"/>

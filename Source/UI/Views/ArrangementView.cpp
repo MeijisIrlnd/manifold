@@ -70,13 +70,15 @@ void Manifold::UI::ArrangementView::paint(MANIFOLD_UNUSED juce::Graphics& g)
 
 void Manifold::UI::ArrangementView::resized()
 {
-    m_channelListComponent.setBounds(0, 0, getWidth() / 8, getHeight());
-    m_playlistView.setBounds(getWidth() / 8, 0, static_cast<int>(getWidth() * m_zoom), getHeight());
+    auto yStart = getHeight() / 24;
+    m_channelListComponent.setBounds(0, yStart, getWidth() / 8, getHeight() - yStart);
+    m_playlistView.setBounds(getWidth() / 8, yStart, static_cast<int>(getWidth() * m_zoom), getHeight() - yStart);
     m_horizontalScrollbar.setRangeLimits(m_playlistViewport.getHorizontalScrollBar().getRangeLimit());
-    m_channelListViewport.setBounds(0, 0, getWidth() / 8, getHeight() - getHeight() / 64);
+    m_channelListViewport.setBounds(0, yStart, getWidth() / 8, getHeight() - getHeight() / 64 - yStart);
     m_verticalScrollbar.setRangeLimits(m_playlistViewport.getVerticalScrollBar().getRangeLimit());
-    m_playlistViewport.setBounds(getWidth() / 8, 0, getWidth() - (getWidth() / 8) - (getHeight() / 64), getHeight() - getHeight() / 64);
+    m_playlistViewport.setBounds(getWidth() / 8, yStart, getWidth() - (getWidth() / 8) - (getHeight() / 64), getHeight() - getHeight() / 64 - yStart);
     m_horizontalScrollbar.setBounds(getWidth() / 8, getHeight() - getHeight() / 64, getWidth() - getWidth() / 8, getHeight() / 64);
-    m_verticalScrollbar.setBounds(getWidth() - getHeight() / 64, 0, getWidth() / 64, getHeight() - getHeight() / 64);
-    m_timelineComponent.setBounds(m_playlistViewport.getBounds());
+    m_verticalScrollbar.setBounds(getWidth() - getHeight() / 64, yStart, getWidth() / 64, getHeight() - getHeight() / 64 - yStart);
+    auto localBounds = getLocalBounds();
+    m_timelineComponent.setBounds(m_playlistViewport.getX(), 0, getWidth() - m_playlistViewport.getX(), getHeight());
 }

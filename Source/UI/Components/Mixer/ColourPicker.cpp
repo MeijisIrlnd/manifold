@@ -19,8 +19,9 @@ namespace Manifold
         {
             for (auto i = 0; i < 5; i++) {
                 std::unique_ptr<ColourPickerMenuItem> current(new ColourPickerMenuItem(juce::Colour(m_availableColours[i])));
-                //m_popup.addCustomItem(i + 1, std::move(current), nullptr, "Bollocks");
+                m_popup.addCustomItem(i + 1, std::move(current), nullptr);
             }
+            m_icon = juce::ImageCache::getFromMemory(BinaryData::ColourPickerIcon_png, BinaryData::ColourPickerIcon_pngSize);
         }
 
         void ColourPicker::mouseUp(MANIFOLD_UNUSED const juce::MouseEvent& ev)
@@ -40,7 +41,8 @@ namespace Manifold
 
         void ColourPicker::paint(juce::Graphics& g)
         {
-            g.fillAll(m_channel->getColour());
+            m_icon = m_icon.rescaled(getWidth(), getHeight(), juce::Graphics::ResamplingQuality::highResamplingQuality);
+            g.drawImageAt(m_icon, 0, 0, false);
         }
 
         void ColourPicker::resized()

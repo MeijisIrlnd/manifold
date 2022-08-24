@@ -44,6 +44,7 @@ namespace Manifold
 
             juce::PopupMenu m_popup;
             ColourPickerListener* m_listener{ nullptr };
+            juce::Image m_icon;
         };
     }
 }

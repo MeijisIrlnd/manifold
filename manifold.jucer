@@ -6,6 +6,8 @@
   <MAINGROUP id="xOly6w" name="manifold">
     <GROUP id="{47D65248-4DA2-18DA-4CE5-47411DD21DD3}" name="Resources">
       <GROUP id="{37E9A2FE-398E-8416-54AB-40DDF1DF61C7}" name="Assets">
+        <FILE id="TCIBxM" name="ColourPickerIcon.png" compile="0" resource="1"
+              file="Resources/Assets/ColourPickerIcon.png"/>
         <FILE id="AorWwc" name="InputMonitorOff.png" compile="0" resource="1"
               file="Resources/Assets/InputMonitorOff.png"/>
         <FILE id="GY14gd" name="InputMonitorOn.png" compile="0" resource="1"

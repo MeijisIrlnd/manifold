@@ -9,7 +9,7 @@
 */
 
 #include "MainWindowComponent.h"
-
+#include "../Testing/ChannelTester.h"
 namespace Manifold
 {
     namespace UI
@@ -36,6 +36,7 @@ namespace Manifold
             addAndMakeVisible(&m_menuBar);
             addKeyListener(this);
             GET_ENGINE()->addListener(this);
+            Testing::ChannelTester();
         }
 
         MainWindowComponent::~MainWindowComponent()

@@ -64,14 +64,14 @@ namespace Manifold
                 });
             }
         }
-        void ChannelListComponent::paint(juce::Graphics& g)
+        void ChannelListComponent::paint(MANIFOLD_UNUSED juce::Graphics& g)
         {
-            g.setColour(juce::Colours::lightgreen);
-            g.fillAll();
-            g.setColour(juce::Colours::black);
-            for (auto i = 1; i < 12; i++) {
-                g.drawLine(0, (getHeight() / 12.0f) * i, static_cast<float>(getWidth()), (getHeight() / 12.0f) * i);
-            }
+            //g.setColour(juce::Colours::lightgreen);
+            //g.fillAll();
+            //g.setColour(juce::Colours::black);
+            //for (auto i = 1; i < 12; i++) {
+            //    g.drawLine(0, (getHeight() / 12.0f) * i, static_cast<float>(getWidth()), (getHeight() / 12.0f) * i);
+            //}
         }
         void ChannelListComponent::resized()
         {

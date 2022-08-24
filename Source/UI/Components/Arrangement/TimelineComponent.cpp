@@ -30,6 +30,9 @@ namespace Manifold::UI
     {
         // Right, here come the calculations...
         // How long is a beat?? 
+        juce::Rectangle<int> topRect(0, 0, getWidth(), getHeight() / 24);
+        g.setColour(juce::Colours::black);
+        g.fillRect(topRect);
         using namespace Audio::Core;
         auto bpm = PositionTracker::getInstance()->getBpm();
         auto timeSig = PositionTracker::getInstance()->getTimeSignature();
@@ -40,7 +43,7 @@ namespace Manifold::UI
         // SO we draw that many, sick, so lets start drawing ticks for now...
         auto spacing = static_cast<float>(getWidth() / numQuartersInTimeframe);
         float xPos = 0;
-        g.setColour(juce::Colours::black);
+        g.setColour(juce::Colours::white);
         int currentBarNum = 0;
         for (auto i = 0; i < numQuartersInTimeframe; i++, xPos += spacing)
         {
@@ -52,7 +55,7 @@ namespace Manifold::UI
             juce::Rectangle<int> m_textRect(static_cast<int>(xPos), 0, getWidth() / 32, getHeight() / 8);
             std::stringstream formattedText;
             formattedText << currentBarNum << "." << (i % timeSig.first) + 1;
-            g.drawText(formattedText.str(), m_textRect, juce::Justification::centred);
+            g.drawText(formattedText.str(), m_textRect, juce::Justification::centredTop);
 
         }
     }
