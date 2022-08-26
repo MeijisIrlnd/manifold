@@ -9,20 +9,25 @@
 */
 
 #pragma once
+#include <algorithm>
+#include <vector>
 #include <JuceHeader.h>
+#include <Audio/ManifoldEngine.h>
+#include <UI/Components/Arrangement/ChannelLane.h>
 #include "../Components/Arrangement/PlayheadPositioner.h"
 #include "../ViewListener.h"
-#include <algorithm>
 namespace Manifold
 {
     namespace UI
     {
-        class PlaylistView : public juce::Component
+        class PlaylistView : public juce::Component, public Audio::EngineListener
         {
         public: 
             PlaylistView();
             ~PlaylistView() override;
             MANIFOLD_INLINE void addListener(ViewListener* newListener) { m_listener = newListener; }
+            void onChannelCreated(MANIFOLD_UNUSED Audio::InternalChannel* newChannel) override;
+            void onChannelDeleted(MANIFOLD_UNUSED Audio::InternalChannel* toDelete) override;
             void mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel) override;
             void paint(juce::Graphics& g) override;
             void resized() override;
@@ -30,7 +35,7 @@ namespace Manifold
             ViewListener* m_listener = nullptr;
             PlayheadPositioner m_playheadPositioner;
             double currentMouseWheel = 0;
-
+            std::vector<std::unique_ptr<ChannelLane> > m_channelLanes;
             // so at 0 zoom, timescale should show 15 seconds..
 
         };

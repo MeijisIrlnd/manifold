@@ -168,6 +168,8 @@
     <ClCompile Include="..\..\Source\UI\Primitives\ImageButton.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\LabelButton.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\AudioClipComponent.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelLane.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelListItem.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\PianoRollComponent.cpp"/>
@@ -2289,6 +2291,8 @@
     <ClInclude Include="..\..\Source\UI\Primitives\ImageButton.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\LabelButton.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\AudioClipComponent.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelLane.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelListItem.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\PianoRollComponent.h"/>

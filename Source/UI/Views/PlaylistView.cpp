@@ -17,9 +17,22 @@ namespace Manifold
         PlaylistView::PlaylistView()
         {
             addAndMakeVisible(&m_playheadPositioner);
+            GET_ENGINE()->addListener(this);
         }
 
         PlaylistView::~PlaylistView()
+        {
+        }
+
+        void PlaylistView::onChannelCreated(Audio::InternalChannel* newChannel)
+        {
+            std::unique_ptr<ChannelLane> currentLane(new ChannelLane(newChannel));
+            m_channelLanes.push_back(std::move(currentLane));
+            addAndMakeVisible(m_channelLanes.back().get());
+            repaint();
+        }
+
+        void PlaylistView::onChannelDeleted(MANIFOLD_UNUSED Audio::InternalChannel* toDelete)
         {
         }
 
@@ -46,7 +59,10 @@ namespace Manifold
 
         void PlaylistView::resized()
         {
-            m_playheadPositioner.setBounds(getLocalBounds());
+            //m_playheadPositioner.setBounds(getLocalBounds());
+            for (auto i = 0; i < m_channelLanes.size(); i++) {
+                m_channelLanes[i]->setBounds(0, (getHeight() / 12) * i, getWidth(), getHeight() / 12);
+            }
         }
     }
 }

@@ -72,7 +72,8 @@ void Manifold::UI::ArrangementView::resized()
 {
     auto yStart = getHeight() / 24;
     m_channelListComponent.setBounds(0, yStart, getWidth() / 8, getHeight() - yStart);
-    m_playlistView.setBounds(getWidth() / 8, yStart, static_cast<int>(getWidth() * m_zoom), getHeight() - yStart);
+    //m_playlistView.setBounds(getWidth() / 8, yStart, static_cast<int>(getWidth() * m_zoom), getHeight() - yStart);
+    m_playlistView.setBounds(getWidth() / 8, yStart, getWidth() - getWidth() / 8 - getWidth() / 64, getHeight() - yStart);
     m_horizontalScrollbar.setRangeLimits(m_playlistViewport.getHorizontalScrollBar().getRangeLimit());
     m_channelListViewport.setBounds(0, yStart, getWidth() / 8, getHeight() - getHeight() / 64 - yStart);
     m_verticalScrollbar.setRangeLimits(m_playlistViewport.getVerticalScrollBar().getRangeLimit());

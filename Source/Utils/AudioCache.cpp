@@ -18,13 +18,19 @@ namespace Manifold::Audio
 
     CachedAudioFile::Ptr AudioCache::addToCache(const juce::File& f)
     {
-        auto* instance = getInstance();
-        std::unique_ptr<juce::AudioFormatReader> reader(m_instance->m_formatManager.createReaderFor(f));
-        juce::AudioBuffer<float> buffer(reader->numChannels, static_cast<int>(reader->lengthInSamples));
-        reader->read(&buffer, 0, static_cast<int>(reader->lengthInSamples), 0, true, true);
         auto hash = f.getFullPathName().hashCode64();
-        instance->m_cache[hash] = new CachedAudioFile(f, hash, buffer);
-        return instance->m_cache[hash];
+        auto* instance = getInstance();
+        auto it = instance->m_cache.find(hash);
+        if (it == instance->m_cache.end()) {
+            std::unique_ptr<juce::AudioFormatReader> reader(m_instance->m_formatManager.createReaderFor(f));
+            juce::AudioBuffer<float> buffer(reader->numChannels, static_cast<int>(reader->lengthInSamples));
+            reader->read(&buffer, 0, static_cast<int>(reader->lengthInSamples), 0, true, true);
+            instance->m_cache[hash] = new CachedAudioFile(f, hash, buffer);
+            return instance->m_cache[hash];
+        }
+        else {
+            return getFromCache(f);
+        }
     }
 
     CachedAudioFile::Ptr AudioCache::getFromCache(const juce::File& f)
@@ -34,6 +40,12 @@ namespace Manifold::Audio
         auto it = instance->m_cache.find(hash);
         if (it == instance->m_cache.end()) return nullptr;
         return instance->m_cache.at(hash);
+    }
+
+    bool AudioCache::isAudioFormat(const juce::File& f)
+    {
+        auto* fmt = m_formatManager.findFormatForFileExtension(f.getFileExtension());
+        return fmt != nullptr;
     }
 
     void AudioCache::timerCallback()
@@ -46,7 +58,7 @@ namespace Manifold::Audio
             if (it->second->getReferenceCount() == 1) {
                 // This is the only reference to that file, so delete it..
                 it->second = nullptr;
-                DBG("Deleting");
+                DBG("No more refs, removing from cache");
                 m_cache.erase(it++);
             }
             else {

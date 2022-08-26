@@ -16,6 +16,7 @@ namespace Manifold::UI
     {
         Audio::Core::PositionTracker::getInstance()->m_bpm.addChangeListener(this);
         Audio::Core::PositionTracker::getInstance()->m_timeSig.addChangeListener(this);
+        setInterceptsMouseClicks(false, false);
     }
     TimelineComponent::~TimelineComponent()
     {

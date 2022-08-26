@@ -157,6 +157,12 @@
         </GROUP>
         <GROUP id="{9CB32F7C-4716-309C-7CA7-5B390BBBCAEE}" name="Components">
           <GROUP id="{4A87FDCD-B52D-48F6-6936-0E7C01F09832}" name="Arrangement">
+            <FILE id="HzMgr9" name="AudioClipComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/AudioClipComponent.cpp"/>
+            <FILE id="ikr7Vx" name="AudioClipComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/AudioClipComponent.h"/>
+            <FILE id="CU9Osd" name="ChannelLane.cpp" compile="1" resource="0" file="Source/UI/Components/Arrangement/ChannelLane.cpp"/>
+            <FILE id="J13zu3" name="ChannelLane.h" compile="0" resource="0" file="Source/UI/Components/Arrangement/ChannelLane.h"/>
             <FILE id="fCeBI9" name="ChannelListComponent.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Arrangement/ChannelListComponent.cpp"/>
             <FILE id="QnMqle" name="ChannelListComponent.h" compile="0" resource="0"

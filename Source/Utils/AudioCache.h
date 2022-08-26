@@ -28,7 +28,7 @@ namespace Manifold::Audio
         static void shutdown();
         static CachedAudioFile::Ptr addToCache(const juce::File& file);
         static CachedAudioFile::Ptr getFromCache(const juce::File& file);
-        
+        bool isAudioFormat(const juce::File& f);
     private:
         void timerCallback() override;
         static std::map<juce::int64, CachedAudioFile::Ptr> m_cache;
