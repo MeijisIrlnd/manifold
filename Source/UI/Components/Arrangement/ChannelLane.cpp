@@ -35,7 +35,7 @@ namespace Manifold::UI
         // Need to know what width to draw this, that's gonna be based on the time scale...
         // SO could you say the width is proportional to the currently rendered region? 
         
-        std::unique_ptr<AudioClipComponent> currentClip(new AudioClipComponent(m_cache, cachedFile));
+        std::unique_ptr<AudioClipComponent> currentClip(new AudioClipComponent(m_internalChannel, m_cache, cachedFile));
         m_clips[x] = std::move(currentClip);
         addAndMakeVisible(m_clips[x].get());
         resized();
