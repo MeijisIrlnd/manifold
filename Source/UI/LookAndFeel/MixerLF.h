@@ -29,6 +29,7 @@ namespace Manifold
                 float sliderPosProportional, float rotaryStartAngle,
                 float rotaryEndAngle, juce::Slider&) override;
 
+            MANIFOLD_INLINE juce::Font getOverallFont() { return m_labelFont;  }
             MANIFOLD_INLINE juce::Font getLabelFont(MANIFOLD_UNUSED juce::Label& l) override {
                 return m_labelFont.withHeight(18.0f);
             }
@@ -40,7 +41,7 @@ namespace Manifold
         private: 
             juce::Image m_vThumb;
             juce::Image m_rThumb;
-            juce::Font m_labelFont;
+            static juce::Font m_labelFont;
         };
     }
 }

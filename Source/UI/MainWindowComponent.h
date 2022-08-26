@@ -18,6 +18,7 @@
 #include "Components/Windows/WindowManager.h"
 #include "Components/MenuBar/TopMenuBar.h"
 #include "LookAndFeel/OverallLF.h"
+#include <LeakBacktracer.h>
 
 
 namespace Manifold

@@ -20,6 +20,9 @@ namespace Manifold
                 m_internal(internalChannel)
             {
                 m_nameLabel.setText(internalChannel->getName());
+                m_nameLabel.onTextChange = [this] { 
+                    m_internal->rename(m_nameLabel.getText().toStdString());
+                };
                 addAndMakeVisible(&m_nameLabel);
             }
 
@@ -30,11 +33,15 @@ namespace Manifold
             void ChannelListItem::paint(juce::Graphics& g)
             {
                 //g.setColour(juce::Colours::blanchedalmond);
+                if (m_internal->getHasRenamed()) {
+                    m_nameLabel.setText(m_internal->getName(), juce::dontSendNotification);
+                }
                 g.fillAll(m_internal->getColour());
             }
 
             void ChannelListItem::resized()
             {
+
                 m_nameLabel.setBounds(0, 0, getWidth(), getHeight() / 4);
             }
         }

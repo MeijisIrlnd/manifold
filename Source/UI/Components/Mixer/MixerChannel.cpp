@@ -9,7 +9,7 @@
 */
 
 #include "MixerChannel.h"
-
+#include <UI/LookAndFeel/MixerLF.h>
 namespace Manifold
 {
     namespace UI
@@ -50,6 +50,10 @@ namespace Manifold
 
             addAndMakeVisible(&m_insertPluginList);
             addAndMakeVisible(&m_sendList);
+            m_nameDisplay.setFont(dynamic_cast<MixerLF*>(&getLookAndFeel())->getOverallFont());
+            m_nameDisplay.setJustification(juce::Justification::centred);
+            m_nameDisplay.onTextChange = [this] { m_channel->rename(m_nameDisplay.getText().toStdString()); };
+            addAndMakeVisible(&m_nameDisplay);
 
             addAndMakeVisible(&m_inputSelector);
             addAndMakeVisible(&m_outputSelector);
@@ -122,6 +126,9 @@ namespace Manifold
 
         void MixerChannel::paint(juce::Graphics& g)
         {
+            if (m_channel->getHasRenamed()) {
+                m_nameDisplay.setText(m_channel->getName(), juce::dontSendNotification);
+            }
             g.setColour(m_channel->getColour());
             g.fillAll();
             g.setColour(juce::Colours::black);
@@ -149,8 +156,9 @@ namespace Manifold
             m_panSlider.setBounds(getWidth() / 2 - getWidth() / 6, m_outputSelector.getY() + m_outputSelector.getHeight() + elSpacing, getWidth() / 3, getWidth() / 3);
             m_muteButton.setBounds(getWidth() / 2 - getWidth() / 4, m_panSlider.getY() + m_panSlider.getHeight() + elSpacing, getWidth() / 4, getWidth() / 4);
             m_soloButton.setBounds(getWidth() / 2, m_muteButton.getY(), getWidth() / 4, getWidth() / 4);
-            m_volumeSlider.setBounds(0, getHeight() / 2, getWidth(), getHeight() / 2 - getHeight() / 32);
-            m_colourPicker.setBounds(0, m_volumeSlider.getY() + m_volumeSlider.getHeight(), getWidth(), getHeight() / 32);
+            m_volumeSlider.setBounds(0, getHeight() / 2, getWidth(), getHeight() / 2 - getHeight() / 24);
+            m_nameDisplay.setBounds(0, m_volumeSlider.getY() + m_volumeSlider.getHeight(), getWidth(), getHeight() / 48);
+            m_colourPicker.setBounds(0, m_nameDisplay.getY() + m_nameDisplay.getHeight(), getWidth(), getHeight() / 48);
         }
 
     }

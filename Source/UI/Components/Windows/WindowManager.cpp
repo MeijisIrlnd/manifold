@@ -36,7 +36,6 @@ namespace Manifold
 
         void WindowManager::shutdown()
         {
-            std::lock_guard<std::mutex> lock(m_mutex);
             delete m_instance;
         }
         

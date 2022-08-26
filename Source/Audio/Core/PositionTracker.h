@@ -30,6 +30,7 @@ namespace Manifold::Audio::Core
         PositionTracker& operator=(const PositionTracker& other) = delete;
         MANIFOLD_INLINE static void startup() { getInstance(); }
         static PositionTracker* getInstance();
+        static void shutdown();
         bool getIsRunning() const { return m_running; }
     
         void changeListenerCallback(juce::ChangeBroadcaster* source) override {

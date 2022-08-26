@@ -17,6 +17,9 @@ namespace Manifold
         OverallLF::OverallLF()
         {
             m_scrollbarThumb = juce::ImageCache::getFromMemory(BinaryData::ScrollbarThumb_png, BinaryData::ScrollbarThumb_pngSize);
+            setColour(juce::TextEditor::backgroundColourId, juce::Colours::transparentWhite);
+            setColour(juce::TextEditor::textColourId, juce::Colours::white);
+            setColour(juce::TextEditor::outlineColourId, juce::Colours::transparentWhite);
         }
 
         void OverallLF::drawScrollbar(juce::Graphics& g, juce::ScrollBar& scrollbar, int x, int y, int width, int height, bool isScrollbarVertical, int thumbStartPosition, int thumbSize, bool isMouseOver, bool isMouseDown)

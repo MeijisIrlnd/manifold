@@ -14,11 +14,16 @@ namespace Manifold
 {
     namespace UI
     {
+        juce::Font MixerLF::m_labelFont = juce::Typeface::createSystemTypefaceFor(BinaryData::PixelTandysoft0rJG_ttf, BinaryData::PixelTandysoft0rJG_ttfSize);
+        
         MixerLF::MixerLF()
         {
             m_vThumb = juce::ImageCache::getFromMemory(BinaryData::MixerHandle_png, BinaryData::MixerHandle_pngSize);
             m_rThumb = juce::ImageCache::getFromMemory(BinaryData::RotaryHandle_png, BinaryData::RotaryHandle_pngSize);
-            m_labelFont = juce::Typeface::createSystemTypefaceFor(BinaryData::PixelTandysoft0rJG_ttf, BinaryData::PixelTandysoft0rJG_ttfSize);
+            setColour(juce::TextEditor::backgroundColourId, juce::Colours::transparentWhite);
+            setColour(juce::TextEditor::textColourId, juce::Colours::white);
+            setColour(juce::TextEditor::outlineColourId, juce::Colours::transparentWhite);
+            //m_labelFont = juce::Typeface::createSystemTypefaceFor(BinaryData::PixelTandysoft0rJG_ttf, BinaryData::PixelTandysoft0rJG_ttfSize);
         }
 
         void MixerLF::drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height,

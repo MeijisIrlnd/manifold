@@ -24,10 +24,16 @@ namespace Manifold::Audio::Core
         return m_instance;
     }
 
-    PositionTracker::~PositionTracker()
+    void PositionTracker::shutdown()
     {
+        std::scoped_lock<std::mutex> sl(m_mutex);
         delete m_instance;
         m_instance = nullptr;
+    }
+
+    PositionTracker::~PositionTracker()
+    {
+
     }
 
 }

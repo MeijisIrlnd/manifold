@@ -12,6 +12,7 @@
 #include "Audio/ManifoldEngine.h"
 #include "Testing/ChannelTester.h"
 #include "Testing/CacheTester.h"
+
 using namespace Manifold;
 using namespace Manifold::UI;
 using namespace Manifold::Audio;
@@ -42,7 +43,10 @@ public:
     {
         // Add your application's shutdown code here..
         mainWindow = nullptr; // (deletes our window)
+        WindowManager::shutdown();
         ManifoldEngine::shutdown();
+        PositionTracker::shutdown();
+        AudioCache::shutdown();
     }
 
     //==============================================================================

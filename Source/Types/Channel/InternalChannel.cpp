@@ -42,4 +42,5 @@ Manifold::Audio::InternalChannel::~InternalChannel()
 void Manifold::Audio::InternalChannel::rename(const std::string& newName)
 {
     m_name = newName;
+    m_hasRenamed = true;
 }

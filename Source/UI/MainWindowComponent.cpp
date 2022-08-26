@@ -42,7 +42,6 @@ namespace Manifold
         MainWindowComponent::~MainWindowComponent()
         {
             setLookAndFeel(nullptr);
-            WindowManager::shutdown();
         }
 
         bool MainWindowComponent::keyPressed(const juce::KeyPress& key, MANIFOLD_UNUSED juce::Component* fromComponent)

@@ -40,6 +40,9 @@ namespace Manifold::Audio
     {
         std::vector<std::map<juce::int64, CachedAudioFile::Ptr>::iterator> toDelete;
         for (auto it = m_cache.begin(); it != m_cache.end();) {
+            std::stringstream dbgMessage;
+            dbgMessage << it->second->associatedFile.getFileName() << ", num refs: " << it->second->getReferenceCount() - 1 << "\n";
+            DBG(dbgMessage.str());
             if (it->second->getReferenceCount() == 1) {
                 // This is the only reference to that file, so delete it..
                 it->second = nullptr;
@@ -78,7 +81,9 @@ namespace Manifold::Audio
 
     void AudioCache::shutdown()
     {
-        std::scoped_lock<std::mutex> sl(m_mutex);
+        getInstance()->stopTimer();
+        getInstance()->timerCallback();
+
         delete m_instance;
         m_instance = nullptr;
     }
