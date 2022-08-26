@@ -21,8 +21,8 @@ it's very much a work in progress passion project, so if you stumble across this
 - <s>Set up audio busses, and flesh out group channels</s>
 - Hardware input busses and routing 
 - Sidechain, alternative channel routings (don't lock to stereo)
-- Make the arrange window not awful
-- <s>Samples in arrange window</s>* 
+- <s>Make the arrange window not awful</s>* 
+- Samples in arrange window
 - Midi piano roll 
 - Save / Load project
 - Cubase-esque multitool in arrange window (cut, select, etc)
