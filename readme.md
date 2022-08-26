@@ -22,7 +22,7 @@ it's very much a work in progress passion project, so if you stumble across this
 - Hardware input busses and routing 
 - Sidechain, alternative channel routings (don't lock to stereo)
 - Make the arrange window not awful
-- Samples in arrange window 
+- <s>Samples in arrange window</s>* 
 - Midi piano roll 
 - Save / Load project
 - Cubase-esque multitool in arrange window (cut, select, etc)
@@ -35,6 +35,7 @@ it's very much a work in progress passion project, so if you stumble across this
 - VFX (shaders, etc)
 - blazing 🚬 fast ![image](https://user-images.githubusercontent.com/38221014/173170474-bf0041fd-63be-4293-a1dc-becc0da0e536.png) rust rewrite
 
+*it still kind of looks bad
 ## reviews 
 “THIS DAW’S OFF THE CHAIN” - Hays Holladay<br>
 “BEWARE OF INTUITIVE USER INTERFACE” - Hays Holladay<br>
