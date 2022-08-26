@@ -12,7 +12,7 @@
 #include <Utils/AudioCache.h>
 namespace Manifold::UI
 {
-    ChannelLane::ChannelLane(Audio::InternalChannel* internalChannel) : m_internalChannel(internalChannel)
+    ChannelLane::ChannelLane(Audio::InternalChannel* internalChannel) : m_internalChannel(internalChannel), m_cache(5)
     {
     }
 
@@ -32,7 +32,11 @@ namespace Manifold::UI
     void ChannelLane::filesDropped(const juce::StringArray& files, MANIFOLD_UNUSED int x, MANIFOLD_UNUSED int y)
     {
         Audio::CachedAudioFile::Ptr cachedFile = Audio::AudioCache::addToCache(files[0]);
-        
+        // Need to know what width to draw this, that's gonna be based on the time scale...
+        std::unique_ptr<AudioClipComponent> currentClip(new AudioClipComponent(m_cache, cachedFile));
+        m_clips[x] = std::move(currentClip);
+        addAndMakeVisible(m_clips[x].get());
+        resized();
     }
 
 
@@ -46,5 +50,8 @@ namespace Manifold::UI
 
     void ChannelLane::resized()
     {
+        for (auto it = m_clips.begin(); it != m_clips.end(); it++) {
+            it->second->setBounds(it->first, 0, getWidth() / 4, getHeight());
+        }
     }
 }

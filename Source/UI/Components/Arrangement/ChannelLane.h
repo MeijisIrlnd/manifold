@@ -9,8 +9,10 @@
 */
 
 #pragma once
+#include <map>
 #include <JuceHeader.h>
 #include <Types/Channel/InternalChannel.h>
+#include "AudioClipComponent.h"
 namespace Manifold::UI
 {
     class ChannelLane : public juce::Component, public juce::FileDragAndDropTarget
@@ -24,5 +26,7 @@ namespace Manifold::UI
         void resized() override;
     private: 
         Audio::InternalChannel* m_internalChannel;
+        juce::AudioThumbnailCache m_cache;
+        std::map<int, std::unique_ptr<AudioClipComponent> > m_clips;
     };
 }

@@ -13,6 +13,7 @@
 #include <map>
 #include <JuceHeader.h>
 #include "CachedAudioFile.h"
+#include <Macros.h>
 namespace Manifold::Audio
 {
     class AudioCache : public juce::Timer
@@ -29,6 +30,7 @@ namespace Manifold::Audio
         static CachedAudioFile::Ptr addToCache(const juce::File& file);
         static CachedAudioFile::Ptr getFromCache(const juce::File& file);
         bool isAudioFormat(const juce::File& f);
+        MANIFOLD_INLINE juce::AudioFormatManager& getFormatManager() { return m_formatManager; }
     private:
         void timerCallback() override;
         static std::map<juce::int64, CachedAudioFile::Ptr> m_cache;
