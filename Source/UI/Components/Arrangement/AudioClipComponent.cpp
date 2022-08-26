@@ -14,7 +14,7 @@ namespace Manifold::UI
 {
     AudioClipComponent::AudioClipComponent(juce::AudioThumbnailCache& cache, Audio::CachedAudioFile::Ptr cacheItem) : m_cache(cache), m_thumbnail(512, Audio::AudioCache::getInstance()->getFormatManager(), m_cache)
     {
-        m_thumbnail.reset(cacheItem->buffer.getNumChannels(), 44100, cacheItem->buffer.getNumSamples());
+        m_thumbnail.reset(cacheItem->buffer.getNumChannels(), cacheItem->originalSampleRate, cacheItem->buffer.getNumSamples());
         m_thumbnail.addBlock(0, cacheItem->buffer, 0, cacheItem->buffer.getNumSamples());
 
     }

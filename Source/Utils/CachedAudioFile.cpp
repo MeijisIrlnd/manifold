@@ -13,8 +13,8 @@
 namespace Manifold::Audio
 {
 
-    CachedAudioFile::CachedAudioFile(const juce::File& associated_, juce::int64 hash_, const juce::AudioBuffer<float>& buffer_) : 
-        associatedFile(associated_), hash(hash_), buffer(buffer_)
+    CachedAudioFile::CachedAudioFile(const juce::File& associated_, juce::int64 hash_, const juce::AudioBuffer<float>& buffer_, double originalSampleRate_) : 
+        associatedFile(associated_), hash(hash_), buffer(buffer_), originalSampleRate(originalSampleRate_)
     {
     }
 

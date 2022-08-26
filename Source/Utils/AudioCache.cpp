@@ -25,7 +25,7 @@ namespace Manifold::Audio
             std::unique_ptr<juce::AudioFormatReader> reader(m_instance->m_formatManager.createReaderFor(f));
             juce::AudioBuffer<float> buffer(reader->numChannels, static_cast<int>(reader->lengthInSamples));
             reader->read(&buffer, 0, static_cast<int>(reader->lengthInSamples), 0, true, true);
-            instance->m_cache[hash] = new CachedAudioFile(f, hash, buffer);
+            instance->m_cache[hash] = new CachedAudioFile(f, hash, buffer, reader->sampleRate);
             return instance->m_cache[hash];
         }
         else {

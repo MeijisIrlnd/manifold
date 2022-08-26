@@ -16,10 +16,11 @@ namespace Manifold::Audio
     {
     public: 
         using Ptr = juce::ReferenceCountedObjectPtr<CachedAudioFile>;
-        CachedAudioFile(const juce::File& associated_, juce::int64 hash_, const juce::AudioBuffer<float>& buffer_);
+        CachedAudioFile(const juce::File& associated_, juce::int64 hash_, const juce::AudioBuffer<float>& buffer_, double originalSampleRate_);
         ~CachedAudioFile();
         juce::File associatedFile;
         juce::int64 hash;
         juce::AudioBuffer<float> buffer;
+        double originalSampleRate;
     };
 }
