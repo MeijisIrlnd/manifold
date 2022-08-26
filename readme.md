@@ -22,6 +22,9 @@ it's very much a work in progress passion project, so if you stumble across this
 - Hardware input busses and routing 
 - Sidechain, alternative channel routings (don't lock to stereo)
 - <s>Make the arrange window not awful</s>* 
+- Thread audio loading
+- Thread thumbnail rendering
+- <sample, sample::ptr> lookup per channel
 - Samples in arrange window
 - Midi piano roll 
 - Save / Load project
