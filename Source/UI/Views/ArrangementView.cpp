@@ -45,6 +45,7 @@ void Manifold::UI::ArrangementView::mouseWheelMove(MANIFOLD_UNUSED const juce::M
     auto delta = wheel.deltaY;
     DBG(delta);
     m_timelineComponent.setTimeAmtToShow(std::max(m_timelineComponent.getTimeAmtToShow() + delta, 0.25));
+    m_playlistView.zoomChanged(m_timelineComponent.getTimeRangeToShow());
 }
 
 void Manifold::UI::ArrangementView::playlistViewScroll(MANIFOLD_UNUSED double newValue)

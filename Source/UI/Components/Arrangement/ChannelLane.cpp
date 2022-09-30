@@ -29,18 +29,50 @@ namespace Manifold::UI
         return Audio::AudioCache::getInstance()->isAudioFormat(f);
     }
 
-    void ChannelLane::filesDropped(const juce::StringArray& files, MANIFOLD_UNUSED int x, MANIFOLD_UNUSED int y)
+    void ChannelLane::filesDropped(const juce::StringArray& files, int x, MANIFOLD_UNUSED int y)
     {
         Audio::CachedAudioFile::Ptr cachedFile = Audio::AudioCache::addToCache(files[0]);
-        // Need to know what width to draw this, that's gonna be based on the time scale...
-        // SO could you say the width is proportional to the currently rendered region? 
-        
-        std::unique_ptr<AudioClipComponent> currentClip(new AudioClipComponent(m_internalChannel, m_cache, cachedFile));
-        m_clips[x] = std::move(currentClip);
-        addAndMakeVisible(m_clips[x].get());
+        auto normalised = x / static_cast<double>(getWidth());
+        auto sampleStartTime = m_currentlyShownTimeRange.first + (normalised * (m_currentlyShownTimeRange.second - m_currentlyShownTimeRange.first));
+        std::unique_ptr<AudioClipComponent> currentClip(new AudioClipComponent(m_internalChannel, m_cache, cachedFile, sampleStartTime));
+        m_clips[sampleStartTime] = std::move(currentClip);
+        addAndMakeVisible(m_clips[sampleStartTime].get());
         resized();
     }
 
+
+    void ChannelLane::childClipMoved(double prevStartTime, double newX)
+    {
+        auto newStartTime = newX / static_cast<double>(getWidth());
+        newStartTime = m_currentlyShownTimeRange.first + (newStartTime * (m_currentlyShownTimeRange.second - m_currentlyShownTimeRange.first));
+        m_clips[newStartTime].reset(m_clips[prevStartTime].release());
+        m_clips.erase(prevStartTime);
+        m_clips[newStartTime]->setStartTime(newStartTime);
+        resized();
+    }
+
+    void ChannelLane::zoomLevelChanged(const std::pair<double, double>& shownTimeRange)
+    {
+        m_currentlyShownTimeRange = shownTimeRange;
+        // Recalculate what to show on the screen (which clips etc)
+        for (auto it = m_clips.begin(); it != m_clips.end(); it++) {
+            MANIFOLD_UNUSED auto len = it->second->getAudioFile()->buffer.getNumSamples() / it->second->getAudioFile()->originalSampleRate;
+            if (it->first >= shownTimeRange.first) {
+                // Okay fine, so where on the screen does it go? 
+                auto startX = (it->first - shownTimeRange.first) / shownTimeRange.second - shownTimeRange.first;
+                startX *= getWidth();
+                auto sampleEndTime = it->first + (it->second->getAudioFile()->buffer.getNumSamples() / it->second->getAudioFile()->originalSampleRate);
+                auto endX = getWidth() * ((sampleEndTime - m_currentlyShownTimeRange.first) / (m_currentlyShownTimeRange.second - m_currentlyShownTimeRange.first));
+                auto componentWidth = endX - startX;
+                it->second->setVisible(true);
+                auto originalBounds = it->second->getBounds();
+                it->second->setBounds(static_cast<int>(startX), originalBounds.getY(), static_cast<int>(componentWidth), originalBounds.getHeight());
+            }
+            else {
+                it->second->setVisible(false);
+            }
+        }
+    }
 
     void ChannelLane::paint(juce::Graphics& g)
     {
@@ -53,7 +85,11 @@ namespace Manifold::UI
     void ChannelLane::resized()
     {
         for (auto it = m_clips.begin(); it != m_clips.end(); it++) {
-            it->second->setBounds(it->first, 0, getWidth() / 4, getHeight());
+            auto startX = getWidth() * ((it->first - m_currentlyShownTimeRange.first) / m_currentlyShownTimeRange.second - m_currentlyShownTimeRange.first);
+            auto sampleEndTime = it->first + (it->second->getAudioFile()->buffer.getNumSamples() / it->second->getAudioFile()->originalSampleRate);
+            auto endX = getWidth() * ((sampleEndTime - m_currentlyShownTimeRange.first) / (m_currentlyShownTimeRange.second - m_currentlyShownTimeRange.first));
+            auto componentWidth = endX - startX;
+            it->second->setBounds(static_cast<int>(startX), 0, static_cast<int>(componentWidth), getHeight());
         }
     }
 }

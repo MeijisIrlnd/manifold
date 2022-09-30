@@ -24,6 +24,13 @@ namespace Manifold
         {
         }
 
+        void PlaylistView::zoomChanged(const std::pair<double, double>& shownTimeRange)
+        {
+            for (auto& l : m_channelLanes) {
+                l->zoomLevelChanged(shownTimeRange);
+            }
+        }
+
         void PlaylistView::onChannelCreated(Audio::InternalChannel* newChannel)
         {
             std::unique_ptr<ChannelLane> currentLane(new ChannelLane(newChannel));
