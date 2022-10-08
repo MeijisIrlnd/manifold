@@ -23,6 +23,7 @@ namespace Manifold::UI
         bool isInterestedInFileDrag(const juce::StringArray& files) override;
         void filesDropped(const juce::StringArray& files, int x, int y) override;
         void childClipMoved(double prevStartTime, double newX);
+        void shownTimeRangeChanged(const std::pair<double, double>& shownTimeRange);
         void zoomLevelChanged(const std::pair<double, double>& shownTimeRange);
         void paint(juce::Graphics& g) override;
         void resized() override;

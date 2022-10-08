@@ -51,7 +51,7 @@ namespace Manifold::UI
         resized();
     }
 
-    void ChannelLane::zoomLevelChanged(const std::pair<double, double>& shownTimeRange)
+    void ChannelLane::shownTimeRangeChanged(const std::pair<double, double>& shownTimeRange)
     {
         m_currentlyShownTimeRange = shownTimeRange;
         // Recalculate what to show on the screen (which clips etc)

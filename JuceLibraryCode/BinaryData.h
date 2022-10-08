@@ -32,6 +32,9 @@ namespace BinaryData
     extern const char*   PanText_png;
     const int            PanText_pngSize = 292;
 
+    extern const char*   PlayheadFlag_png;
+    const int            PlayheadFlag_pngSize = 4772;
+
     extern const char*   RecordEnableOff_png;
     const int            RecordEnableOff_pngSize = 1470;
 
@@ -69,7 +72,7 @@ namespace BinaryData
     const int            Stop_svgSize = 1219;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 20;
+    const int namedResourceListSize = 21;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

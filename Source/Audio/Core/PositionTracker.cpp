@@ -9,7 +9,7 @@
 */
 
 #include "PositionTracker.h"
-
+#include <Types/Channel/AudioLaneData.h>
 namespace Manifold::Audio::Core
 {
     std::mutex PositionTracker::m_mutex;

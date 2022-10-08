@@ -17,7 +17,8 @@
 #include "PlaylistView.h"
 #include "../../Types/ManifoldScrollbar.h"
 #include <UI/Components/Arrangement/TimelineComponent.h>
-
+#include <UI/Components/SampleBrowser/SampleBrowserComponent.h>
+#include <UI/Components/Arrangement/PlayheadPositioner.h>
 namespace Manifold
 {
     namespace UI
@@ -42,6 +43,8 @@ namespace Manifold
             ManifoldScrollbar m_horizontalScrollbar;
             ManifoldScrollbar m_verticalScrollbar;
             TimelineComponent m_timelineComponent;
+            PlayheadPositioner m_playheadPositioner;
+            //SampleBrowserComponent m_sampleBrowserComponent;
             double m_zoom = 10;
         };
     }

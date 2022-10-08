@@ -15,23 +15,33 @@ namespace Manifold
     namespace UI
     {
 
-        PlayheadPositioner::PlayheadPositioner()
+        PlayheadPositioner::PlayheadPositioner() : m_sampleCounter(GET_POSITION_TRACKER()->getSampleCounter())
         {
-            GET_POSITION_TRACKER()->addChangeListener(this);
+            startTimer(1);
+            addAndMakeVisible(&m_cursor);
         }
 
         PlayheadPositioner::~PlayheadPositioner()
         {
         }
 
-        void PlayheadPositioner::changeListenerCallback(MANIFOLD_UNUSED juce::ChangeBroadcaster* source)
+        void PlayheadPositioner::timerCallback()
         {
+            repaint();
         }
 
         void PlayheadPositioner::paint(juce::Graphics& g)
         {
-            g.setColour(juce::Colours::red);
-            g.drawLine(getWidth() / 2.0f, 0.0f, getWidth() / 2.0f, static_cast<float>(getHeight()), 0.5f);
+            
+            g.setColour(juce::Colours::green);
+            auto timeSeconds = m_sampleCounter / GET_POSITION_TRACKER()->getSampleRate();
+            if (m_shownTimeRange.first < timeSeconds && m_shownTimeRange.second > timeSeconds) {
+                // Okay WHERE do we draw it? 
+                // Scale from time range to x, y 
+                auto x = static_cast<float>(juce::jmap<double>(timeSeconds, m_shownTimeRange.first, m_shownTimeRange.second, 0, static_cast<double>(getWidth())));
+                m_cursor.setBounds(static_cast<int>(x), 0, getWidth() / 84, getHeight());
+                //g.drawLine(x, 0, x, static_cast<float>(getHeight()), 0.5f);
+            }
         }
 
         void PlayheadPositioner::resized()

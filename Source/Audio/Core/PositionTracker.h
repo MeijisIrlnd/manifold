@@ -14,6 +14,9 @@
 #include "../../Macros.h"
 #include "../../Types/BroadcastVariable.h"
 
+namespace Manifold::Audio {
+    class AudioLaneData;
+}
 namespace Manifold::Audio::Core
 {
     class PositionTracker : public juce::ChangeBroadcaster, public juce::ChangeListener
@@ -74,9 +77,11 @@ namespace Manifold::Audio::Core
     
         MANIFOLD_INLINE void setTimeSignature(std::pair<int, int>& newTimeSig) { m_timeSig = newTimeSig; }
         MANIFOLD_INLINE std::pair<int, int>& getTimeSignature() { return m_timeSig.get(); }
+        MANIFOLD_INLINE juce::uint64& getSampleCounter() { return m_sampleCounter; }
         BroadcastVariable<double> m_bpm;
         BroadcastVariable<std::pair<int, int> > m_timeSig;
     private:
+        friend AudioLaneData;
         static std::mutex m_mutex;
         static PositionTracker* m_instance;
         bool m_running = false;

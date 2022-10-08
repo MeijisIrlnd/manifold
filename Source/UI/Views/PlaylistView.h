@@ -26,7 +26,7 @@ namespace Manifold
             PlaylistView();
             ~PlaylistView() override;
             MANIFOLD_INLINE void addListener(ViewListener* newListener) { m_listener = newListener; }
-            void zoomChanged(const std::pair<double, double>& shownTimeRange);
+            void shownTimeRangeChanged(const std::pair<double, double>& shownTimeRange);
             void onChannelCreated(MANIFOLD_UNUSED Audio::InternalChannel* newChannel) override;
             void onChannelDeleted(MANIFOLD_UNUSED Audio::InternalChannel* toDelete) override;
             void mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel) override;

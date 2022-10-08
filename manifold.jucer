@@ -18,6 +18,8 @@
         <FILE id="AEegdT" name="MuteOff.png" compile="0" resource="1" file="Resources/Assets/MuteOff.png"/>
         <FILE id="uuYNUD" name="MuteOn.png" compile="0" resource="1" file="Resources/Assets/MuteOn.png"/>
         <FILE id="TWcKZO" name="PanText.png" compile="0" resource="1" file="Resources/Assets/PanText.png"/>
+        <FILE id="PkjUkg" name="PlayheadFlag.png" compile="0" resource="1"
+              file="Resources/Assets/PlayheadFlag.png"/>
         <FILE id="lRZd9P" name="RecordEnableOff.png" compile="0" resource="1"
               file="Resources/Assets/RecordEnableOff.png"/>
         <FILE id="nJxb4t" name="RecordEnableOn.png" compile="0" resource="1"
@@ -57,6 +59,9 @@
           <FILE id="Pq3eJg" name="AudioChannel.cpp" compile="1" resource="0"
                 file="Source/Types/Channel/AudioChannel.cpp"/>
           <FILE id="LnR9wS" name="AudioChannel.h" compile="0" resource="0" file="Source/Types/Channel/AudioChannel.h"/>
+          <FILE id="OxxZFy" name="AudioLaneData.cpp" compile="1" resource="0"
+                file="Source/Types/Channel/AudioLaneData.cpp"/>
+          <FILE id="Vw7oA9" name="AudioLaneData.h" compile="0" resource="0" file="Source/Types/Channel/AudioLaneData.h"/>
           <FILE id="S09ZK5" name="Channel.h" compile="0" resource="0" file="Source/Types/Channel/Channel.h"/>
           <FILE id="OoS9dv" name="GroupChannel.cpp" compile="1" resource="0"
                 file="Source/Types/Channel/GroupChannel.cpp"/>
@@ -175,6 +180,10 @@
                   file="Source/UI/Components/Arrangement/PianoRollComponent.cpp"/>
             <FILE id="xFBYkb" name="PianoRollComponent.h" compile="0" resource="0"
                   file="Source/UI/Components/Arrangement/PianoRollComponent.h"/>
+            <FILE id="N1Xu0k" name="PlayheadCursor.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/PlayheadCursor.cpp"/>
+            <FILE id="zdfhy0" name="PlayheadCursor.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/PlayheadCursor.h"/>
             <FILE id="J09vE9" name="PlayheadPositioner.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Arrangement/PlayheadPositioner.cpp"/>
             <FILE id="hfdPf3" name="PlayheadPositioner.h" compile="0" resource="0"
@@ -231,6 +240,12 @@
                   file="Source/UI/Components/Mixer/RoutingElementComponent.cpp"/>
             <FILE id="bo6gAM" name="RoutingElementComponent.h" compile="0" resource="0"
                   file="Source/UI/Components/Mixer/RoutingElementComponent.h"/>
+          </GROUP>
+          <GROUP id="{AC6EB243-D557-FFF3-67FE-DDE460E36321}" name="SampleBrowser">
+            <FILE id="DM0PH4" name="SampleBrowserComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/SampleBrowser/SampleBrowserComponent.cpp"/>
+            <FILE id="plULfd" name="SampleBrowserComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/SampleBrowser/SampleBrowserComponent.h"/>
           </GROUP>
           <GROUP id="{8398E3ED-EAAA-BE19-83A5-3F83F435633B}" name="Windows">
             <FILE id="dDzG5U" name="BaseWindow.h" compile="0" resource="0" file="Source/UI/Components/Windows/BaseWindow.h"/>

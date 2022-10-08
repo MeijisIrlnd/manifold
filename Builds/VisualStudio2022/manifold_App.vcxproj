@@ -144,6 +144,7 @@
     <ClCompile Include="..\..\Source\Settings\Pathing.cpp"/>
     <ClCompile Include="..\..\Source\Testing\ChannelTester.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp"/>
+    <ClCompile Include="..\..\Source\Types\Channel\AudioLaneData.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\GroupChannel.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\InternalChannel.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\MidiChannel.cpp"/>
@@ -173,6 +174,7 @@
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelListItem.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\PianoRollComponent.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\PlayheadCursor.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.cpp"/>
@@ -188,6 +190,7 @@
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\MixerChannel.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\SampleBrowser\SampleBrowserComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Windows\SettingsWindow.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Windows\WindowListener.cpp"/>
@@ -2259,6 +2262,7 @@
     <ClInclude Include="..\..\Source\Testing\CacheTester.h"/>
     <ClInclude Include="..\..\Source\Testing\ChannelTester.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\AudioChannel.h"/>
+    <ClInclude Include="..\..\Source\Types\Channel\AudioLaneData.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\Channel.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\GroupChannel.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\InternalChannel.h"/>
@@ -2296,6 +2300,7 @@
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelListItem.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\PianoRollComponent.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\PlayheadCursor.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.h"/>
@@ -2312,6 +2317,7 @@
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MidiMixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\MixerChannel.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\SampleBrowser\SampleBrowserComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Windows\BaseWindow.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Windows\SettingsWindow.h"/>
@@ -3172,6 +3178,7 @@
     <None Include="..\..\Resources\Assets\MuteOff.png"/>
     <None Include="..\..\Resources\Assets\MuteOn.png"/>
     <None Include="..\..\Resources\Assets\PanText.png"/>
+    <None Include="..\..\Resources\Assets\PlayheadFlag.png"/>
     <None Include="..\..\Resources\Assets\RecordEnableOff.png"/>
     <None Include="..\..\Resources\Assets\RecordEnableOn.png"/>
     <None Include="..\..\Resources\Assets\RotaryHandle.png"/>

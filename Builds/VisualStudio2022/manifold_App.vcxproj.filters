@@ -50,6 +50,9 @@
     <Filter Include="manifold\Source\UI\Components\Mixer">
       <UniqueIdentifier>{16B12ECC-4AA4-E5F7-B963-A94EEAF3B6E7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="manifold\Source\UI\Components\SampleBrowser">
+      <UniqueIdentifier>{08F7C01D-AC04-FD71-6C10-9FCD097DA533}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Source\UI\Components\Windows">
       <UniqueIdentifier>{B8A0FCBA-2E8D-0BF5-4FBE-091BA7752C43}</UniqueIdentifier>
     </Filter>
@@ -529,6 +532,9 @@
     <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Types\Channel\AudioLaneData.cpp">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Types\Channel\GroupChannel.cpp">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClCompile>
@@ -616,6 +622,9 @@
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\PianoRollComponent.cpp">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\PlayheadCursor.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.cpp">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
@@ -660,6 +669,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.cpp">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\SampleBrowser\SampleBrowserComponent.cpp">
+      <Filter>manifold\Source\UI\Components\SampleBrowser</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Windows\PluginContainerWindow.cpp">
       <Filter>manifold\Source\UI\Components\Windows</Filter>
@@ -2904,6 +2916,9 @@
     <ClInclude Include="..\..\Source\Types\Channel\AudioChannel.h">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Types\Channel\AudioLaneData.h">
+      <Filter>manifold\Source\Types\Channel</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Types\Channel\Channel.h">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClInclude>
@@ -3015,6 +3030,9 @@
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\PianoRollComponent.h">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\PlayheadCursor.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.h">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
@@ -3062,6 +3080,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\RoutingElementComponent.h">
       <Filter>manifold\Source\UI\Components\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\SampleBrowser\SampleBrowserComponent.h">
+      <Filter>manifold\Source\UI\Components\SampleBrowser</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Windows\BaseWindow.h">
       <Filter>manifold\Source\UI\Components\Windows</Filter>
@@ -5637,6 +5658,9 @@
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\Assets\PanText.png">
+      <Filter>manifold\Resources\Assets</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\PlayheadFlag.png">
       <Filter>manifold\Resources\Assets</Filter>
     </None>
     <None Include="..\..\Resources\Assets\RecordEnableOff.png">

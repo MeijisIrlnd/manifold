@@ -24,10 +24,10 @@ namespace Manifold
         {
         }
 
-        void PlaylistView::zoomChanged(const std::pair<double, double>& shownTimeRange)
+        void PlaylistView::shownTimeRangeChanged(const std::pair<double, double>& shownTimeRange)
         {
             for (auto& l : m_channelLanes) {
-                l->zoomLevelChanged(shownTimeRange);
+                l->shownTimeRangeChanged(shownTimeRange);
             }
         }
 
