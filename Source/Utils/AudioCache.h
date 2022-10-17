@@ -27,12 +27,15 @@ namespace Manifold::Audio
         static void startup();
         static AudioCache* getInstance();
         static void shutdown();
+        static juce::AudioBuffer<float> resampleBuffer(juce::AudioBuffer<float>& toResample, double originalSampleRate, double newSampleRate);
         static CachedAudioFile::Ptr addToCache(const juce::File& file);
         static CachedAudioFile::Ptr getFromCache(const juce::File& file);
+        MANIFOLD_INLINE void setup(double sampleRate) { m_sampleRate = sampleRate; }
         bool isAudioFormat(const juce::File& f);
         MANIFOLD_INLINE juce::AudioFormatManager& getFormatManager() { return m_formatManager; }
     private:
         void timerCallback() override;
+        double m_sampleRate{ 0 };
         static std::map<juce::int64, CachedAudioFile::Ptr> m_cache;
         static std::mutex m_mutex;
         static AudioCache* m_instance;

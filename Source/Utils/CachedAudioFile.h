@@ -9,6 +9,7 @@
 */
 
 #pragma once
+#include <mutex>
 #include <JuceHeader.h>
 namespace Manifold::Audio
 {
@@ -22,5 +23,6 @@ namespace Manifold::Audio
         juce::int64 hash;
         juce::AudioBuffer<float> buffer;
         double originalSampleRate;
+        std::mutex mutex;
     };
 }

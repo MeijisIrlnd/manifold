@@ -23,9 +23,12 @@ namespace Manifold::Audio
         auto it = instance->m_cache.find(hash);
         if (it == instance->m_cache.end()) {
             std::unique_ptr<juce::AudioFormatReader> reader(m_instance->m_formatManager.createReaderFor(f));
-            juce::AudioBuffer<float> buffer(reader->numChannels, static_cast<int>(reader->lengthInSamples));
-            reader->read(&buffer, 0, static_cast<int>(reader->lengthInSamples), 0, true, true);
-            instance->m_cache[hash] = new CachedAudioFile(f, hash, buffer, reader->sampleRate);
+            juce::AudioBuffer<float> inBuffer(reader->numChannels, static_cast<int>(reader->lengthInSamples));
+            // Resample.... 
+            jassert(getInstance()->m_sampleRate != 0);
+            reader->read(&inBuffer, 0, static_cast<int>(reader->lengthInSamples), 0, true, true);
+            juce::AudioBuffer<float> buffer = resampleBuffer(inBuffer, reader->sampleRate, getInstance()->m_sampleRate);
+            instance->m_cache[hash] = new CachedAudioFile(f, hash, buffer, getInstance()->m_sampleRate);
             return instance->m_cache[hash];
         }
         else {
@@ -98,6 +101,21 @@ namespace Manifold::Audio
 
         delete m_instance;
         m_instance = nullptr;
+    }
+
+    juce::AudioBuffer<float> AudioCache::resampleBuffer(juce::AudioBuffer<float>& toResample, double originalSampleRate, double newSampleRate)
+    {
+        juce::AudioBuffer<float> resampled;
+        double ratio = originalSampleRate / newSampleRate;
+        resampled.setSize(toResample.getNumChannels(), static_cast<int>(toResample.getNumSamples() / ratio));
+        auto* read = toResample.getArrayOfReadPointers();
+        auto* write = resampled.getArrayOfWritePointers();
+        for (auto channel = 0; channel < toResample.getNumChannels(); channel++) {
+            juce::LagrangeInterpolator resampler;       
+            resampler.reset();
+            resampler.process(ratio, read[channel], write[channel], resampled.getNumSamples());
+        }
+        return resampled;
     }
 
 }

@@ -27,6 +27,7 @@ namespace Manifold
                 void releaseResources() override;
 
             private: 
+                juce::Value m_inputMonitor;
             };
         }
     }

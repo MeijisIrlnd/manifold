@@ -19,6 +19,7 @@ namespace Manifold
         {
             startTimer(1);
             addAndMakeVisible(&m_cursor);
+            setInterceptsMouseClicks(false, false);
         }
 
         PlayheadPositioner::~PlayheadPositioner()

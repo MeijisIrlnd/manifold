@@ -21,6 +21,7 @@ Manifold::Audio::InternalChannel::InternalChannel(int internalId, std::string na
     m_valueTree.setProperty({ groupId + "_pan" }, 0.5, nullptr);
     m_valueTree.setProperty({ groupId + "_mute" }, false, nullptr);
     m_valueTree.setProperty({ groupId + "_solo" }, false, nullptr);
+    
 }
 
 Manifold::Audio::InternalChannel::InternalChannel(const InternalChannel& other) : 
@@ -33,6 +34,7 @@ Manifold::Audio::InternalChannel::InternalChannel(const InternalChannel& other) 
     m_valueTree.setProperty({ groupId + "_pan" }, 0.5, nullptr);
     m_valueTree.setProperty({ groupId + "_mute" }, false, nullptr);
     m_valueTree.setProperty({ groupId + "_solo" }, false, nullptr);
+    
 }
 
 Manifold::Audio::InternalChannel::~InternalChannel()

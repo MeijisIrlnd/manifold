@@ -24,6 +24,7 @@ namespace Manifold
 
         AudioChannel::AudioChannel(const AudioChannel& other) : InternalChannel(static_cast<const InternalChannel&>(other))
         {
+
         }
     }
 }

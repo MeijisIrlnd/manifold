@@ -10,6 +10,7 @@
 
 #include "ChannelLane.h"
 #include <Utils/AudioCache.h>
+#include <Types/Channel/AudioChannel.h>
 namespace Manifold::UI
 {
     ChannelLane::ChannelLane(Audio::InternalChannel* internalChannel) : m_internalChannel(internalChannel), m_cache(5)
@@ -36,6 +37,7 @@ namespace Manifold::UI
         auto sampleStartTime = m_currentlyShownTimeRange.first + (normalised * (m_currentlyShownTimeRange.second - m_currentlyShownTimeRange.first));
         std::unique_ptr<AudioClipComponent> currentClip(new AudioClipComponent(m_internalChannel, m_cache, cachedFile, sampleStartTime));
         m_clips[sampleStartTime] = std::move(currentClip);
+        dynamic_cast<Audio::AudioChannel*>(m_internalChannel)->getLaneData()->addSample(sampleStartTime, Audio::AudioLaneData::Clip(cachedFile));
         addAndMakeVisible(m_clips[sampleStartTime].get());
         resized();
     }

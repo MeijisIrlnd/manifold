@@ -9,7 +9,7 @@
 */
 
 #include "AudioDriver.h"
-
+#include <Utils/AudioCache.h>
 namespace Manifold
 {
     namespace Audio
@@ -26,6 +26,7 @@ namespace Manifold
 
             void AudioDriver::prepareToPlay(double sampleRate, MANIFOLD_UNUSED int samplesPerBlock)
             {
+                AudioCache::getInstance()->setup(sampleRate);
                 GET_POSITION_TRACKER()->prepare(sampleRate);
             }
 

@@ -16,6 +16,7 @@ namespace Manifold::UI
     AudioClipComponent::AudioClipComponent(Audio::InternalChannel* internalChannel, juce::AudioThumbnailCache& cache, Audio::CachedAudioFile::Ptr cacheItem, const double startTime) : 
         m_associatedChannel(internalChannel), m_cache(cache), m_thumbnail(512, Audio::AudioCache::getInstance()->getFormatManager(), m_cache), m_cachedFile(cacheItem), m_startTime(startTime)
     {
+        std::scoped_lock<std::mutex> sl(cacheItem->mutex);
         m_thumbnail.reset(cacheItem->buffer.getNumChannels(), cacheItem->originalSampleRate, cacheItem->buffer.getNumSamples());
         m_thumbnail.addBlock(0, cacheItem->buffer, 0, cacheItem->buffer.getNumSamples());
 
