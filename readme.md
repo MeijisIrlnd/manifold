@@ -24,8 +24,8 @@ it's very much a work in progress passion project, so if you stumble across this
 - <s>Make the arrange window not awful</s>* 
 - Thread audio loading
 - Thread thumbnail rendering
-- <sample, sample::ptr> lookup per channel
-- Samples in arrange window
+- <s><sample, sample::ptr> lookup per channel</s> <i>**
+- <s>Samples in arrange window</s>
 - Midi piano roll 
 - Save / Load project
 - Cubase-esque multitool in arrange window (cut, select, etc)
@@ -39,6 +39,7 @@ it's very much a work in progress passion project, so if you stumble across this
 - blazing 🚬 fast ![image](https://user-images.githubusercontent.com/38221014/173170474-bf0041fd-63be-4293-a1dc-becc0da0e536.png) rust rewrite
 
 *it still kind of looks bad
+**might want to refactor this at some point though
 ## reviews 
 “THIS DAW’S OFF THE CHAIN” - Hays Holladay<br>
 “BEWARE OF INTUITIVE USER INTERFACE” - Hays Holladay<br>
