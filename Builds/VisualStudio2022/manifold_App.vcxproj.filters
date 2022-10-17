@@ -580,6 +580,9 @@
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp">
       <Filter>manifold\Source\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\LookAndFeel\ArrangementLF.cpp">
+      <Filter>manifold\Source\UI\LookAndFeel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\LookAndFeel\MixerLF.cpp">
       <Filter>manifold\Source\UI\LookAndFeel</Filter>
     </ClCompile>
@@ -2981,6 +2984,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h">
       <Filter>manifold\Source\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\LookAndFeel\ArrangementLF.h">
+      <Filter>manifold\Source\UI\LookAndFeel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\LookAndFeel\MixerLF.h">
       <Filter>manifold\Source\UI\LookAndFeel</Filter>

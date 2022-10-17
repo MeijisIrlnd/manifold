@@ -19,6 +19,7 @@
 #include <UI/Components/Arrangement/TimelineComponent.h>
 #include <UI/Components/SampleBrowser/SampleBrowserComponent.h>
 #include <UI/Components/Arrangement/PlayheadPositioner.h>
+#include <UI/LookAndFeel/ArrangementLF.h>
 namespace Manifold
 {
     namespace UI
@@ -36,6 +37,7 @@ namespace Manifold
             void resized() override;
 
         private: 
+            ArrangementLF m_lf;
             juce::Viewport m_channelListViewport;
             ChannelListComponent m_channelListComponent;
             juce::Viewport m_playlistViewport;

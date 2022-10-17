@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\Source\Audio\Core\PositionTracker.cpp"/>
     <ClCompile Include="..\..\Source\Audio\Core\VolumeNodeProcessor.cpp"/>
     <ClCompile Include="..\..\Source\Audio\ManifoldEngine.cpp"/>
+    <ClCompile Include="..\..\Source\UI\LookAndFeel\ArrangementLF.cpp"/>
     <ClCompile Include="..\..\Source\UI\LookAndFeel\MixerLF.cpp"/>
     <ClCompile Include="..\..\Source\UI\LookAndFeel\OverallLF.cpp"/>
     <ClCompile Include="..\..\Source\UI\Views\ArrangementView.cpp"/>
@@ -2284,6 +2285,7 @@
     <ClInclude Include="..\..\Source\Audio\Core\ProcessorBase.h"/>
     <ClInclude Include="..\..\Source\Audio\Core\VolumeNodeProcessor.h"/>
     <ClInclude Include="..\..\Source\Audio\ManifoldEngine.h"/>
+    <ClInclude Include="..\..\Source\UI\LookAndFeel\ArrangementLF.h"/>
     <ClInclude Include="..\..\Source\UI\LookAndFeel\MixerLF.h"/>
     <ClInclude Include="..\..\Source\UI\LookAndFeel\OverallLF.h"/>
     <ClInclude Include="..\..\Source\UI\ViewListener.h"/>

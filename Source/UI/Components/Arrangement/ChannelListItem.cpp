@@ -9,7 +9,7 @@
 */
 
 #include "ChannelListItem.h"
-
+#include <UI/LookAndFeel/ArrangementLF.h>
 namespace Manifold
 {
     namespace UI
@@ -19,6 +19,7 @@ namespace Manifold
             ChannelListItem::ChannelListItem(Manifold::Audio::InternalChannel* internalChannel) : 
                 m_internal(internalChannel)
             {
+                m_nameLabel.setFont(dynamic_cast<ArrangementLF*>(&getLookAndFeel())->getOverallFont());
                 m_nameLabel.setText(internalChannel->getName());
                 m_nameLabel.onTextChange = [this] { 
                     m_internal->rename(m_nameLabel.getText().toStdString());

@@ -130,6 +130,9 @@
       </GROUP>
       <GROUP id="{E6A12DCF-1205-EE72-16F9-7BDFC83200BD}" name="UI">
         <GROUP id="{87E51708-A8FC-7FA7-7C8D-6128A1BDA57E}" name="LookAndFeel">
+          <FILE id="Hnk8HL" name="ArrangementLF.cpp" compile="1" resource="0"
+                file="Source/UI/LookAndFeel/ArrangementLF.cpp"/>
+          <FILE id="BYdNqc" name="ArrangementLF.h" compile="0" resource="0" file="Source/UI/LookAndFeel/ArrangementLF.h"/>
           <FILE id="TThajx" name="MixerLF.cpp" compile="1" resource="0" file="Source/UI/LookAndFeel/MixerLF.cpp"/>
           <FILE id="jNWD7O" name="MixerLF.h" compile="0" resource="0" file="Source/UI/LookAndFeel/MixerLF.h"/>
           <FILE id="uHB43V" name="OverallLF.cpp" compile="1" resource="0" file="Source/UI/LookAndFeel/OverallLF.cpp"/>

@@ -15,6 +15,7 @@ Manifold::UI::ArrangementView::ArrangementView() :
     m_horizontalScrollbar(false),
     m_verticalScrollbar(true)
 {
+    setLookAndFeel(&m_lf);
     //addAndMakeVisible(&m_channelListComponent);
     addAndMakeVisible(&m_playlistView);
     m_channelListViewport.setScrollBarsShown(false, false, false, false);
@@ -39,7 +40,7 @@ Manifold::UI::ArrangementView::ArrangementView() :
 
 Manifold::UI::ArrangementView::~ArrangementView()
 {
-
+    setLookAndFeel(nullptr);
 }
 
 void Manifold::UI::ArrangementView::mouseWheelMove(MANIFOLD_UNUSED const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel)
