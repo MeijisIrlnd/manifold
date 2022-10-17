@@ -13,7 +13,8 @@ manifold is (or will hopefully be once i finish it ha ha) a fully featured DAW, 
 ![image](https://user-images.githubusercontent.com/38221014/173170213-d5231f55-1411-438a-8f76-dc5f2a743633.png)
 
 
-it's very much a work in progress passion project, so if you stumble across this repo don't expect it to actually do anything for a while, it's getting there i swear im trying my best this shit is <b>hard</b>
+it's very much a work in progress passion project, so if you stumble across this repo don't expect it to actually do anything for a while at the moment its basically also acting as my roadmap for todos, etc etc, it's getting there i swear im trying my best this shit is <b>hard</b>
+
 
 ## TODO 
 - <s>Make pan control actually work</s>
