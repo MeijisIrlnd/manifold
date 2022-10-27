@@ -15,6 +15,7 @@ namespace Manifold::UI
 {
     ChannelLane::ChannelLane(Audio::InternalChannel* internalChannel) : m_internalChannel(internalChannel), m_cache(5)
     {
+        //setInterceptsMouseClicks(false, true);
     }
 
     ChannelLane::~ChannelLane()
@@ -42,6 +43,16 @@ namespace Manifold::UI
         resized();
     }
 
+
+    void ChannelLane::mouseDown(const juce::MouseEvent& ev)
+    {
+        getParentComponent()->mouseDown(ev.getEventRelativeTo(getParentComponent()));
+    }
+
+    void ChannelLane::mouseUp(MANIFOLD_UNUSED const juce::MouseEvent& ev)
+    {
+        // 
+    }
 
     void ChannelLane::childClipMoved(double prevStartTime, double newX)
     {
@@ -94,4 +105,6 @@ namespace Manifold::UI
             it->second->setBounds(static_cast<int>(startX), 0, static_cast<int>(componentWidth), getHeight());
         }
     }
+
+    
 }

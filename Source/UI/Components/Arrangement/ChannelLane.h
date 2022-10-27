@@ -22,6 +22,8 @@ namespace Manifold::UI
         ~ChannelLane() override;
         bool isInterestedInFileDrag(const juce::StringArray& files) override;
         void filesDropped(const juce::StringArray& files, int x, int y) override;
+        void mouseDown(const juce::MouseEvent& ev) override;
+        void mouseUp(const juce::MouseEvent& ev) override;
         void childClipMoved(double prevStartTime, double newX);
         void shownTimeRangeChanged(const std::pair<double, double>& shownTimeRange);
         void zoomLevelChanged(const std::pair<double, double>& shownTimeRange);

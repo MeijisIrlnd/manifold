@@ -179,6 +179,7 @@
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ZoomManager.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\InsertListItem.cpp"/>
@@ -2270,6 +2271,7 @@
     <ClInclude Include="..\..\Source\Types\Channel\MidiChannel.h"/>
     <ClInclude Include="..\..\Source\Types\BroadcastVariable.h"/>
     <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h"/>
+    <ClInclude Include="..\..\Source\Types\Tools.h"/>
     <ClInclude Include="..\..\Source\Types\TrackNode.h"/>
     <ClInclude Include="..\..\Source\Utils\AudioCache.h"/>
     <ClInclude Include="..\..\Source\Utils\CachedAudioFile.h"/>
@@ -2306,6 +2308,7 @@
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\PlayheadPositioner.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ZoomManager.h"/>
     <ClInclude Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\InsertListItem.h"/>
@@ -3172,6 +3175,12 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\Assets\Tools\TLCursor.png"/>
+    <None Include="..\..\Resources\Assets\Tools\TLEraser.png"/>
+    <None Include="..\..\Resources\Assets\Tools\TLMarquee.png"/>
+    <None Include="..\..\Resources\Assets\Tools\TLMute.png"/>
+    <None Include="..\..\Resources\Assets\Tools\TLPencil.png"/>
+    <None Include="..\..\Resources\Assets\Tools\TLScissor.png"/>
     <None Include="..\..\Resources\Assets\ColourPickerIcon.png"/>
     <None Include="..\..\Resources\Assets\InputMonitorOff.png"/>
     <None Include="..\..\Resources\Assets\InputMonitorOn.png"/>

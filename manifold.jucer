@@ -6,6 +6,14 @@
   <MAINGROUP id="xOly6w" name="manifold">
     <GROUP id="{47D65248-4DA2-18DA-4CE5-47411DD21DD3}" name="Resources">
       <GROUP id="{37E9A2FE-398E-8416-54AB-40DDF1DF61C7}" name="Assets">
+        <GROUP id="{B6471C6A-F8AF-5BF1-E86B-AE88C6C529F4}" name="Tools">
+          <FILE id="ORNTBN" name="TLCursor.png" compile="0" resource="1" file="Resources/Assets/Tools/TLCursor.png"/>
+          <FILE id="tEqZlA" name="TLEraser.png" compile="0" resource="1" file="Resources/Assets/Tools/TLEraser.png"/>
+          <FILE id="Rw35m5" name="TLMarquee.png" compile="0" resource="1" file="Resources/Assets/Tools/TLMarquee.png"/>
+          <FILE id="GcKHkK" name="TLMute.png" compile="0" resource="1" file="Resources/Assets/Tools/TLMute.png"/>
+          <FILE id="QgyZuS" name="TLPencil.png" compile="0" resource="1" file="Resources/Assets/Tools/TLPencil.png"/>
+          <FILE id="xpP50m" name="TLScissor.png" compile="0" resource="1" file="Resources/Assets/Tools/TLScissor.png"/>
+        </GROUP>
         <FILE id="TCIBxM" name="ColourPickerIcon.png" compile="0" resource="1"
               file="Resources/Assets/ColourPickerIcon.png"/>
         <FILE id="AorWwc" name="InputMonitorOff.png" compile="0" resource="1"
@@ -77,6 +85,7 @@
               file="Source/Types/BroadcastVariable.h"/>
         <FILE id="nDjtXA" name="ManifoldScrollbar.h" compile="0" resource="0"
               file="Source/Types/ManifoldScrollbar.h"/>
+        <FILE id="IxjuIM" name="Tools.h" compile="0" resource="0" file="Source/Types/Tools.h"/>
         <FILE id="I4p3Aq" name="TrackNode.cpp" compile="1" resource="0" file="Source/Types/TrackNode.cpp"/>
         <FILE id="puXqrG" name="TrackNode.h" compile="0" resource="0" file="Source/Types/TrackNode.h"/>
       </GROUP>
@@ -199,6 +208,9 @@
                   file="Source/UI/Components/Arrangement/TimestripComponent.cpp"/>
             <FILE id="iRM1Ps" name="TimestripComponent.h" compile="0" resource="0"
                   file="Source/UI/Components/Arrangement/TimestripComponent.h"/>
+            <FILE id="mEN6hz" name="ToolMenuItem.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/ToolMenuItem.cpp"/>
+            <FILE id="ypE2gD" name="ToolMenuItem.h" compile="0" resource="0" file="Source/UI/Components/Arrangement/ToolMenuItem.h"/>
             <FILE id="rx1bqD" name="ZoomManager.cpp" compile="1" resource="0" file="Source/UI/Components/Arrangement/ZoomManager.cpp"/>
             <FILE id="nMYiQc" name="ZoomManager.h" compile="0" resource="0" file="Source/UI/Components/Arrangement/ZoomManager.h"/>
           </GROUP>

@@ -18,6 +18,19 @@ namespace Manifold
         {
             addAndMakeVisible(&m_playheadPositioner);
             GET_ENGINE()->addListener(this);
+            m_cursors.push_back(std::make_pair(BinaryData::TLCursor_png, BinaryData::TLCursor_pngSize));
+            m_cursors.push_back(std::make_pair(BinaryData::TLPencil_png, BinaryData::TLPencil_pngSize));
+            m_cursors.push_back(std::make_pair(BinaryData::TLEraser_png, BinaryData::TLEraser_pngSize));
+            m_cursors.push_back(std::make_pair(BinaryData::TLScissor_png, BinaryData::TLScissor_pngSize));
+            m_cursors.push_back(std::make_pair(BinaryData::TLMarquee_png, BinaryData::TLMarquee_pngSize));
+            m_cursors.push_back(std::make_pair(BinaryData::TLMute_png, BinaryData::TLMute_pngSize));
+            m_toolMenu.addCustomItem(1, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::CURSOR, BinaryData::TLCursor_png, BinaryData::TLCursor_pngSize)));
+            m_toolMenu.addCustomItem(2, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::PENCIL, BinaryData::TLPencil_png, BinaryData::TLPencil_pngSize)));
+            m_toolMenu.addCustomItem(3, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::ERASER, BinaryData::TLEraser_png, BinaryData::TLEraser_pngSize)));
+            m_toolMenu.addCustomItem(4, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::SCISSOR, BinaryData::TLScissor_png, BinaryData::TLScissor_pngSize)));
+            m_toolMenu.addCustomItem(5, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::MARQUEE, BinaryData::TLMarquee_png, BinaryData::TLMarquee_pngSize)));
+            m_toolMenu.addCustomItem(6, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::MUTE, BinaryData::TLMute_png, BinaryData::TLMute_pngSize)));
+        
         }
 
         PlaylistView::~PlaylistView()
@@ -52,6 +65,22 @@ namespace Manifold
                 m_listener->playlistViewScroll(mapped);
             }
             DBG(currentMouseWheel);
+        }
+        void PlaylistView::mouseDown(const juce::MouseEvent& ev)
+        {
+            if (!ev.mods.isRightButtonDown()) return;
+            std::function<void(int)> popupCallback = [this](int res) {
+                if (res != 0) {
+                    auto cursor = m_cursors[res - 1];
+                    juce::MouseCursor newCursor(juce::ImageCache::getFromMemory(cursor.first, cursor.second), 0, 0);
+                    for (auto& l : m_channelLanes) {
+                        l->setMouseCursor(newCursor);
+                    }
+                }
+            };
+
+            juce::PopupMenu::Options opts;
+            m_toolMenu.showMenuAsync(opts.withMinimumNumColumns(7).withMaximumNumColumns(7), popupCallback);
         }
 
         void PlaylistView::paint(MANIFOLD_UNUSED juce::Graphics& g)

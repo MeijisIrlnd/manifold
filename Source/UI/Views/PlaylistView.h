@@ -15,6 +15,7 @@
 #include <Audio/ManifoldEngine.h>
 #include <UI/Components/Arrangement/ChannelLane.h>
 #include "../Components/Arrangement/PlayheadPositioner.h"
+#include <UI/Components/Arrangement/ToolMenuItem.h>
 #include "../ViewListener.h"
 namespace Manifold
 {
@@ -30,6 +31,7 @@ namespace Manifold
             void onChannelCreated(MANIFOLD_UNUSED Audio::InternalChannel* newChannel) override;
             void onChannelDeleted(MANIFOLD_UNUSED Audio::InternalChannel* toDelete) override;
             void mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel) override;
+            void mouseDown(const juce::MouseEvent& ev) override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private: 
@@ -38,6 +40,8 @@ namespace Manifold
             double currentMouseWheel = 0;
             std::vector<std::unique_ptr<ChannelLane> > m_channelLanes;
             // so at 0 zoom, timescale should show 15 seconds..
+            juce::PopupMenu m_toolMenu;
+            std::vector<std::pair<const void*, int> > m_cursors;
 
         };
     }

@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="manifold\Resources\Assets\Tools">
+      <UniqueIdentifier>{F4A336AE-3355-E9CD-99B7-8B1F271534E0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Resources\Assets">
       <UniqueIdentifier>{0302794B-2348-76BB-A48F-6FF81DAE5124}</UniqueIdentifier>
     </Filter>
@@ -635,6 +638,9 @@
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.cpp">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ZoomManager.cpp">
@@ -2940,6 +2946,9 @@
     <ClInclude Include="..\..\Source\Types\ManifoldScrollbar.h">
       <Filter>manifold\Source\Types</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Types\Tools.h">
+      <Filter>manifold\Source\Types</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Types\TrackNode.h">
       <Filter>manifold\Source\Types</Filter>
     </ClInclude>
@@ -3046,6 +3055,9 @@
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.h">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ZoomManager.h">
@@ -5642,6 +5654,24 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\Assets\Tools\TLCursor.png">
+      <Filter>manifold\Resources\Assets\Tools</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\Tools\TLEraser.png">
+      <Filter>manifold\Resources\Assets\Tools</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\Tools\TLMarquee.png">
+      <Filter>manifold\Resources\Assets\Tools</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\Tools\TLMute.png">
+      <Filter>manifold\Resources\Assets\Tools</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\Tools\TLPencil.png">
+      <Filter>manifold\Resources\Assets\Tools</Filter>
+    </None>
+    <None Include="..\..\Resources\Assets\Tools\TLScissor.png">
+      <Filter>manifold\Resources\Assets\Tools</Filter>
+    </None>
     <None Include="..\..\Resources\Assets\ColourPickerIcon.png">
       <Filter>manifold\Resources\Assets</Filter>
     </None>

@@ -8,6 +8,24 @@
 
 namespace BinaryData
 {
+    extern const char*   TLCursor_png;
+    const int            TLCursor_pngSize = 991;
+
+    extern const char*   TLEraser_png;
+    const int            TLEraser_pngSize = 934;
+
+    extern const char*   TLMarquee_png;
+    const int            TLMarquee_pngSize = 1039;
+
+    extern const char*   TLMute_png;
+    const int            TLMute_pngSize = 949;
+
+    extern const char*   TLPencil_png;
+    const int            TLPencil_pngSize = 1042;
+
+    extern const char*   TLScissor_png;
+    const int            TLScissor_pngSize = 1047;
+
     extern const char*   ColourPickerIcon_png;
     const int            ColourPickerIcon_pngSize = 227;
 
@@ -72,7 +90,7 @@ namespace BinaryData
     const int            Stop_svgSize = 1219;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 21;
+    const int namedResourceListSize = 27;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
