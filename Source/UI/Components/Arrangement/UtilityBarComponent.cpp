@@ -27,6 +27,6 @@ namespace Manifold::UI
 
     void UtilityBarComponent::resized()
     {
-        m_toolTray.setBounds(getWidth() / 4, 0, getWidth() / 2, getHeight());
+        m_toolTray.setBounds((getWidth() / 2) - (getWidth() / 24), 0, getWidth() / 12, getHeight());
     }
 }

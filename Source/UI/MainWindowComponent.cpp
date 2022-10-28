@@ -110,7 +110,7 @@ namespace Manifold
             int menuHeight = getHeight() / 32;
             m_transportComponent.setBounds(getWidth() / 4, static_cast<int>(getHeight() * 0.95), getWidth() / 2, static_cast<int>(getHeight() * 0.05));
             m_menuBar.setBounds(0, 0, getWidth(), menuHeight);
-            m_arrangementView.setBounds(0, menuHeight, getWidth(), static_cast<int>(getHeight() * 0.75) - menuHeight);
+            m_arrangementView.setBounds(0, menuHeight, getWidth(), static_cast<int>(getHeight() * 0.9) - menuHeight);
             // So mixerChannel width = getWidth() / 16
             // min width is get width, but as channels are added, add getWidth() / 16 ONCE channelWIdth * numChannels > width
             auto viewWidth = m_mixerView.getNumChannels() * (getWidth() / 16);
