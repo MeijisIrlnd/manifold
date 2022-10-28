@@ -11,7 +11,7 @@
 #include "ToolMenuItem.h"
 namespace Manifold::UI
 {
-    ToolMenuItem::ToolMenuItem(TOOL tool, const void* iconData, int iconSize) : m_tool(tool)
+    ToolMenuItem::ToolMenuItem(const void* iconData, int iconSize)
     {
         m_icon = juce::ImageCache::getFromMemory(iconData, iconSize);
     }

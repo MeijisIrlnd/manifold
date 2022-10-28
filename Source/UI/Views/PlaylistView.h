@@ -32,6 +32,7 @@ namespace Manifold
             void onChannelDeleted(MANIFOLD_UNUSED Audio::InternalChannel* toDelete) override;
             void mouseWheelMove(const juce::MouseEvent& ev, const juce::MouseWheelDetails& wheel) override;
             void mouseDown(const juce::MouseEvent& ev) override;
+            void mouseUp(const juce::MouseEvent& ev) override;
             void paint(juce::Graphics& g) override;
             void resized() override;
         private: 
@@ -42,7 +43,7 @@ namespace Manifold
             // so at 0 zoom, timescale should show 15 seconds..
             juce::PopupMenu m_toolMenu;
             std::vector<std::pair<const void*, int> > m_cursors;
-
+            std::vector<juce::PopupMenu::Item*> m_popupItemList;
         };
     }
 }

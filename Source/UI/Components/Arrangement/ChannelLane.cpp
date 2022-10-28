@@ -51,7 +51,7 @@ namespace Manifold::UI
 
     void ChannelLane::mouseUp(MANIFOLD_UNUSED const juce::MouseEvent& ev)
     {
-        // 
+        getParentComponent()->mouseUp(ev.getEventRelativeTo(getParentComponent()));
     }
 
     void ChannelLane::childClipMoved(double prevStartTime, double newX)

@@ -36,7 +36,9 @@ public:
         auto instance = ManifoldEngine::getInstance();
         mainWindow.reset (new MainWindow (getApplicationName(), instance->getUIListener()));
         //Manifold::Testing::ChannelTester tester;
-        Manifold::Testing::testCache();
+#ifdef ENABLE_TESTS
+            Manifold::Testing::testCache();
+#endif
     }
 
     void shutdown() override

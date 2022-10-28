@@ -24,13 +24,13 @@ namespace Manifold
             m_cursors.push_back(std::make_pair(BinaryData::TLScissor_png, BinaryData::TLScissor_pngSize));
             m_cursors.push_back(std::make_pair(BinaryData::TLMarquee_png, BinaryData::TLMarquee_pngSize));
             m_cursors.push_back(std::make_pair(BinaryData::TLMute_png, BinaryData::TLMute_pngSize));
-            m_toolMenu.addCustomItem(1, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::CURSOR, BinaryData::TLCursor_png, BinaryData::TLCursor_pngSize)));
-            m_toolMenu.addCustomItem(2, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::PENCIL, BinaryData::TLPencil_png, BinaryData::TLPencil_pngSize)));
-            m_toolMenu.addCustomItem(3, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::ERASER, BinaryData::TLEraser_png, BinaryData::TLEraser_pngSize)));
-            m_toolMenu.addCustomItem(4, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::SCISSOR, BinaryData::TLScissor_png, BinaryData::TLScissor_pngSize)));
-            m_toolMenu.addCustomItem(5, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::MARQUEE, BinaryData::TLMarquee_png, BinaryData::TLMarquee_pngSize)));
-            m_toolMenu.addCustomItem(6, std::unique_ptr<ToolMenuItem>(new ToolMenuItem(TOOL::MUTE, BinaryData::TLMute_png, BinaryData::TLMute_pngSize)));
-        
+            // Wtf? 
+            for (auto i = 0; i < m_cursors.size(); i++) {
+                std::unique_ptr<ToolMenuItem> current(new ToolMenuItem(m_cursors[i].first, m_cursors[i].second));
+                m_popupItemList.push_back(dynamic_cast<juce::PopupMenu::Item*>(current.get()));
+                m_toolMenu.addCustomItem(i + 1, std::move(current), nullptr, "blank");
+            }
+
         }
 
         PlaylistView::~PlaylistView()
@@ -72,7 +72,7 @@ namespace Manifold
             std::function<void(int)> popupCallback = [this](int res) {
                 if (res != 0) {
                     auto cursor = m_cursors[res - 1];
-                    juce::MouseCursor newCursor(juce::ImageCache::getFromMemory(cursor.first, cursor.second), 0, 0);
+                    juce::MouseCursor newCursor(juce::ImageCache::getFromMemory(cursor.first, cursor.second).rescaled(32, 32, juce::Graphics::lowResamplingQuality), 0, 0);
                     for (auto& l : m_channelLanes) {
                         l->setMouseCursor(newCursor);
                     }
@@ -81,6 +81,30 @@ namespace Manifold
 
             juce::PopupMenu::Options opts;
             m_toolMenu.showMenuAsync(opts.withMinimumNumColumns(7).withMaximumNumColumns(7), popupCallback);
+        }
+
+        void PlaylistView::mouseUp(MANIFOLD_UNUSED const juce::MouseEvent& ev)
+        {
+            // Does tool still switch? 
+            // Also fuck this compilation time 
+            juce::PopupMenu::MenuItemIterator menuItemIterator(m_toolMenu, false);
+            bool toolSet = false;
+            while (menuItemIterator.next())
+            {
+                auto item = menuItemIterator.getItem();
+                if (!toolSet) {
+                    if (item.customComponent->isItemHighlighted()) {
+                        // Okay so this is the tool to use, manually call? 
+                        item.customComponent->triggerMenuItem();
+                        toolSet = true;
+                    }
+                }
+                menuItemIterator.getItem().customComponent->setHighlighted(false);
+            }
+            juce::PopupMenu::dismissAllActiveMenus();
+            //for (auto& el : m_popupItemList) {
+            //    el->customComponent->setHighlighted(false);
+            //}
         }
 
         void PlaylistView::paint(MANIFOLD_UNUSED juce::Graphics& g)

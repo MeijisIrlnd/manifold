@@ -13,7 +13,7 @@ namespace Manifold
 {
     namespace Settings
     {
-        //std::string Pathing::s_vstFolderPath{ "C:\\Program Files\\Steinberg\\VstPlugins" };
-        std::string Pathing::s_vstFolderPath{ "C:\\Program Files (x86)\\VSTPlugIns" };
+        std::string Pathing::s_vstFolderPath{ "C:\\Program Files\\Steinberg\\VstPlugins" };
+        //std::string Pathing::s_vstFolderPath{ "C:\\Program Files (x86)\\VSTPlugIns" };
     }
 }

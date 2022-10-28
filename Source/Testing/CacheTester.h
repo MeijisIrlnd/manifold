@@ -10,11 +10,12 @@
 
 #pragma once
 #include "../Utils/AudioCache.h"
+#include <Macros.h>
 namespace Manifold
 {
     namespace Testing
     {
-        static void testCache()
+        MANIFOLD_UNUSED static void testCache()
         {
             juce::AudioFormatManager fmtManager;
             fmtManager.registerBasicFormats();
