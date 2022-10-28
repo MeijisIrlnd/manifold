@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\Settings\Pathing.cpp"/>
     <ClCompile Include="..\..\Source\Testing\ChannelTester.cpp"/>
+    <ClCompile Include="..\..\Source\Types\Arrangement\Tool.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\AudioLaneData.cpp"/>
     <ClCompile Include="..\..\Source\Types\Channel\GroupChannel.cpp"/>
@@ -170,6 +171,7 @@
     <ClCompile Include="..\..\Source\UI\Primitives\ImageButton.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\LabelButton.cpp"/>
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\UtilityBar\ToolTray.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\AudioClipComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelLane.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.cpp"/>
@@ -180,6 +182,7 @@
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.cpp"/>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\UtilityBarComponent.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ZoomManager.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.cpp"/>
     <ClCompile Include="..\..\Source\UI\Components\Mixer\InsertListItem.cpp"/>
@@ -2269,6 +2272,7 @@
     <ClInclude Include="..\..\Source\Settings\Pathing.h"/>
     <ClInclude Include="..\..\Source\Testing\CacheTester.h"/>
     <ClInclude Include="..\..\Source\Testing\ChannelTester.h"/>
+    <ClInclude Include="..\..\Source\Types\Arrangement\Tool.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\AudioChannel.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\AudioLaneData.h"/>
     <ClInclude Include="..\..\Source\Types\Channel\Channel.h"/>
@@ -2305,6 +2309,7 @@
     <ClInclude Include="..\..\Source\UI\Primitives\ImageButton.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\LabelButton.h"/>
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\UtilityBar\ToolTray.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\AudioClipComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelLane.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ChannelListComponent.h"/>
@@ -2315,6 +2320,7 @@
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimelineComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\TimestripComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.h"/>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\UtilityBarComponent.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ZoomManager.h"/>
     <ClInclude Include="..\..\Source\UI\Components\MenuBar\TopMenuBar.h"/>
     <ClInclude Include="..\..\Source\UI\Components\Mixer\InsertListItem.h"/>

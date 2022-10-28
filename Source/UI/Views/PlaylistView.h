@@ -16,6 +16,7 @@
 #include <UI/Components/Arrangement/ChannelLane.h>
 #include "../Components/Arrangement/PlayheadPositioner.h"
 #include <UI/Components/Arrangement/ToolMenuItem.h>
+#include <UI/Components/Arrangement/UtilityBarComponent.h>
 #include "../ViewListener.h"
 namespace Manifold
 {
@@ -44,6 +45,7 @@ namespace Manifold
             juce::PopupMenu m_toolMenu;
             std::vector<std::pair<const void*, int> > m_cursors;
             std::vector<juce::PopupMenu::Item*> m_popupItemList;
+
         };
     }
 }

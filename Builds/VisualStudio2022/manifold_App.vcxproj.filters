@@ -20,6 +20,9 @@
     <Filter Include="manifold\Source\Testing">
       <UniqueIdentifier>{206D4E5C-BD16-98F3-90DE-F0C86B151AAC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="manifold\Source\Types\Arrangement">
+      <UniqueIdentifier>{13985868-6073-2215-43A6-3C7CB32C5F23}</UniqueIdentifier>
+    </Filter>
     <Filter Include="manifold\Source\Types\Channel">
       <UniqueIdentifier>{3E728C34-D533-867B-F153-CD6658D5E609}</UniqueIdentifier>
     </Filter>
@@ -43,6 +46,9 @@
     </Filter>
     <Filter Include="manifold\Source\UI\Primitives">
       <UniqueIdentifier>{E1F470AF-EB6B-3F61-CC06-BFABEC005BD7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manifold\Source\UI\Components\Arrangement\UtilityBar">
+      <UniqueIdentifier>{C64A6C8D-DE7B-7790-CC8D-AC17BC4F66E7}</UniqueIdentifier>
     </Filter>
     <Filter Include="manifold\Source\UI\Components\Arrangement">
       <UniqueIdentifier>{3521CAC3-47B7-AFDF-EE10-496AAD670DC3}</UniqueIdentifier>
@@ -532,6 +538,9 @@
     <ClCompile Include="..\..\Source\Testing\ChannelTester.cpp">
       <Filter>manifold\Source\Testing</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Types\Arrangement\Tool.cpp">
+      <Filter>manifold\Source\Types\Arrangement</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Types\Channel\AudioChannel.cpp">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClCompile>
@@ -613,6 +622,9 @@
     <ClCompile Include="..\..\Source\UI\Primitives\SVGButton.cpp">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\UtilityBar\ToolTray.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement\UtilityBar</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\AudioClipComponent.cpp">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
@@ -641,6 +653,9 @@
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.cpp">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\Components\Arrangement\UtilityBarComponent.cpp">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UI\Components\Arrangement\ZoomManager.cpp">
@@ -2928,6 +2943,9 @@
     <ClInclude Include="..\..\Source\Testing\ChannelTester.h">
       <Filter>manifold\Source\Testing</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Types\Arrangement\Tool.h">
+      <Filter>manifold\Source\Types\Arrangement</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Types\Channel\AudioChannel.h">
       <Filter>manifold\Source\Types\Channel</Filter>
     </ClInclude>
@@ -3036,6 +3054,9 @@
     <ClInclude Include="..\..\Source\UI\Primitives\SVGButton.h">
       <Filter>manifold\Source\UI\Primitives</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\UtilityBar\ToolTray.h">
+      <Filter>manifold\Source\UI\Components\Arrangement\UtilityBar</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\AudioClipComponent.h">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
@@ -3064,6 +3085,9 @@
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ToolMenuItem.h">
+      <Filter>manifold\Source\UI\Components\Arrangement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\Components\Arrangement\UtilityBarComponent.h">
       <Filter>manifold\Source\UI\Components\Arrangement</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\UI\Components\Arrangement\ZoomManager.h">

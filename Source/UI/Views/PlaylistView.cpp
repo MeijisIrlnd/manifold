@@ -102,9 +102,6 @@ namespace Manifold
                 menuItemIterator.getItem().customComponent->setHighlighted(false);
             }
             juce::PopupMenu::dismissAllActiveMenus();
-            //for (auto& el : m_popupItemList) {
-            //    el->customComponent->setHighlighted(false);
-            //}
         }
 
         void PlaylistView::paint(MANIFOLD_UNUSED juce::Graphics& g)

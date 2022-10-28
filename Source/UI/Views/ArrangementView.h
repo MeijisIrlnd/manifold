@@ -20,6 +20,7 @@
 #include <UI/Components/SampleBrowser/SampleBrowserComponent.h>
 #include <UI/Components/Arrangement/PlayheadPositioner.h>
 #include <UI/LookAndFeel/ArrangementLF.h>
+#include <UI/Components/Arrangement/UtilityBarComponent.h>
 namespace Manifold
 {
     namespace UI
@@ -46,6 +47,7 @@ namespace Manifold
             ManifoldScrollbar m_verticalScrollbar;
             TimelineComponent m_timelineComponent;
             PlayheadPositioner m_playheadPositioner;
+            UtilityBarComponent m_utilityBar;
             //SampleBrowserComponent m_sampleBrowserComponent;
             double m_zoom = 10;
         };

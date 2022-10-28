@@ -35,6 +35,7 @@ Manifold::UI::ArrangementView::ArrangementView() :
 
     addAndMakeVisible(&m_timelineComponent);
     addAndMakeVisible(&m_playheadPositioner);
+    addAndMakeVisible(&m_utilityBar);
     //addAndMakeVisible(&m_sampleBrowserComponent);
 }
 
@@ -75,8 +76,9 @@ void Manifold::UI::ArrangementView::paint(MANIFOLD_UNUSED juce::Graphics& g)
 
 void Manifold::UI::ArrangementView::resized()
 {
-    auto yStart = getHeight() / 24;
+    auto yStart = getHeight() / 12;
     m_channelListComponent.setBounds(0, yStart, getWidth() / 8, getHeight() - yStart);
+    m_utilityBar.setBounds(0, 0, getWidth(), getHeight() / 24);
     //m_playlistView.setBounds(getWidth() / 8, yStart, static_cast<int>(getWidth() * m_zoom), getHeight() - yStart);
     m_playlistView.setBounds(getWidth() / 8, yStart, getWidth() - getWidth() / 8 - getWidth() / 64, getHeight() - yStart);
     m_horizontalScrollbar.setRangeLimits(m_playlistViewport.getHorizontalScrollBar().getRangeLimit());
@@ -86,6 +88,6 @@ void Manifold::UI::ArrangementView::resized()
     m_horizontalScrollbar.setBounds(getWidth() / 8, getHeight() - getHeight() / 64, getWidth() - getWidth() / 8, getHeight() / 64);
     m_verticalScrollbar.setBounds(getWidth() - getHeight() / 64, yStart, getWidth() / 64, getHeight() - getHeight() / 64 - yStart);
     auto localBounds = getLocalBounds();
-    m_timelineComponent.setBounds(m_playlistViewport.getX(), 0, getWidth() - m_playlistViewport.getX(), getHeight());
+    m_timelineComponent.setBounds(m_playlistViewport.getX(), getHeight() / 24, getWidth() - m_playlistViewport.getX(), getHeight());
     m_playheadPositioner.setBounds(m_playlistViewport.getX(), getHeight() / 24, m_timelineComponent.getWidth(), getHeight());
 }

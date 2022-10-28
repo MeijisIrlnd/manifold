@@ -19,6 +19,7 @@ namespace Manifold
         ERASER,
         SCISSOR,
         MARQUEE,
-        MUTE
+        MUTE,
+        NUM_ELEMENTS
     };
 }

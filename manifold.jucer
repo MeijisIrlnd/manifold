@@ -63,6 +63,10 @@
         <FILE id="c4Ahax" name="ChannelTester.h" compile="0" resource="0" file="Source/Testing/ChannelTester.h"/>
       </GROUP>
       <GROUP id="{79BF53F5-9700-6A7B-D7A8-BC7B7D426F51}" name="Types">
+        <GROUP id="{2A3915A6-1499-0ABF-604A-8F111CC24281}" name="Arrangement">
+          <FILE id="o5OCzB" name="Tool.cpp" compile="1" resource="0" file="Source/Types/Arrangement/Tool.cpp"/>
+          <FILE id="h5q5eN" name="Tool.h" compile="0" resource="0" file="Source/Types/Arrangement/Tool.h"/>
+        </GROUP>
         <GROUP id="{0A9BD0C9-218E-B40C-72D1-E1E8B4D5FCAB}" name="Channel">
           <FILE id="Pq3eJg" name="AudioChannel.cpp" compile="1" resource="0"
                 file="Source/Types/Channel/AudioChannel.cpp"/>
@@ -174,8 +178,13 @@
         </GROUP>
         <GROUP id="{9CB32F7C-4716-309C-7CA7-5B390BBBCAEE}" name="Components">
           <GROUP id="{4A87FDCD-B52D-48F6-6936-0E7C01F09832}" name="Arrangement">
+            <GROUP id="{6E5F67D3-D1F6-09E4-F8CA-7C88979FB8DE}" name="UtilityBar">
+              <FILE id="up5Zb4" name="ToolTray.cpp" compile="1" resource="0" file="Source/UI/Components/Arrangement/UtilityBar/ToolTray.cpp"/>
+              <FILE id="YQxjuw" name="ToolTray.h" compile="0" resource="0" file="Source/UI/Components/Arrangement/UtilityBar/ToolTray.h"/>
+            </GROUP>
             <FILE id="HzMgr9" name="AudioClipComponent.cpp" compile="1" resource="0"
-                  file="Source/UI/Components/Arrangement/AudioClipComponent.cpp"/>
+                  file="Source/UI/Components/Arrangement/AudioClipComponent.cpp"
+                  xcodeResource="1"/>
             <FILE id="ikr7Vx" name="AudioClipComponent.h" compile="0" resource="0"
                   file="Source/UI/Components/Arrangement/AudioClipComponent.h"/>
             <FILE id="CU9Osd" name="ChannelLane.cpp" compile="1" resource="0" file="Source/UI/Components/Arrangement/ChannelLane.cpp"/>
@@ -211,6 +220,10 @@
             <FILE id="mEN6hz" name="ToolMenuItem.cpp" compile="1" resource="0"
                   file="Source/UI/Components/Arrangement/ToolMenuItem.cpp"/>
             <FILE id="ypE2gD" name="ToolMenuItem.h" compile="0" resource="0" file="Source/UI/Components/Arrangement/ToolMenuItem.h"/>
+            <FILE id="MnCGmm" name="UtilityBarComponent.cpp" compile="1" resource="0"
+                  file="Source/UI/Components/Arrangement/UtilityBarComponent.cpp"/>
+            <FILE id="cBwRiJ" name="UtilityBarComponent.h" compile="0" resource="0"
+                  file="Source/UI/Components/Arrangement/UtilityBarComponent.h"/>
             <FILE id="rx1bqD" name="ZoomManager.cpp" compile="1" resource="0" file="Source/UI/Components/Arrangement/ZoomManager.cpp"/>
             <FILE id="nMYiQc" name="ZoomManager.h" compile="0" resource="0" file="Source/UI/Components/Arrangement/ZoomManager.h"/>
           </GROUP>
